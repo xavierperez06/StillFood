@@ -1,0 +1,289 @@
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\ApplicationInsights.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\csc.exe
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\csc.exe.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\csc.rsp
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\csi.exe
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\csi.rsp
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\System.AppContext.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\System.Collections.Immutable.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\System.IO.FileSystem.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\System.Reflection.Metadata.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\vbc.exe
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\vbc.exe.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\vbc.rsp
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\VBCSCompiler.exe
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\roslyn\VBCSCompiler.exe.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.WEB.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.WEB.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.WEB.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Antlr3.Runtime.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.DependencyCollector.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.Web.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.WindowsServer.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.ApplicationInsights.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.Web.Infrastructure.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Newtonsoft.Json.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.Helpers.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.Mvc.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.Optimization.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.Razor.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Deployment.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Razor.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\WebGrease.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.Helpers.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.Mvc.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.Optimization.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.Razor.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Deployment.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Razor.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Antlr3.Runtime.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Newtonsoft.Json.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.ApplicationInsights.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.DependencyCollector.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.WindowsServer.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.Web.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\es\System.Web.Helpers.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\es\System.Web.Mvc.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\es\System.Web.Optimization.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\es\System.Web.Razor.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\es\System.Web.WebPages.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\obj\Debug\StillFood.WEB.csprojResolveAssemblyReference.cache
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\obj\Debug\StillFood.WEB.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\obj\Debug\StillFood.WEB.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Models.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Models.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Services.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Business.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Entities.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\AutoMapper.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.DAL.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\EntityFramework.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Services.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Business.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Entities.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\AutoMapper.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.DAL.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.DAL.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\EntityFramework.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\EntityFramework.SqlServer.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Common.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Common.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Common.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Services.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.WEB\bin\StillFood.Business.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\ApplicationInsights.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\csc.exe
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\csc.exe.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\csc.rsp
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\csi.exe
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\csi.rsp
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\System.AppContext.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\System.Collections.Immutable.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\System.IO.FileSystem.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\System.Reflection.Metadata.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\vbc.exe
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\vbc.exe.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\vbc.rsp
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\VBCSCompiler.exe
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\roslyn\VBCSCompiler.exe.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.WEB.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.WEB.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.WEB.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Antlr3.Runtime.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.DependencyCollector.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.Web.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.WindowsServer.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.ApplicationInsights.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.Web.Infrastructure.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Newtonsoft.Json.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Common.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Models.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Services.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.Helpers.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.Mvc.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.Optimization.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.Razor.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Deployment.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Razor.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\WebGrease.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Business.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Entities.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\AutoMapper.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\EntityFramework.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.DAL.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Common.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Common.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Models.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Services.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Services.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.Helpers.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.Mvc.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.Optimization.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.Razor.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Deployment.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Razor.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Antlr3.Runtime.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Newtonsoft.Json.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.ApplicationInsights.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.DependencyCollector.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.WindowsServer.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.Web.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Business.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Business.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.Entities.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\AutoMapper.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\EntityFramework.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.DAL.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\StillFood.DAL.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\es\System.Web.Helpers.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\es\System.Web.Mvc.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\es\System.Web.Optimization.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\es\System.Web.Razor.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\es\System.Web.WebPages.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\es\System.Web.WebPages.Deployment.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\bin\es\System.Web.WebPages.Razor.resources.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\obj\Debug\StillFood.WEB.csprojResolveAssemblyReference.cache
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\obj\Debug\StillFood.WEB.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.WEB\obj\Debug\StillFood.WEB.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\ApplicationInsights.config
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\csc.exe
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\csc.exe.config
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\csc.rsp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\csi.exe
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\csi.rsp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\System.AppContext.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\vbc.exe
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\vbc.exe.config
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\vbc.rsp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\VBCSCompiler.exe
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.WEB.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.WEB.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Antlr3.Runtime.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.Web.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\mscorlib.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Newtonsoft.Json.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.Common.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.Models.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.Services.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Net.Http.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Net.Http.WebRequest.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.Helpers.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.Mvc.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.Optimization.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.Razor.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Razor.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\WebGrease.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.Entities.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.Business.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\AutoMapper.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\EntityFramework.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.DAL.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.Common.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.Models.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.Services.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Net.Http.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Net.Http.WebRequest.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.Helpers.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.Mvc.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.Optimization.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.Razor.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\System.Web.WebPages.Razor.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Antlr3.Runtime.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Newtonsoft.Json.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\Microsoft.AI.Web.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.Entities.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.Business.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\AutoMapper.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\EntityFramework.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\StillFood.DAL.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\es\mscorlib.resources.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\es\System.Web.Helpers.resources.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\es\System.Web.Mvc.resources.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\es\System.Web.Optimization.resources.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\es\System.Web.Razor.resources.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\es\System.Web.WebPages.resources.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\normidna.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\normnfc.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\normnfd.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\normnfkc.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\bin\normnfkd.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\obj\Debug\StillFood.WEB.csprojResolveAssemblyReference.cache
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\obj\Debug\StillFood.WEB.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.WEB\obj\Debug\StillFood.WEB.pdb

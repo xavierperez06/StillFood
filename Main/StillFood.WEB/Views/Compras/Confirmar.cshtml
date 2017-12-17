@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Confirmar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+<div class="row tit-green-lg padding-top">
+Productos en Mi Lista
+</div>
+<hr />
+    <div class="row">
+        <div class="col-lg-2 tbl-compra-header">
+            Producto
+        </div>
+        <div class="col-lg-4 tbl-compra-header">
+            Descripción
+        </div>
+        <div class="col-lg-2 tbl-compra-header">
+            Precio Unitario
+        </div>
+        <div class="col-lg-2 tbl-compra-header">
+            Cantidad
+        </div>
+        <div class="col-lg-2 tbl-compra-header">
+            Total
+        </div>
+    </div>
+   
+        @foreach (StillFood.Models.Producto wProducto in (List<StillFood.Models.Producto>)Session["Lista"])
+        {
+            <div class="row">
+                <div class="col-lg-2 tbl-compra-item">
+                    @if (!string.IsNullOrWhiteSpace(wProducto.Imagen))
+                    {
+                        <img class="tbl-compra-img" src="~/Content/Img/Productos/@wProducto.Imagen" alt="">
+                    }
+                    else
+                    {
+                        <img class="tbl-compra-img" src="~/Content/Img/Imagen-NoDisponible.gif" alt="">
+                    }
+                </div>
+                <div class="col-lg-4 tbl-compra-item">
+                    @wProducto.Nombre
+                </div>
+                <div class="col-lg-2 tbl-compra-item">
+                    $@wProducto.PrecioDescuento
+                </div>
+                <div class="col-lg-2 tbl-compra-item">
+                    @wProducto.Cantidad
+                </div>
+                <div class="col-lg-2 tbl-compra-item">
+                    @{ 
+                        var wPrecioTotal = @wProducto.Cantidad * @wProducto.PrecioDescuento;
+                    }
+                    $@wPrecioTotal
+                </div>
+            </div>
+                        }
+    <div class="row">
+        <div class="col-lg-8" style="margin-top:10px;">
+            <input type="text" class="form-control glowing-border" id="pVale" name="pVale" placeholder="Vale de descuento">
+        </div>
+        <div class="col-lg-2 tbl-compra-total">
+            Total
+        </div>
+        <div class="col-lg-2 tbl-compra-total">
+            $@StillFood.Common.Utils.ObtenerMontoTotal((List<StillFood.Models.Producto>)Session["Lista"]).ToString()
+        </div>
+    </div>
+    <div class="row">
+        <hr />
+        <a type="submit" class="btn btn-green" href="@Url.Action("Volver","Compras")">Seguir Comprando</a>
+        <a class="btn btn-green" href="@Url.Action("Compra","Compras")">Continuar</a>
+    </div>
+
+    </div>
+
+

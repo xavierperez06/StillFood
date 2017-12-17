@@ -1,0 +1,75 @@
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Services.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Services.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\AutoMapper.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Business.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Entities.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Models.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.DAL.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\EntityFramework.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Business.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Entities.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Models.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\AutoMapper.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.DAL.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.DAL.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\EntityFramework.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\obj\Debug\StillFood.Services.csprojResolveAssemblyReference.cache
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\obj\Debug\StillFood.Services.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\obj\Debug\StillFood.Services.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Common.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Common.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Services.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Business.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Common.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Services.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Services.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Services.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\AutoMapper.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Business.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Common.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Entities.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Models.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.DAL.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\EntityFramework.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Business.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Business.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Common.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Common.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Entities.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Models.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\AutoMapper.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.DAL.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\StillFood.DAL.dll.config
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\bin\Debug\EntityFramework.xml
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\obj\Debug\StillFood.Services.csprojResolveAssemblyReference.cache
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\obj\Debug\StillFood.Services.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood Backup\StillFood\Main\StillFood.Services\obj\Debug\StillFood.Services.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Services.dll.config
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Services.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Services.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\AutoMapper.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\mscorlib.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Business.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Common.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Entities.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Models.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\System.Net.Http.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.DAL.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\EntityFramework.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Business.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Common.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Entities.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.Models.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\AutoMapper.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\System.Net.Http.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\StillFood.DAL.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\EntityFramework.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\es\mscorlib.resources.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\normidna.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\normnfc.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\normnfd.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\normnfkc.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\bin\Debug\normnfkd.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\obj\Debug\StillFood.Services.csprojResolveAssemblyReference.cache
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\obj\Debug\StillFood.Services.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Services\obj\Debug\StillFood.Services.pdb

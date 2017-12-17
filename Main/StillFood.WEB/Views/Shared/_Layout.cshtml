@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+@{
+    StillFood.Models.Usuario wUsuario;
+
+    if (this.Session["Usuario"] == null)
+    { wUsuario = null; }
+    else
+    { wUsuario = (StillFood.Models.Usuario)this.Session["Usuario"]; }
+
+    StillFood.WEB.Facade.FacadeSecurity wFacade = new StillFood.WEB.Facade.FacadeSecurity();
+}
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - StillFood</title>
+    <link rel="icon" href="~/Content/Img/Logo.png">
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="~/Content/StillFood.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/DataTables/css/dataTables.bootstrap.css" />
+</head>
+<body style="background-color:#F6F6F6;">
+    <nav class="navbar navbar-custom navbar-default custom-navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sf-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                    <img src="~/Content/Img/Logo.png" width="80" height="40" class="d-inline-block align-top" alt="">
+                </a>
+            </div>
+            <!-- Comienzo navbar-collapse -->
+            <div class="collapse navbar-collapse" id="sf-navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    @if (wUsuario != null)
+                    {
+                        if (wUsuario.IdTipoUsuario.Equals(Convert.ToInt32(StillFood.Common.Enums.eTiposUsuarios.Administrador)))
+                        {
+                            if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.VerAdministracion))
+                            {
+                                <li>
+                                    <a href="@Url.Action("Administracion","Admin")" class="navitem-effect">Administración</a>
+                                </li>
+                            }
+                        }
+                    }
+                    <li>
+                        <a href="@Url.Action("Comercios","Compras")" class="navitem-effect">Comercios</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="navitem-effect">Nosotros</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="navitem-effect">Contacto</a>
+                    </li>
+                    @if (wUsuario == null)
+                    {
+                         <!-- Comienzo login -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle navitem-effect" data-toggle="dropdown">Conéctate&nbsp;<i class="glyphicon glyphicon-user"></i></a>
+                            <ul id="login-dp" class="dropdown-menu">
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @using (Html.BeginForm("LoginMaster", "Usuario", FormMethod.Post))
+                                            {
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control glowing-border" id="pEmail" name="pEmail" placeholder="Correo Electrónico" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control glowing-border" id="pContraseña" name="pContraseña" placeholder="Contraseña" required>
+                                                    <div class="help-block text-right"><a href="@Url.Action("RecuperaContraseña","Usuario")">¿Olvidó su contraseña?</a></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-green btn-block">Iniciar Sesión</button>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox" id="pRecuerdame" name="pRecuerdame"> Recuérdame
+                                                    </label>
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="bottom text-center">
+                                            ¿Eres nuevo? <a href="@Url.Action("Registracion","Usuario")"><b>Únete</b></a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <!-- Comienzo datos logueado -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle navitem-effect" data-toggle="dropdown">@wUsuario.NombreApellido&nbsp;<i class="glyphicon glyphicon-user"></i></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="@Url.Action("MisDatos","Usuario")">Mis Datos</a></li>
+                                @if (wUsuario.IdTipoUsuario.Equals(Convert.ToInt32(StillFood.Common.Enums.eTiposUsuarios.Consumidor)))
+                                {
+                                    <li><a href="@Url.Action("MisDirecciones","Usuario")">Mis Direcciones</a></li>
+                                    <li><a href="@Url.Action("MisPedidos","Usuario")">Mis Pedidos</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Administracion","Admin")">Administrción</a></li>
+                                }
+
+                                <li class="divider"></li>
+                                <li><a href="@Url.Action("LogOut","Usuario")">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    }
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

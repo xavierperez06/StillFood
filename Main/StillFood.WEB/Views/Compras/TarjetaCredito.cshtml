@@ -1,0 +1,86 @@
+﻿@model StillFood.WEB.Strategy.Pedido
+
+@{
+    ViewBag.Title = "TarjetaCredito";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (@Html.BeginForm())
+{
+    <div class="container">
+        <div class="row no-padding-left margin-top-25px">
+            <div class="col-lg-4 col-lg-offset-4">
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Información de la Tarjeta
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="txtNumeroTarjeta">
+                                    NÚMERO
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="txtNumeroTarjeta" placeholder="Número de Tarjeta Válido" name="NumeroTarjeta" onkeydown="return FiltrarEntrada(event)"
+                                           required autofocus />
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                </div>
+                            </div>
+                            <!-- Nombre -->
+                            <div class="control-group">
+                                <label class="control-label" for="txtNombre">NOMBRE DEL TITULAR DE LA TARJETA</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control" id="txtNombre" name="TitularTarjeta" placeholder=""
+                                           required />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-7 col-md-7">
+                                    <div class="form-group">
+                                        <label for="txtMes">
+                                            FECHA VENCIMIENTO
+                                        </label>
+                                        <div class="col-xs-6 col-lg-6 pl-ziro">
+                                            <input type="number" class="form-control" id="txtMes" min="1" onKeyPress="if(this.value.length==2) return false;" placeholder="MM" name="Mes" required />
+                                        </div>
+                                        <div class="col-xs-6 col-lg-6 pl-ziro">
+                                            <input type="text" class="form-control" id="txtAño" onKeyPress="if(this.value.length==2) return false;" placeholder="AA" name="Año" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-5 col-md-5 pull-right">
+                                    <div class="form-group">
+                                        <label for="txtCodigo">
+                                            CVV
+                                        </label>
+                                        <input type="text" class="form-control" id="txtCodigo" onKeyPress="if(this.value.length==3) return false;" placeholder="CVV" name="CVV" required />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-green btn-lg btn-block" name="action:ConfirmarTarjeta">Pagar</button>
+            </div>
+         </div>
+        </div>
+        }
+
+@section Scripts
+{
+    <script type="text/javascript">
+        function FiltrarEntrada(event) {
+            var keyCode = ('which' in event) ? event.which : event.keyCode;
+
+            isNotWanted = (keyCode == 69 || keyCode == 101 || keyCode == 107 || keyCode == 109 || keyCode == 96);
+            return !isNotWanted;
+        };
+    </script>
+    
+    }
+
+

@@ -1,0 +1,16 @@
+﻿@model StillFood.Models.Usuario
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmAsociarRol" }))
+{
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="form-group">
+                @Html.HiddenFor(model => model.Id)
+                @Html.DropDownListFor(model => model.IdRolTemporal, new SelectList(Model.Roles, "Id", "Nombre"), "-- Seleccione un Rol --", new { @class = "combobox form-control", @Id = "cmbAsociarRol" })
+            </div>
+            <div class="hide" id="cmbError_AsociarRol">
+                Debe seleccionar un Rol a asociar
+            </div>
+        </div>
+    </div>
+}

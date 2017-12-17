@@ -1,0 +1,41 @@
+﻿@model List<StillFood.Models.UsuarioDireccion>
+
+@{
+    ViewBag.Title = "MisDirecciones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="tit-admin">Mis Direcciones</div>
+</div>
+
+<div class="container">
+    <div id="MisDirecciones" class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <ul>
+                @foreach (var wDirecciones in Model)
+                {
+                    <li class="li-direcciones">@wDirecciones.Calle @wDirecciones.Numero @wDirecciones.Piso @wDirecciones.Departamento 
+                        <a href="@Url.Action("Direccion","Usuario", new { pId = wDirecciones.Id })">Editar</a>
+                        <a href="@Url.Action("EliminarDireccion","Usuario", new { pIdUsuario = wDirecciones.IdUsuario, pIdDireccion = wDirecciones.Id })" class="btn btn-transparent" style="margin-left:5px; color:#BDBDBD;" data-toggle="tooltip" title="Eliminar"><i class="glyphicon glyphicon-trash"></i></a>
+                    </li>
+                }
+                <li class="li-direcciones">
+                    <a href="@Url.Action("Direccion","Usuario", new { pId = 0 })"><i class="glyphicon glyphicon-plus"></i>Agregar Dirección</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+</script>
+    }
+
+
+
+

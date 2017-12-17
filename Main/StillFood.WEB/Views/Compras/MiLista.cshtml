@@ -1,0 +1,40 @@
+﻿<div>
+    <div class="col-lg-12 padding-top">
+        <strong>Mi Lista</strong>
+    </div>
+
+    @if ((List<StillFood.Models.Producto>)Session["Lista"] != null)
+    {
+        <div class="col-lg-12">
+            <table class="table">
+
+                @foreach (StillFood.Models.Producto wProducto in (List<StillFood.Models.Producto>)Session["Lista"])
+                {
+                    <tr>
+                        <td>@wProducto.Nombre</td>
+                        <td style="width:40px;">x @wProducto.Cantidad</td>
+                        <td style="text-align:right;">$@wProducto.PrecioDescuento</td>
+                        <td><a class="btn btn-transparent" style="margin-left:5px; color:black;" data-toggle="tooltip" title="Quitar" onclick="EliminarDeLista(@wProducto.Id)"><i class="glyphicon glyphicon-trash"></i></a></td>
+                    </tr>
+                }
+
+                <tr>
+                    <td><strong>Total:</strong></td>
+                    <td></td>
+                    <td style="text-align:right;">$@StillFood.Common.Utils.ObtenerMontoTotal((List<StillFood.Models.Producto>)Session["Lista"]).ToString()</td>
+                </tr>
+            </table>
+            <a href="@Url.Action("Confirmar","Compras")" class="btn btn-green btn-block">Confirmar</a>
+        </div>
+    }
+    else
+    {
+        <img src="~/Content/Img/Grocery-Bag.png" class="milista-img" />
+        <div style="text-align: center; margin-top:5px;">Tu Lista se encuentra vacía</div>
+
+    }
+</div>
+
+
+
+

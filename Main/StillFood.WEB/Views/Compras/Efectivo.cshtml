@@ -1,0 +1,70 @@
+﻿@model StillFood.WEB.Strategy.Pedido
+
+@{
+    ViewBag.Title = "Efectivo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (@Html.BeginForm())
+{
+    <div class="container">
+        <div class="row no-padding-left">
+            <div class="col-lg-12 no-padding-left tit-green-md text-center padding-top">
+                Su pedido está casi listo, verifique la información siguiente, y oprima "Confirmar" para realizarlo, o "Cancelar" para descartarlo.
+            </div>
+            <h2 class="divider"></h2>
+            <div class="col-lg-6 txt-dark no-padding-left">
+                Comercio:
+            </div>
+            <div class="col-lg-6 txt-desc no-padding-left">
+                @Model.Comercio.Nombre
+            </div>
+            <div class="col-lg-6 txt-dark no-padding-left padding-top">
+                Forma de Entrega:
+            </div>
+            <div class="col-lg-6 txt-desc no-padding-left padding-top">
+                @StillFood.Common.Utils.ObtenerDescripcionFormaEntrega(Model.IdFormaEntrega)
+            </div>
+            @if (Model.IdDireccion.HasValue)
+            {
+                <div class="col-lg-6 txt-dark no-padding-left padding-top">
+                    Dirección:
+                </div>
+                <div class="col-lg-6 txt-desc no-padding-left padding-top">
+                    @StillFood.Common.Utils.ObtenerDescripcionDireccion(Model.IdDireccion.Value)
+                </div>
+            }
+            <div class="col-lg-6 txt-dark no-padding-left padding-top">
+                Forma de Pago:
+            </div>
+            <div class="col-lg-6 txt-desc no-padding-left padding-top padding-bottom">
+                Efectivo
+            </div>
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="tbl-pedido-header">
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var wProducto in Model.Productos)
+                {
+                        <tr>
+                            <td>@wProducto.Nombre</td>
+                            <td>@wProducto.Cantidad</td>
+                            <td>@wProducto.PrecioDescuento</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6 col-lg-offset-3 text-center">
+            <button type="button" class="btn">Cancelar</button>
+            <button type="submit" class="btn btn-green" name="action:Confirmar">Confirmar</button> 
+        </div>
+
+    </div>
+}
+

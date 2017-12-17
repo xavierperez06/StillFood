@@ -1,0 +1,59 @@
+﻿@model StillFood.Models.Usuario
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid login-background">
+    <div class="col-lg-4 col-lg-offset-4 col-md-6 col-sm-8  loginbox">
+        <div class=" row">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                <img src="~/Content/Img/Logo.png" alt="Logo" style="height:50px;width:80px;">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6  ">
+                <span class="singtext">Sign in </span>
+            </div>
+        </div>
+
+@using (Html.BeginForm("Login", "Usuario", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            @Html.ValidationSummary(true)   
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                    @Html.TextBoxFor(usuario => usuario.Email, new { id = "txtEmail", placeholder = "Correo Electrónico", @class = "form-control glowing-border", type = "email", required = "required" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-lock"></span>
+                    </span>
+                    @Html.TextBoxFor(usuario => usuario.Contraseña, new { id = "txtContraseña", placeholder = "Contraseña", type = "password", @class = "form-control glowing-border", required = "required" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label class="checkbox-inline">
+                        @Html.CheckBoxFor(usuario => usuario.Recuerdame, new { id="ckbRecuerdame", @class="checkbox"}) Recuérdame
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-green btn-block">Iniciar Sesión</button>
+            </div>
+            <div class="form-group">
+                <a href="@Url.Action("RecuperaContraseña","Usuario")">¿Olvidó su contraseña?</a><a href="@Url.Action("Registracion","Usuario")" class="separador pull-right">Crear cuenta</a>
+            </div>
+        </div>
+    </div>
+}
+
+    </div>
+</div>
+
+

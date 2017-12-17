@@ -1,0 +1,244 @@
+﻿@model StillFood.Models.Comercio
+
+@{
+    ViewBag.Title = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    StillFood.WEB.Facade.FacadeSecurity wFacade = new StillFood.WEB.Facade.FacadeSecurity();
+}
+
+<div class="container">
+    <div class="col-lg-8">
+        @{
+            var wCategorias = Model.Productos.GroupBy(p => p.Categoria.Nombre)
+                                             .Select(x => new { Nombre = x.Key, x.FirstOrDefault().Categoria.Imagen }).ToList();
+        }
+
+        <div class="row padding-top padding-bottom">
+            <div class="col-lg-4">
+                <select class="form-control" id="cmbCategorias">
+                    @foreach (var wCat in @wCategorias)
+                    {
+                        <option value="@wCat.Nombre">
+                            @wCat.Nombre
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="col-lg-8">
+                @using (Html.BeginForm("Productos", "Compras", FormMethod.Get))
+                {
+                    <div id="custom-search-input">
+                        <div class="input-group col-lg-12">
+                            <input type="text" class="form-control glowing-border" placeholder="Buscar" name="pBusqueda" />
+                            <input type="hidden" name="pIdComercio" value="@Model.Id" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        @foreach (var wCatDesc in @wCategorias)
+        {
+
+            <div class="row">
+                @{
+                    string wIdSection = System.Text.RegularExpressions.Regex.Replace(wCatDesc.Nombre, @"\s", "");
+                }
+                <section id="@wIdSection">
+                    <div>
+                        <div class="tit-cat">@wCatDesc.Nombre</div>
+                        @if (!string.IsNullOrWhiteSpace(wCatDesc.Imagen))
+                        {
+                            <img src="~/Content/Img/Categorias/@wCatDesc.Imagen" class="img-responsive" style="height:100px;width:100%; border-radius:5px;" />
+
+                        }
+                        @foreach (var wProd in Model.Productos.Where(i => i.Categoria.Nombre == wCatDesc.Nombre).ToList())
+                        {
+                            <div class="col-lg-4" style="margin-top:15px;">
+                                <div class="thumbnail box-producto">
+                                    <a href="@Url.Action("DetalleProducto","Compras", new { pIdProducto = wProd.Id })">
+                                        @if (!string.IsNullOrWhiteSpace(wProd.Imagen))
+                                        {
+                                            <img class="img-prod" src="~/Content/Img/Productos/@wProd.Imagen" alt="">
+                                        }
+                                        else
+                                        {
+                                            <img class="img-prod" src="~/Content/Img/Imagen-NoDisponible.gif" alt="">
+                                        }
+                                    </a>
+                                    <div class="caption">
+                                        <div class="row">
+                                            <div class="col-lg-9">
+                                                <div class="txt-marca">@wProd.Marca</div>
+                                                <div class="txt-nombre-prod">@wProd.Nombre</div>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <div class="pull-right">
+                                                    @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.RealizarCompras))
+                                                    {
+                                                        <button class="add-button" onclick="AgregarALista(@wProd.Id)" data-toggle="tooltip" title="Añadir a Mi Lista"></button>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <span><strike>$@wProd.Precio</strike></span><div class="precio">$@wProd.PrecioDescuento</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </section>
+            </div>
+                    }
+    </div>
+    <div class="col-lg-4">
+        <div id="MiLista">
+            @Html.Partial("MiLista")
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="AgregarProducto" role="dialog">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#A3BD31;color:white;font-size:25px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Agregar a Mi Lista</h4>
+                </div>
+                <div class="modal-body" id="AgregarProductoBody">
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-green" onclick="MostrarLista()">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="LeavePage" role="dialog">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#A3BD31;color:white;font-size:25px;">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Alerta</h4>
+                </div>
+                <div class="modal-body">
+                    ASDASDSADSAD
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-green" onclick="MostrarLista()">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        function FiltrarEntrada(event) {
+            var keyCode = ('which' in event) ? event.which : event.keyCode;
+
+            isNotWanted = (keyCode == 69 || keyCode == 101 || keyCode == 107 || keyCode == 109 || keyCode == 96);
+            return !isNotWanted;
+        };
+
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $(document).ready(function () {
+            $("#cmbCategorias").on('change', function () {
+                var goTo = "#" + this.value;
+                $('html, body').animate({
+                    scrollTop: $(goTo.replace(/\s+/, "")).offset().top
+                }, 2000);
+            })
+        });
+
+        function AgregarALista(id) {
+            var IdProducto = id;
+            $.ajax(
+                {
+                    type: 'GET',
+                    dataType: 'html',
+                    url: '/Compras/AgregarALista?pIdProducto=' + IdProducto,
+                    success: function (result) {
+                        $("#AgregarProductoBody").html(result);
+                        $("#AgregarProducto").modal("show");
+                    }
+                });
+        }
+
+        function EliminarDeLista(id) {
+            var IdProducto = id;
+            $.ajax(
+                {
+                    type: 'GET',
+                    dataType: 'html',
+                    url: '/Compras/EliminarDeLista?pIdProducto=' + IdProducto,
+                    success: function (result) {
+                        $("#MiLista").html(result);
+                    }
+                });
+        }
+
+        function MostrarLista() {
+            var Valido = true;
+
+            var IdProducto = document.getElementById("pIdProducto").value;
+            var Cantidad = document.getElementById("pCantidad").value;
+            var Observaciones = document.getElementById("pObservaciones").value;
+
+            if (Cantidad == "") {
+                Valido = false;
+                document.getElementById("txtErrorCantidad").innerHTML = "Debe ingresar una cantidad";
+                document.getElementById("txtErrorCantidad").className = "show form-group input-validation-error col-lg-12";
+            }
+            else {
+                document.getElementById("txtErrorCantidad").className = "hide";
+            }
+
+            if (Valido != true) {
+                return;
+            }
+
+            $.ajax(
+                {
+                    type: 'GET',
+                    dataType: 'html',
+                    url: '/Compras/MiLista',
+                    data: { pIdProducto: IdProducto, pCantidad: Cantidad, pObservaciones: Observaciones },
+                    success: function (result) {
+                        $("#MiLista").html(result);
+                        $("#AgregarProducto").modal("hide");
+                        $('body').removeClass('modal-open');
+                        $('.modal-backdrop').remove();
+                    },
+                    error: function (req, status, error) {
+                        document.getElementById("txtErrorCantidad").innerHTML = error;
+                        document.getElementById("txtErrorCantidad").className = "show form-group input-validation-error col-lg-12";
+                        return;
+                    }
+                });
+        }
+
+    </script>
+}
+

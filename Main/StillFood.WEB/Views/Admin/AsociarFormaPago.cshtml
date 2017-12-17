@@ -1,0 +1,16 @@
+﻿@model StillFood.Models.Comercio
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmAsociarFormaPago" }))
+{
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="form-group">
+                @Html.HiddenFor(model => model.Id)
+                @Html.DropDownListFor(model => model.IdFormaPagoTemporal, new SelectList(Model.FormasPago, "Id", "Nombre"), "-- Seleccione una Forma de Pago --", new { @class = "combobox form-control", @Id = "cmbAsociarFormaPago" })
+            </div>
+            <div class="hide" id="cmbError_AsociarFormaPago">
+                Debe seleccionar una forma de pago a asociar
+            </div>
+        </div>
+    </div>
+}

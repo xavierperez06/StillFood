@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StillFood.WEB", "StillFood.WEB\StillFood.WEB.csproj", "{9B4D706A-1BC3-4E99-A95D-67649D8B4DA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StillFood.Entities", "StillFood.Entities\StillFood.Entities.csproj", "{BDEF003C-2151-4455-B868-9DFC9B27893C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StillFood.Models", "StillFood.Models\StillFood.Models.csproj", "{F593DB93-AB36-4053-AE35-2D36A102BF64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StillFood.DAL", "StillFood.DAL\StillFood.DAL.csproj", "{36117BC9-AC2B-4FA7-AD75-8BC697D9EEBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StillFood.Services", "StillFood.Services\StillFood.Services.csproj", "{5CC7078C-8A8D-4C57-B828-9A1A536C1EB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StillFood.Business", "StillFood.Business\StillFood.Business.csproj", "{8A5B1BD3-3C3C-4A13-BC81-284E1C0C3A77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StillFood.Common", "StillFood.Common\StillFood.Common.csproj", "{A299800D-5955-44DA-8854-71D752E621E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B4D706A-1BC3-4E99-A95D-67649D8B4DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B4D706A-1BC3-4E99-A95D-67649D8B4DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B4D706A-1BC3-4E99-A95D-67649D8B4DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B4D706A-1BC3-4E99-A95D-67649D8B4DA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDEF003C-2151-4455-B868-9DFC9B27893C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDEF003C-2151-4455-B868-9DFC9B27893C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDEF003C-2151-4455-B868-9DFC9B27893C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDEF003C-2151-4455-B868-9DFC9B27893C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F593DB93-AB36-4053-AE35-2D36A102BF64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F593DB93-AB36-4053-AE35-2D36A102BF64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F593DB93-AB36-4053-AE35-2D36A102BF64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F593DB93-AB36-4053-AE35-2D36A102BF64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36117BC9-AC2B-4FA7-AD75-8BC697D9EEBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36117BC9-AC2B-4FA7-AD75-8BC697D9EEBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36117BC9-AC2B-4FA7-AD75-8BC697D9EEBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36117BC9-AC2B-4FA7-AD75-8BC697D9EEBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CC7078C-8A8D-4C57-B828-9A1A536C1EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CC7078C-8A8D-4C57-B828-9A1A536C1EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CC7078C-8A8D-4C57-B828-9A1A536C1EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CC7078C-8A8D-4C57-B828-9A1A536C1EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A5B1BD3-3C3C-4A13-BC81-284E1C0C3A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A5B1BD3-3C3C-4A13-BC81-284E1C0C3A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A5B1BD3-3C3C-4A13-BC81-284E1C0C3A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A5B1BD3-3C3C-4A13-BC81-284E1C0C3A77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A299800D-5955-44DA-8854-71D752E621E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A299800D-5955-44DA-8854-71D752E621E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A299800D-5955-44DA-8854-71D752E621E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A299800D-5955-44DA-8854-71D752E621E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

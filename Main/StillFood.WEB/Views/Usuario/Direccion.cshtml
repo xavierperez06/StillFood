@@ -1,0 +1,42 @@
+﻿@model StillFood.Models.UsuarioDireccion
+
+@{
+    ViewBag.Title = "Direccion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @using (Html.BeginForm("Direccion", "Usuario", FormMethod.Post))
+        {
+            <div class="col-lg-6 col-lg-offset-3">
+                @Html.HiddenFor(usuario => usuario.Id)
+                <div class="form-group col-lg-12">
+                    @Html.TextBoxFor(usuario => usuario.Alias, new { id = "txtAlias", placeholder = "Alias", @class = "form-control glowing-border" })
+                </div>
+                <div class="form-group col-lg-6">
+                    @Html.TextBoxFor(usuario => usuario.Calle, new { id = "txtCalle", placeholder = "Calle", @class = "form-control glowing-border" })
+                    @Html.ValidationMessageFor(usuario => usuario.Calle)
+                </div>
+                <div class="form-group col-lg-6">
+                    @Html.TextBoxFor(usuario => usuario.Numero, new { id = "txtNumero", placeholder = "Número", @class = "form-control glowing-border" })
+                    @Html.ValidationMessageFor(usuario => usuario.Numero)
+                </div>
+                <div class="form-group col-lg-6">
+                    @Html.TextBoxFor(usuario => usuario.Piso, new { id = "txtPiso", placeholder = "Piso", @class = "form-control glowing-border" })
+                </div>
+                <div class="form-group col-lg-6">
+                    @Html.TextBoxFor(usuario => usuario.Departamento, new { id = "txtDpto", placeholder = "Departamento", @class = "form-control glowing-border" })
+                </div>
+                <div class="form-group col-lg-6">
+                    @Html.TextBoxFor(usuario => usuario.Telefono, new { id = "txtTelefono", placeholder = "Teléfono", @class = "form-control glowing-border" })
+                </div>
+                <div class="col-lg-4 col-lg-offset-4">
+                    <input type="submit" class="btn btn-green" value="Guardar">
+                    <a  class="btn btn-default" href="@Url.Action("MisDirecciones","Usuario")">Volver</a>
+                </div>
+                
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@model StillFood.Models.Usuario
+
+@{
+    ViewBag.Title = "RecuperaContraseña";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+@using (@Html.BeginForm())
+{
+    <div class="col-lg-6 col-lg-offset-3 margin-top-25px">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        <div class="form-group col-lg-12">
+            Introduce el email asociado a tu cuenta en el campo de abajo. Tras hacer la solicitud, recibirás un email para finalizar la solicitud. Este email también tendrá un enlace que debes hacer click para establecer tu nueva contraseña.
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.TextBoxFor(usuario => usuario.Email, new { id = "txtEmail", placeholder = "Correo Electrónico", @class = "form-control glowing-border", type = "email" })
+                @Html.ValidationMessageFor(usuario => usuario.Email)
+            </div>
+            <div class="col-lg-12">
+                <input type="submit" class="btn btn-block btn-green" value="Solicitar">
+            </div>
+        </div>
+}
+</div>

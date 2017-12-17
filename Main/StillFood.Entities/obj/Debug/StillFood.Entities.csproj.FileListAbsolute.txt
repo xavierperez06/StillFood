@@ -1,0 +1,19 @@
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Entities\bin\Debug\StillFood.Entities.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Entities\bin\Debug\StillFood.Entities.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Entities\obj\Debug\StillFood.Entities.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Entities\obj\Debug\StillFood.Entities.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Entities\obj\Debug\StillFood.Entities.csprojResolveAssemblyReference.cache
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\bin\Debug\StillFood.Entities.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\bin\Debug\StillFood.Entities.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\bin\Debug\mscorlib.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\bin\Debug\System.Net.Http.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\bin\Debug\System.Net.Http.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\bin\Debug\es\mscorlib.resources.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\bin\Debug\normidna.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\bin\Debug\normnfc.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\bin\Debug\normnfd.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\bin\Debug\normnfkc.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\bin\Debug\normnfkd.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\obj\Debug\StillFood.Entities.csprojResolveAssemblyReference.cache
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\obj\Debug\StillFood.Entities.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Entities\obj\Debug\StillFood.Entities.pdb

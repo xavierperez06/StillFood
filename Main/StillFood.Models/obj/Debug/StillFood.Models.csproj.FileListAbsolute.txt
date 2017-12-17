@@ -1,0 +1,19 @@
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Models\bin\Debug\StillFood.Models.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Models\bin\Debug\StillFood.Models.pdb
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Models\obj\Debug\StillFood.Models.csprojResolveAssemblyReference.cache
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Models\obj\Debug\StillFood.Models.dll
+D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Models\obj\Debug\StillFood.Models.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\bin\Debug\StillFood.Models.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\bin\Debug\StillFood.Models.pdb
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\bin\Debug\mscorlib.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\bin\Debug\System.Net.Http.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\bin\Debug\System.Net.Http.xml
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\bin\Debug\es\mscorlib.resources.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\bin\Debug\normidna.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\bin\Debug\normnfc.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\bin\Debug\normnfd.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\bin\Debug\normnfkc.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\bin\Debug\normnfkd.nlp
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\obj\Debug\StillFood.Models.csprojResolveAssemblyReference.cache
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\obj\Debug\StillFood.Models.dll
+C:\Users\Xavier\Desktop\StillFood\Main\StillFood.Models\obj\Debug\StillFood.Models.pdb

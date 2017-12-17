@@ -1,0 +1,43 @@
+﻿@model StillFood.Models.Categoria
+
+@using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                                new { id = "frmAgregarEditar", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="form-group">
+                @Html.HiddenFor(categoria => categoria.Id)
+                @Html.TextBoxFor(categoria => categoria.Nombre, new { id = "txtNombreCategoria", placeholder = "Nombre", @class = "form-control glowing-border" })
+                @Html.ValidationMessageFor(categoria => categoria.Nombre)
+             </div>
+            <div class="hide" id="txtNombreError_Categoria">
+                El campo "Nombre" es obligatorio
+            </div>
+                <div class="form-group checkbox">
+                    <label class="checkbox-inline">@Html.CheckBoxFor(categoria => categoria.Activo)Activo</label>
+                </div>
+                @if (string.IsNullOrWhiteSpace(Model.Imagen))
+                {
+                    <div class="form-group">
+                        Imagen
+                        <input type="file" name="file" id="file" style="width: 100%;" /> <br />
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        @Html.TextBoxFor(categoria => categoria.Imagen, new { id = "txtImagen", placeholder = "Imagen", @class = "form-control glowing-border", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group">
+                        <img src="~/Content/Img/Categorias/@Model.Imagen" class="img-responsive" />
+                    </div>
+                    <div class="form-group">
+                        Imagen
+                        <input type="file" name="file" id="file" style="width: 100%;" /> <br />
+                    </div>
+                }
+
+
+            </div>
+        </div>
+}

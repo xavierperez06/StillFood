@@ -1,0 +1,95 @@
+﻿@model StillFood.Models.Producto
+
+@using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                                            new { id = "frmAgregarEditarProd", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="form-group col-lg-12">
+                @Html.HiddenFor(producto => producto.Id)
+                @Html.TextBoxFor(producto => producto.Nombre, new { id = "txtNombre_Producto", placeholder = "Nombre", @class = "form-control glowing-border" })
+                <div class="hide" id="txtNombreError_Producto">
+                    El campo "Nombre" es obligatorio
+                </div>
+             </div>
+
+            <div class="form-group col-lg-6">
+                @Html.DropDownListFor(model => model.IdCategoria, new SelectList(Model.Categorias, "Id", "Nombre"), "-- Seleccione una Categoría --", new { @class = "combobox form-control", @Id = "cmbCategoriaProducto" })
+                <div class="hide" id="cmbCategoriaProductoError">
+                    El campo "Categoría" es obligatorio
+                </div>
+            </div>
+            <div class="form-group col-lg-6">
+                @Html.TextBoxFor(producto => producto.Stock, new { id = "txtStock", placeholder = "Stock", @class = "form-control glowing-border", type="number" })
+                <div class="hide" id="txtStockError">
+                    El campo "Stock" es obligatorio
+                </div>
+            </div> 
+            <div class="clearfix"></div>
+            <div class="form-group col-lg-6">
+                @Html.TextBoxFor(producto => producto.Precio, new { id = "txtPrecio", placeholder = "Precio ($)", @class = "form-control glowing-border"})
+                <div class="hide" id="txtPrecioError">
+                    El campo "Precio" es obligatorio
+                </div>
+            </div> 
+            <div class="form-group col-lg-6">
+                @Html.TextBoxFor(producto => producto.PrecioDescuento, new { id = "txtPrecioDescuento", placeholder = "Precio Descuento ($)", @class = "form-control glowing-border" })
+                <div class="hide" id="txtPrecioDescuentoError">
+                    El campo "Precio Descuento" es obligatorio
+                </div>
+            </div> 
+            <div class="clearfix"></div>
+            <div class="form-group col-lg-6">
+                <div class='input-group date' id='dtpVencimiento'>
+                    @Html.TextBoxFor(producto => producto.FechaVencimiento, new { id = "txtFechaVencimiento", placeholder = "Fecha de Vencimiento", @class = "form-control glowing-border" })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                <div class="hide" id="dtpFechaError">
+                    El campo "Fecha de Vencimiento" es obligatorio
+                </div>
+            </div>
+            <div class="form-group col-lg-6">
+                @Html.TextBoxFor(producto => producto.Marca, new { id = "txtMarca", placeholder = "Marca", @class = "form-control glowing-border" })
+                <div class="hide" id="txtMarcaError_Producto">
+                    El campo "Marca" es obligatorio
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group col-lg-12">
+                @Html.TextAreaFor(producto => producto.Descripcion, new { id = "txtDescripcion", placeholder = "Descripción", @class = "form-control glowing-border" })
+                <div class="hide" id="txtDescripcion_Producto">
+                    El campo "Descripción" es obligatorio
+                </div>
+            </div>
+
+                @if (string.IsNullOrWhiteSpace(Model.Imagen))
+                {
+                    <div class="form-group col-lg-12">
+                        Imagen
+                        <input type="file" name="file" id="file" style="width: 100%;" /> <br />
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group col-lg-12">
+                        @Html.TextBoxFor(categoria => categoria.Imagen, new { id = "txtImagen", placeholder = "Imagen", @class = "form-control glowing-border", @readonly = "readonly" })
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <img src="~/Content/Img/Productos/@Model.Imagen" class="img-responsive" style="height:100px;width:100%;"/>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        Imagen
+                        <input type="file" name="file" id="file" style="width: 100%;" /> <br />
+                    </div>
+                }
+            </div>
+        </div>
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        </script>}

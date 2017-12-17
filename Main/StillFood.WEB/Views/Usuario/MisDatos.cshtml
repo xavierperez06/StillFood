@@ -1,0 +1,62 @@
+﻿@model StillFood.Models.Usuario
+
+@{
+    ViewBag.Title = "MisDatos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="tit-admin">Mis Datos</div>
+</div>
+<div class="container">
+    <div class="col-lg-6 col-lg-offset-3">
+@using (Html.BeginForm("MisDatos", "Usuario", FormMethod.Post))
+{
+    if (Model.IdTipoUsuario.Equals(Convert.ToInt32(StillFood.Common.Enums.eTiposUsuarios.Consumidor)))
+    {
+        <div class="form-group col-lg-12">
+            @Html.HiddenFor(usuario => usuario.Id)
+            @Html.HiddenFor(usuario => usuario.Contraseña)
+            @Html.HiddenFor(usuario => usuario.IdEstado)
+            @Html.HiddenFor(usuario => usuario.IdTipoUsuario)
+            @Html.HiddenFor(usuario => usuario.FechaAlta)
+            @Html.HiddenFor(usuario => usuario.IdConfirmacion)
+            @Html.HiddenFor(usuario => usuario.FechaExpConfirmacion)
+            @Html.HiddenFor(usuario => usuario.IdComercio)
+            @Html.HiddenFor(usuario => usuario.IdRecuperoContraseña)
+            @Html.TextBoxFor(usuario => usuario.NombreApellido, new { id = "txtNombreApellido", placeholder = "Nombre y Apellido", @class = "form-control glowing-border" })
+            @Html.ValidationMessageFor(usuario => usuario.NombreApellido)
+        </div>
+            <div class="form-group col-lg-6">
+                <div class='input-group date' id='dtpNacimiento'>
+                    @Html.TextBoxFor(usuario => usuario.FechaNacimiento, new { id = "txtFechaNacimiento", placeholder = "Fecha de Nacimiento", @class = "form-control glowing-border" })
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                @Html.ValidationMessageFor(usuario => usuario.FechaNacimiento)
+            </div>
+            <div class="form-group col-lg-6">
+                @Html.TextBoxFor(usuario => usuario.Telefono, new { id = "txtTelefono", placeholder = "Teléfono", @class = "form-control glowing-border" })
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.TextBoxFor(usuario => usuario.Email, new { id = "txtEmailUsuario", placeholder = "Correo Electrónico", @class = "form-control glowing-border", type = "email", @readonly = "readonly" })
+            </div>
+            <div class="col-lg-12">
+                <input type="submit" class="btn btn-block btn-green" value="Modificar">
+            </div>
+    }
+}
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('#dtpNacimiento').datetimepicker({
+                format: 'DD/MM/YYYY',
+                locale: 'es'
+            });
+        });
+    </script>
+}

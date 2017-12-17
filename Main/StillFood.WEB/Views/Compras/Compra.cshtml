@@ -1,0 +1,318 @@
+﻿@model StillFood.Models.Compra
+
+@{
+    ViewBag.Title = "Compra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+@using (@Html.BeginForm())
+{
+    <div class="row">
+        @Html.HiddenFor(Model => Model.IdUsuario)
+        @Html.HiddenFor(Model => Model.IdComercio)
+        <section>
+            <div class="wizard" style="background-color:#F6F6F6;">
+                <div class="wizard-inner">
+                    <div class="connecting-line"></div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#Paso1" data-toggle="tab" aria-controls="Paso1" role="tab" title="Dirección">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-home"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a href="#Paso2" data-toggle="tab" aria-controls="Paso2" role="tab" title="Envío">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-send"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a href="#Paso3" data-toggle="tab" aria-controls="Paso3" role="tab" title="Pago">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-usd"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation" class="disabled">
+                            <a href="#Completado" data-toggle="tab" aria-controls="Completado" role="tab" title="Completado">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <form role="form">
+                    <div class="tab-content">
+                        <div class="tab-pane active" role="tabpanel" id="Paso1">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div id="errorFormaEntrega" class="hide">Seleccione una forma de entrega</div>
+                                @foreach (StillFood.Models.FormaEntrega wFormaEntrega in Model.FormasEntregas)
+                                {
+                                    <div class="row">
+                                        <div class="col-lg-1 tbl-formapago">
+                                            @Html.RadioButtonFor(e => e.IdFormaEntrega, wFormaEntrega.Id, new { @id = @wFormaEntrega.Id })
+                                        </div>
+                                        <div class="col-lg-2 tbl-formapago">
+                                            @if (!string.IsNullOrWhiteSpace(wFormaEntrega.Imagen))
+                                            {
+                                                <img class="tbl-compra-img" src="~/Content/Img/FormasEntregas/@wFormaEntrega.Imagen" alt="">
+                                            }
+                                            else
+                                            {
+                                                <img class="tbl-compra-img" src="~/Content/Img/Imagen-NoDisponible.gif" alt="">
+                                            }
+                                        </div>
+                                        <input type="hidden" id="@("fe_" + @wFormaEntrega.Id)" v value="@wFormaEntrega.Nombre" />
+                                        <div class="col-lg-7 tbl-formapago">
+                                            @wFormaEntrega.Descripcion
+                                        </div>
+                                        <div class="col-lg-2 tbl-formapago">
+                                            $@wFormaEntrega.Precio
+                                        </div>
+                                    </div>
+                                    }
+                                <div class="col-lg-6 col-lg-offset-3">
+                                    <ul class="list-inline text-center">
+                                        <li>
+                                            <a class="btn btn-default" href="@Url.Action("Index","Home")">Cancelar
+                                            </a></li>
+                                        <li><button type="button" style="margin-top:10px;" class="btn btn-green next-step center-block" onclick="SiguientePaso1();">Siguiente</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="Paso2">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="col-md-6 col-lg-6">
+                                    <p>Seleccione una dirección de entrega: <span id="errorDireccion" class="hide">Campo obligatorio</span></p>
+                                    @Html.DropDownListFor(compra => compra.IdDireccion, new SelectList(Model.Direcciones, "Id", "Alias"), string.Empty, new { id = "cmbDirecciones", @class = "form-control glowing-border", data_placeholder = "Choose items", @onchange = "MostrarDireccion();" })
+                                </div>
+                                <div class="col-md-6 col-lg-6">
+                                    <div id="Direccion">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-lg-offset-3 padding-top">
+                                    <ul class="list-inline text-center">
+                                        <li>
+                                            <button type="button" class="btn btn-default prev-step" onclick="Anterior();">Volver</button>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="btn btn-green next-step" onclick="SiguientePaso2();">Siguiente</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="Paso3">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <p>Seleccione la forma de pago: <span id="errorFormaPago" class="hide">Campo obligatorio</span></p>
+                                @foreach (StillFood.Models.FormaPago wFormaPago in Model.Comercio.FormasPago)
+                                {
+                                    <div class="row">
+                                        <div class="col-lg-1 tbl-formapago">
+                                            @Html.RadioButtonFor(e => e.IdFormaPago, wFormaPago.Id, new { @id = wFormaPago.Id })
+                                        </div>
+                                        <div class="col-lg-2 tbl-formapago">
+                                            @if (!string.IsNullOrWhiteSpace(wFormaPago.Imagen))
+                                            {
+                                                <img class="tbl-compra-img" src="~/Content/Img/FormasPago/@wFormaPago.Imagen" alt="">
+                                            }
+                                            else
+                                            {
+                                                <img class="tbl-compra-img" src="~/Content/Img/Imagen-NoDisponible.gif" alt="">
+                                            }
+                                        </div>
+                                        <div class="col-lg-9 tbl-formapago" id="@("fp_"+ @wFormaPago.Id)">
+                                            @wFormaPago.Nombre
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="col-lg-6 col-lg-offset-3 padding-top">
+                                <ul class="list-inline text-center">
+                                    <li><button type="button" class="btn btn-default prev-step" onclick="VolverPaso3();">Volver</button></li>
+                                    <li><button type="button" class="btn btn-green next-step" onclick="SiguientePaso3();">Siguiente</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="Completado">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <p><strong>Productos:</strong></p>
+                                @foreach (StillFood.Models.Producto wProducto in Model.Productos)
+                                {
+                                    <div class="row">
+                                        <div class="col-lg-8">@wProducto.Nombre</div>
+                                        <div class="col-lg-2">x @wProducto.Cantidad</div>
+                                        <div class="col-lg-2">$@wProducto.PrecioDescuento</div>
+                                    </div>
+                                }
+                                <br />
+                                <p><strong>Total a pagar: </strong>$@StillFood.Common.Utils.ObtenerMontoTotal((List<StillFood.Models.Producto>)Session["Lista"]).ToString()</p>
+                                <hr />
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <p id="desc_formaentrega">Forma de Entrega: </p>
+                                    </div> 
+                                    <div id="desc_Direccion">
+
+                                    </div>
+                                </div>
+                                <hr />   
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <p id="desc_formapago">Forma de Pago: </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 col-lg-offset-3 padding-top">
+                                <ul class="list-inline text-center">
+                                    <li><button type="button" class="btn btn-default prev-step" onclick="Anterior();">Volver</button></li>
+                                    <li><button type="submit" class="btn btn-green">Confirmar</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+}
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+        function Siguiente() {
+            var $active = $('.wizard .nav-tabs li.active');
+            $active.next().removeClass('disabled');
+            nextTab($active);
+        }
+
+        function Anterior() {
+            var $active = $('.wizard .nav-tabs li.active');
+            prevTab($active);
+        }
+
+        function VolverPaso3() {
+            var Id = $('input[type=radio][name=IdFormaEntrega]:checked').attr('id');
+            alert(Id);
+            if (Id == 2) {
+                //Si es 2 va al paso 1
+                Anterior();
+                Anterior();
+            } else {
+                Anterior();
+            }
+        }
+
+        function SiguientePaso1() {
+            if ($('[name="IdFormaEntrega"]').is(':checked')) {
+                //Si el Id es 2, significa que seleccionó retiro en el local
+                var Id = $('input[type=radio][name=IdFormaEntrega]:checked').attr('id');
+                var IdFormaEntrega = 'fe_' + Id;
+                var FormaEntrega = document.getElementById(IdFormaEntrega);
+                document.getElementById('desc_formaentrega').innerHTML = '<strong>Forma de Entrega:</strong> ' + FormaEntrega.value;
+
+                if (Id == 2) {
+                    //Si es 2 va al paso 3
+                    //Oculto el div de la descripcion de la direccion en el ultimo paso
+                    document.getElementById('desc_Direccion').className = 'hide';
+                    Siguiente();
+                    Siguiente();
+                } else {
+                    document.getElementById('errorFormaEntrega').className = 'hide';
+                    Siguiente();
+                }
+
+            }
+            else {
+                document.getElementById('errorFormaEntrega').className = 'show-span field-validation-error';
+            }
+        }
+
+        function SiguientePaso2() {
+            var IdDireccion = $('#cmbDirecciones').val();
+
+            if (IdDireccion == null || IdDireccion == '') {
+                document.getElementById('errorDireccion').className = 'show-span field-validation-error';
+            }
+            else {
+                document.getElementById('errorDireccion').className = 'hide';
+                var Id = $('input[type=radio][name=IdFormaEntrega]:checked').attr('id');
+                //Si es 1 cargo la dirección en el último paso
+                if (Id == 1)
+                {
+                    document.getElementById('desc_formaentrega').className = 'margin-bottom-25px';
+                    document.getElementById('desc_Direccion').innerHTML = $('#Direccion').html();
+                }
+                else
+                {
+                    document.getElementById('desc_formaentrega').className = 'show';
+                    document.getElementById('desc_Direccion').className = 'hide';
+                }
+                Siguiente();
+            }
+        }
+
+        function SiguientePaso3() {
+            if ($('[name="IdFormaPago"]').is(':checked')) {
+
+                var Id = $('input[type=radio][name=IdFormaPago]:checked').attr('id');
+
+                var IdFormaPago = 'fp_' + Id;
+                var FormaPago = document.getElementById(IdFormaPago);
+                document.getElementById('desc_formapago').innerHTML = '<strong>Forma de Pago:</strong> ' + FormaPago.innerHTML;
+                document.getElementById('errorFormaPago').className = 'hide';
+                Siguiente();
+            }
+            else {
+                document.getElementById('errorFormaPago').className = 'show-span field-validation-error';
+            }
+        }
+
+
+
+        $(document).ready(function () {
+            //Initialize tooltips
+            $('.nav-tabs > li a[title]').tooltip();
+
+            //Wizard
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+                var $target = $(e.target);
+
+                if ($target.parent().hasClass('disabled')) {
+                    return false;
+                }
+            });
+        });
+
+        function nextTab(elem) {
+            $(elem).next().find('a[data-toggle="tab"]').click();
+        }
+        function prevTab(elem) {
+            $(elem).prev().find('a[data-toggle="tab"]').click();
+        }
+
+        function MostrarDireccion() {
+
+            var IdDireccion = $('#cmbDirecciones').val();
+            $.ajax(
+                {
+                    type: 'GET',
+                    dataType: 'html',
+                    url: '/Compras/DireccionPartial?pIdDireccion=' + IdDireccion,
+                    success: function (result) {
+                        $("#Direccion").html(result);
+                    }
+                });
+        }
+    </script>}
+

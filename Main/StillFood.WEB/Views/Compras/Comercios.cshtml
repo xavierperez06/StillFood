@@ -1,0 +1,66 @@
+﻿@model  List<StillFood.Models.Comercio>
+
+@{
+    ViewBag.Title = "Comercios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid" style="padding-left:0px; padding-right:0px; margin-bottom:30px;">
+    <div class="comercio-banner-container">
+        <img src="~/Content/Img/Comercios-Banner.jpeg" class="img-responsive comercio-banner" />
+        <div class="banner-txt-centered">Comercios Disponibles</div>
+    </div>
+</div>
+
+<div class="container">
+
+    @using (Html.BeginForm("Comercios", "Compras", FormMethod.Get))
+    {
+        <div class="row" style="padding-bottom:20px;">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div id="custom-search-input">
+                    <div class="input-group col-lg-12">
+                        <input type="text" class="form-control glowing-border" placeholder="Buscar" name="pBusqueda" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-info btn-lg" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @foreach (StillFood.Models.Comercio wComercio in Model)
+            {
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="comercio-box effect2 ">
+                    <div class="media">
+                        <div class="media-left">
+                            @if (string.IsNullOrWhiteSpace(wComercio.Imagen))
+                            {
+                                <img src="~/Content/Img/shop-icon.png" class="media-object" style="width:150px; height:150px;">
+                            }
+                            else
+                            {
+                                <img src="~/Content/Img/Comercios/@wComercio.Imagen" class="media-object" style="width:150px; height:150px;"/>
+                            }
+                           
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading" style="padding-top:7px; padding-left:4px;">@Html.ActionLink(wComercio.Nombre, "Productos", "Compras", new { pIdComercio = wComercio.Id }, new { @class = "nombre-comercio" })</h4>
+                            <div style="padding-top:10px;"><img src="~/Content/Img/Location.png" />@wComercio.Direccion</div>
+                            <hr />
+                            <p style="padding-left:4px; vertical-align: middle;">@wComercio.Descripcion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+

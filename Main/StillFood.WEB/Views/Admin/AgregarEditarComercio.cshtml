@@ -1,0 +1,56 @@
+﻿@model StillFood.Models.Comercio
+
+@using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                                            new { id = "frmAgregarEditarComercio", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="form-group col-lg-12">
+                @Html.HiddenFor(comercio => comercio.Id)
+                @Html.TextBoxFor(comercio => comercio.Nombre, new { id = "txtNombre_Comercio", placeholder = "Nombre", @class = "form-control glowing-border" })
+                <div class="hide" id="txtNombreError_Comercio">
+                    El campo "Nombre" es obligatorio
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.TextBoxFor(comercio => comercio.Direccion, new { id = "txtDireccion_Comercio", placeholder = "Dirección", @class = "form-control glowing-border" })
+                <div class="hide" id="txtDireccionError_Comercio">
+                    El campo "Dirección" es obligatorio
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.TextBoxFor(comercio => comercio.Email, new { id = "txtEmail_Comercio", placeholder = "Correo Electrónico", @class = "form-control glowing-border", type = "email" })
+                <div class="hide" id="txtEmailError_Comercio">
+                    El campo "Correo Electrónico" es obligatorio
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.TextBoxFor(comercio => comercio.Telefono, new { id = "txtTelefono_Comercio", placeholder = "Teléfono", @class = "form-control glowing-border"})
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.TextAreaFor(comercio => comercio.Descripcion, new { id = "txtDescripcion", placeholder = "Descripción", @class = "form-control glowing-border" })
+            </div>
+            @if (string.IsNullOrWhiteSpace(Model.Imagen))
+                {
+                <div class="form-group">
+                    Imagen
+                    <input type="file" name="file" id="file" style="width: 100%;" /> <br />
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    @Html.TextBoxFor(comercio => comercio.Imagen, new { id = "txtImagen", placeholder = "Imagen", @class = "form-control glowing-border", @readonly = "readonly" })
+                </div>
+                    <div class="form-group">
+                        <img src="~/Content/Img/Comercios/@Model.Imagen" class="img-responsive" />
+                    </div>
+                    <div class="form-group">
+                        Imagen
+                        <input type="file" name="file" id="file" style="width: 100%;" /> <br />
+                    </div>
+            }
+        </div>
+    </div>
+}
+

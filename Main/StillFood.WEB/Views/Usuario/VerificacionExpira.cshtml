@@ -1,0 +1,28 @@
+﻿@model StillFood.Models.Usuario
+
+@{
+    ViewBag.Title = "VerificacionExpira";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">   
+@using (Html.BeginForm("VerificacionExpira", "Usuario", FormMethod.Post))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    @Html.HiddenFor(Model => Model.Id)
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-info margin-top-25px">
+            <div class="panel-heading">
+                <h3 class="panel-title">Mensaje</h3>
+            </div>
+            <div class="panel-body">
+                Su enlace de activación ha expirado. Haga clic en el botón "Solicitar" para que se le envíe un nuevo enlace a su casilla de correo.
+            </div>
+        </div>
+      
+    </div>
+    <div class="col-lg-4 col-lg-offset-4 padding-top">
+        <input type="submit" class="btn btn-block btn-green" value="Solicitar">
+    </div>
+}
+</div>

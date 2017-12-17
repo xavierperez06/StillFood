@@ -1,0 +1,16 @@
+﻿@model StillFood.Models.Rol
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmAsociarPermiso" }))
+{
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="form-group">
+                @Html.HiddenFor(model => model.Id)
+                @Html.DropDownListFor(model => model.IdPermisoTemporal, new SelectList(Model.Permisos, "Id", "Nombre"), "-- Seleccione un Permiso --", new { @class = "combobox form-control", @Id = "cmbAsociarPermiso"})
+            </div>
+            <div class="hide" id="cmbError_Asociar">
+                Debe seleccionar un Permiso a asociar
+            </div>
+        </div>
+    </div>
+}

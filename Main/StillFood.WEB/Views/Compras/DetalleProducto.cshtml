@@ -1,0 +1,37 @@
+﻿@model StillFood.Models.Producto
+
+@{
+    ViewBag.Title = "DetalleProducto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container margin-top-25px" style="background-color:white;">
+    <div class="row">
+        <div class="col-lg-3">
+            @if (!string.IsNullOrWhiteSpace(Model.Imagen))
+            {
+                <img class="img-prod" src="~/Content/Img/Productos/@Model.Imagen" alt="">
+            }
+            else
+            {
+                <img class="img-prod" src="~/Content/Img/Imagen-NoDisponible.gif" alt="">
+            }
+        </div>
+        <div class="col-lg-9">
+            <p class="tit-green-md">@Model.Marca</p>
+            <p>@Model.Nombre</p>
+            <hr />
+            <p>Consumir preferentemente antes del: <strong>@Model.FechaVencimiento.Value.ToShortDateString()</strong></p>
+            <div class="col-lg-9">
+                @Model.Descripcion
+            </div>
+            <div class="col-lg-3">
+                <strike>$@Model.Precio</strike> - <span class="tit-green-md">$@Model.PrecioDescuento</span>
+                <br />
+                @*<p><a>+ Añadir a Lista</a></p>*@
+                <a class="btn btn-default" href="@Url.Action("Productos","Compras",new { pIdComercio = Model.IdComercio })">Volver</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+﻿@model StillFood.Models.FormaEntrega
+
+@using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+                                                        new { id = "frmAgregarEditarFormaEntrega", enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="form-group col-lg-12">
+                @Html.HiddenFor(formaentrega => formaentrega.Id)
+                @Html.TextBoxFor(formaentrega => formaentrega.Nombre, new { id = "txtNombreFormaEntrega", placeholder = "Nombre", @class = "form-control glowing-border" })
+                <div class="hide" id="txtNombreError_FormaEntrega">
+                    El campo "Nombre" es obligatorio
+                </div>
+            </div>
+            <div class="form-group col-lg-6">
+                @Html.TextBoxFor(formaentrega => formaentrega.Precio, new { id = "txtPrecio_FormaEntrega", placeholder = "Precio", @class = "form-control glowing-border" })
+                <div class="hide" id="txtPrecioError_FormaEntrega">
+                    El campo "Precio" es obligatorio
+                </div>
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.TextAreaFor(formaentrega => formaentrega.Descripcion, new { id = "txtDescripcion_FormaEntrega", placeholder = "Descripción", @class = "form-control glowing-border" })
+                <div class="hide" id="txtDescripcionError_FormaEntrega">
+                    El campo "Descripción" es obligatorio
+                </div>
+            </div>
+            <div class="form-group checkbox col-lg-12">
+                <label class="checkbox-inline">@Html.CheckBoxFor(formapago => formapago.Activo)Activo</label>
+            </div>
+            @if (string.IsNullOrWhiteSpace(Model.Imagen))
+                {
+                <div class="form-group col-lg-12">
+                    Imagen
+                    <input type="file" name="file" id="file" style="width: 100%;" /> <br />
+                </div>
+            }
+            else
+            {
+                <div class="form-group  col-lg-12">
+                    @Html.TextBoxFor(formaentrega => formaentrega.Imagen, new { id = "txtImagen", placeholder = "Imagen", @class = "form-control glowing-border", @readonly = "readonly" })
+                </div>
+                <div class="form-group  col-lg-12">
+                    <img src="~/Content/Img/FormasEntregas/@Model.Imagen" class="img-responsive" />
+                </div>
+                    <div class="form-group  col-lg-12">
+                        Imagen
+                        <input type="file" name="file" id="file" style="width: 100%;" /> <br />
+                    </div>
+            }
+        </div>
+    </div>
+}
+

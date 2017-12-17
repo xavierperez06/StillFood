@@ -1,0 +1,22 @@
+﻿@model StillFood.Models.Permiso
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmAgregarEditarPer" }))
+{
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="form-group">
+            @Html.HiddenFor(permiso => permiso.Id)
+            @Html.TextBoxFor(permiso => permiso.Nombre, new { id = "txtNombrePermiso", placeholder = "Nombre", @class = "form-control glowing-border" })
+        </div>
+        <div class="hide" id="txtNombreError_Permiso">
+            El campo "Nombre" es obligatorio
+        </div>
+        <div class="form-group">
+            @Html.TextAreaFor(permiso => permiso.Descripcion, new { id = "txtDescripcion", placeholder = "Descripción", @class = "form-control glowing-border" })
+        </div>
+            <div class="form-group checkbox">
+                <label class="checkbox-inline">@Html.CheckBoxFor(permiso => permiso.Activo)Activo</label>
+            </div>
+    </div>
+</div>
+}

@@ -1,0 +1,28 @@
+﻿@model List<StillFood.Models.NotaPedido>
+@{
+    ViewBag.Title = "MisPedidos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="tit-admin">Mis Pedidos</div>
+</div>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @foreach (var wNota in Model)
+            {
+                <div class="media">
+                    <div class="media-left">
+                        <img src="~/Content/Img/Pedido-Icon.png" class="media-object" style="width:60px">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading txt-green">@StillFood.Common.Utils.ObtenerNombreComercio(wNota.IdComercio)</h4>
+                        <p>Pedido realizado el @wNota.FechaAlta.ToShortDateString()<span class="vertical-line-30" style="padding-left:10px;"></span><strong>  Estado: </strong>@StillFood.Common.Utils.GetEnumDescription((StillFood.Common.Enums.eEstadosNotasPedido)wNota.IdEstado)</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

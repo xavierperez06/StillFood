@@ -1,0 +1,65 @@
+﻿@model StillFood.Models.Usuario
+
+@{
+    ViewBag.Title = "Registracion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+    <h2>Registración</h2>
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <div class="row">
+        @using (Html.BeginForm("Registracion", "Usuario", FormMethod.Post))
+        {
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="form-group col-lg-12">
+                    @Html.TextBoxFor(usuario => usuario.NombreApellido, new { id = "txtNombreApellido", placeholder = "Nombre y Apellido", @class = "form-control glowing-border" })
+                    @Html.ValidationMessageFor(usuario => usuario.NombreApellido)
+                </div>
+                <div class="form-group col-lg-12">
+                    @Html.TextBoxFor(usuario => usuario.Email, new { id = "txtEmail", placeholder = "Correo Electrónico", @class = "form-control glowing-border", type = "email" })
+                    @Html.ValidationMessageFor(usuario => usuario.Email)
+                </div>
+                <div class="form-group col-lg-12">
+                    @Html.TextBoxFor(usuario => usuario.Contraseña, new { id = "txtContraseña", placeholder = "Contraseña", @class = "form-control glowing-border", type = "password" })
+                    @Html.ValidationMessageFor(usuario => usuario.Contraseña)
+                </div>
+                <div class="form-group col-lg-12">
+                    @Html.TextBoxFor(usuario => usuario.ConfirmarContraseña, new { id = "txtConfirmarContraseña", placeholder = "Confirmar Contraseña", @class = "form-control glowing-border", type = "password" })
+                    @Html.ValidationMessageFor(usuario => usuario.ConfirmarContraseña)
+                </div>
+                <div class="form-group col-lg-6">
+                    <div class='input-group date' id='datetimepicker'>
+                        @Html.TextBoxFor(usuario => usuario.FechaNacimiento, new { id = "txtFechaNacimiento", placeholder = "Fecha de Nacimiento", @class = "form-control glowing-border" })
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(usuario => usuario.FechaNacimiento)
+                </div>
+                <div class="form-group col-lg-6">
+                    @Html.TextBoxFor(usuario => usuario.Telefono, new { id = "txtTelefono", placeholder = "Teléfono", @class = "form-control glowing-border" })
+                </div>
+                <div class="col-lg-12">
+                    <input type="submit" class="btn btn-block btn-green" value="Registrar">
+                </div>
+                
+            </div>
+        }
+
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker').datetimepicker({
+                format: 'DD/MM/YYYY',
+                locale: 'es'
+            });
+        });
+    </script>
+}
+

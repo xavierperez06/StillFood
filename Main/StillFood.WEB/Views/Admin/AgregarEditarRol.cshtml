@@ -1,0 +1,19 @@
+﻿@model StillFood.Models.Rol
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmAgregarEditarRol" }))
+{
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="form-group">
+                @Html.HiddenFor(rol => rol.Id)
+                @Html.TextBoxFor(rol => rol.Nombre, new { id = "txtNombreRol", placeholder = "Nombre", @class = "form-control glowing-border" })
+            </div>
+            <div class="hide" id="txtNombreError_Rol">
+                El campo "Nombre" es obligatorio
+            </div>
+            <div class="form-group">
+                @Html.TextAreaFor(rol => rol.Descripcion, new { id = "txtDescripcion", placeholder = "Descripción", @class = "form-control glowing-border" })
+            </div>
+        </div>
+    </div>
+}

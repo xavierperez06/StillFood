@@ -1,0 +1,1228 @@
+﻿@{
+    ViewBag.Title = "Administracion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    StillFood.WEB.Facade.FacadeSecurity wFacade = new StillFood.WEB.Facade.FacadeSecurity();
+}
+
+<div class="container-fluid" style="margin:0px;">
+    <div class="row">
+        <div class="menu-bg">
+            <div style="color:white; padding-left:15px; padding-top:15px; font-size:40px;">Administración</div>
+            <div id="menu-cat-mobi" class="btn-group">
+                <button class="btn btn-default" type="button">Menú</button>
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarCategorias))
+                    {
+                        <li><a href="#" onclick='getview(this)' name="Categorias" class="navitem-effect">Categorías</a></li>
+                    }
+                    @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarComercios))
+                    {
+                        <li><a href="#" onclick='getview(this)' name="Comercios" class="navitem-effect">Comercios</a></li>
+                    }
+                    @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarProductos))
+                    {
+                        <li><a href="#" onclick='getview(this)' name="Productos" class="navitem-effect">Productos</a></li>
+                    }
+                    @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarUsuarios))
+                    {
+                        <li><a href="#" onclick='getview(this)' name="Usuarios" class="navitem-effect">Usuarios</a></li>
+                    }
+                    @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarRoles))
+                    {
+                        <li><a href="#" onclick='getview(this)' name="Roles" class="navitem-effect">Roles</a></li>
+                    }
+                    @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarPermisos))
+                    {
+                        <li><a href="#" onclick='getview(this)' name="Permisos" class="navitem-effect">Permisos</a></li>
+                    }
+                    @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarFormasPago))
+                    {
+                        <li><a href="#" onclick='getview(this)' name="FormasPago" class="navitem-effect">Formas de Pago</a></li>
+                    }
+                    @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarFormasEntrega))
+                    {
+                        <li><a href="#" onclick='getview(this)' name="FormasEntrega" class="navitem-effect">Formas de Entrega</a></li>
+                    }
+                    @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarFormasPagoComercio))
+                    {
+                        <li><a href="#" onclick='getview(this)' name="FormasPagoComercio" class="navitem-effect">Formas de Pago</a></li>
+                    }
+                </ul>
+            </div>
+            <div id="menu-cat" class="col-xs-6 col-xs-offset-3 col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+                @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarCategorias))
+                {
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <a class="btn-menu btn-outlined btn-white" data-wow-delay="0.7s" onclick='getview(this)' name="Categorias">Categorías</a>
+                    </div>
+                }
+                @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarComercios))
+                {
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <a href="#" class="btn-menu btn-outlined btn-white" data-wow-delay="0.7s" onclick='getview(this)' name="Comercios">Comercios</a>
+                    </div>
+                }
+                @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarProductos))
+                {
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <a href="#" class="btn-menu btn-outlined btn-white" data-wow-delay="0.7s" onclick='getview(this)' name="Productos">Productos</a>
+                    </div>
+                }
+                @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarUsuarios))
+                {
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <a href="#" class="btn-menu btn-outlined btn-white" data-wow-delay="0.7s" onclick='getview(this)' name="Usuarios">Usuarios</a>
+                    </div>
+                    }
+                @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarRoles))
+                {
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <a href="#" class="btn-menu btn-outlined btn-white" data-wow-delay="0.7s" onclick='getview(this)' name="Roles">Roles</a>
+                    </div>
+                }
+                @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarPermisos))
+                {
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <a href="#" class="btn-menu btn-outlined btn-white" data-wow-delay="0.7s" onclick='getview(this)' name="Permisos">Permisos</a>
+                    </div>
+                }
+                @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarFormasPago))
+                {
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <a href="#" class="btn-menu btn-outlined btn-white" data-wow-delay="0.7s" onclick='getview(this)' name="FormasPago">Formas de Pago</a>
+                    </div>
+                }
+                @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarFormasEntrega))
+                {
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <a href="#" class="btn-menu btn-outlined btn-white" data-wow-delay="0.7s" onclick='getview(this)' name="FormasEntrega">Formas de Entrega</a>
+                    </div>
+                }
+                @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.AdministrarFormasPagoComercio))
+                {
+                    <div class="col-sm-6 col-md-3 col-lg-3">
+                        <a href="#" class="btn-menu btn-outlined btn-white" data-wow-delay="0.7s" onclick='getview(this)' name="FormasPagoComercio">Formas de Pago</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px; top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001; opacity: .8; filter: alpha(opacity=70);display:none">
+        <p style="position: absolute; top: 30%; left: 45%; color: White;">
+            Cargando, espere por favor...<img src="~/Content/Img/Double Ring.gif">
+        </p>
+    </div>
+    <div id="partial"></div>
+</div>
+
+<!-- Modal Mensaje -->
+<div class="modal fade" id="ModalMensaje" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#A3BD31;color:white;font-size:25px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Mensaje</h4>
+            </div>
+            <div class="modal-body" id="BodyMensaje">
+                <div id="divMensaje" style="text-align:center;">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-green" data-dismiss="modal">Aceptar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        function pageready() {
+            $('[data-toggle="tooltip"]').tooltip();
+            //Inicializa todas las tablas con la clase table
+            $('table.table').DataTable({
+                "language": {
+                    "lengthMenu": "Mostrar _MENU_ registros por página",
+                    "zeroRecords": "Lo sentimos, no se produjo ningún resultado.",
+                    "info": "Página _PAGE_ de _PAGES_",
+                    "infoEmpty": "No hay registros disponibles",
+                    "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                    "search": "Buscar",
+                    "previous": "Anterior",
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Siguiente"
+                    }
+                }
+            });
+        }
+
+        $(function () {
+            $("body").delegate("#dtpVencimiento", "focusin", function () {
+                $(this).datetimepicker({
+                    format: 'DD/MM/YYYY',
+                    locale: 'es'
+                });
+            });
+
+            $("body").delegate("#dtpNacimiento", "focusin", function () {
+                $(this).datetimepicker({
+                    format: 'DD/MM/YYYY',
+                    locale: 'es'
+                });
+            });
+        });
+
+        function getview(obj) {
+            $("#divLoading").show();
+            var nombre;
+            var controller;
+            //Si es string significa que fue llamado luego del success del Ajax
+            if (typeof obj === 'string') {
+                controller = '/Admin/' + obj;
+            } else {
+                nombre = $(obj).attr('name');
+                controller = '/Admin/' + nombre;
+            }
+            $.ajax(
+                {
+                    type: 'GET',
+                    dataType: 'html',
+                    url: controller,
+                    success: function (result) {
+                        $("#partial").html(result);
+                        //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
+                        pageready();
+                        $("#divLoading").hide();
+                    }
+                });
+        }
+
+        function AgregarEditarCategoria(pIdCategoria) {
+            var url = "/Admin/AgregarEditarCategoria?pIdCategoria=" + pIdCategoria;
+
+            $("#BodyNuevoCat").load(url, function () {
+                $("#NuevoModalCat").modal("show");
+            })
+        }
+
+        function ConfirmaEliminaCat(pIdCategoria) {
+            $("#IdCategoria").val(pIdCategoria);
+            $("#EliminaModalCat").modal("show");
+        }
+
+        function EliminarCategoria() {
+            var id = document.getElementById("IdCategoria").value;
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EliminarCategoria?pIdCategoria=" + id,
+                success: function () {
+                    $("#EliminaModalCat").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("Categorias");
+                }
+            })
+        }
+
+
+        function SubmitCategoria() {
+            var CamposObligatorios = true;
+
+            //Primero valido que haya completado los campos obligatorios
+            if (document.getElementById("txtNombreCategoria").value == "") {
+                document.getElementById("txtNombreError_Categoria").className = "show form-group input-validation-error form-group col-lg-12";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtNombreError_Categoria").className = "hide";
+            }
+
+
+            if (CamposObligatorios == false) {
+                return false;
+            }
+
+            var frmdata = $("#frmAgregarEditar").serialize();
+            var formData = new FormData($('#frmAgregarEditar')[0]);
+            formData.append('img-file', $('input[type=file]')[0].files[0]);
+            formData.append('model', $("#frmAgregarEditar").serialize());
+            $.ajax({
+                type: "POST",
+                url: "/Admin/AgregarEditarCategoria",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    $("#NuevoModalCat").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("Categorias");
+                }
+            })
+        }
+
+        function AgregarEditarProducto(pIdProducto) {
+            var url = "/Admin/AgregarEditarProducto?pIdProducto=" + pIdProducto;
+
+            $("#BodyNuevoProd").load(url, function () {
+                $("#NuevoModalProd").modal("show");
+            })
+        }
+
+        function ConfirmaEliminaProd(pIdProducto) {
+            $("#IdProducto").val(pIdProducto);
+            $("#EliminaModalProd").modal("show");
+        }
+
+        function EliminarProducto() {
+            var id = document.getElementById("IdProducto").value;
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EliminarProducto?pIdProducto=" + id,
+                success: function () {
+                    $("#EliminaModalProd").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("Productos");
+                }
+            })
+        }
+
+
+
+        function SubmitProducto() {
+            var CamposObligatorios = true;
+
+            //Primero valido que haya completado los campos obligatorios
+            if (document.getElementById("txtNombre_Producto").value == "") {
+                document.getElementById("txtNombreError_Producto").className = "show form-group input-validation-error form-group col-lg-12";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtNombreError_Producto").className = "hide";
+            }
+
+            if (document.getElementById("cmbCategoriaProducto").value == "") {
+                document.getElementById("cmbCategoriaProductoError").className = "show form-group input-validation-error";
+                CamposObligatorios = false;
+            }
+            else
+            {
+                document.getElementById("cmbCategoriaProductoError").className = "hide";
+            }
+            if (document.getElementById("txtStock").value == "") {
+                document.getElementById("txtStockError").className = "show form-group input-validation-error";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtStockError").className = "hide";
+            }
+            var Precio = document.getElementById("txtPrecio").value;
+
+            if (Precio == "") {
+                document.getElementById("txtPrecioError").className = "show form-group input-validation-error";
+                document.getElementById("txtPrecioError").innerHTML = 'El campo "Precio" es obligatorio';
+                CamposObligatorios = false;
+            }
+            else {
+                    //Si no es vacio, valido que sea un precio valido
+                    var regex = /^[1-9]\d*(((.\d{3}){1})?(\,\d{0,2})?)$/;
+                    if (!regex.test(Precio))
+                    {
+                        document.getElementById("txtPrecioError").className = "show form-group input-validation-error";
+                        document.getElementById("txtPrecioError").innerHTML = 'Debe ingresar un precio valido';
+                        CamposObligatorios = false;
+                    }
+                    else {
+                        document.getElementById("txtPrecioError").className = "hide";
+                    }
+            }
+
+            var PrecioDescuento = document.getElementById("txtPrecioDescuento").value;
+
+
+            if (PrecioDescuento == "") {
+                document.getElementById("txtPrecioDescuentoError").className = "show form-group input-validation-error";
+                document.getElementById("txtPrecioDescuentoError").innerHTML = 'El campo "Precio Descuento" es obligatorio';
+                CamposObligatorios = false;
+            }
+            else {
+                //Si no es vacio, valido que sea un precio valido
+                var regex = /^[1-9]\d*(((.\d{3}){1})?(\,\d{0,2})?)$/;
+                if (!regex.test(PrecioDescuento)) {
+                    document.getElementById("txtPrecioDescuentoError").className = "show form-group input-validation-error";
+                    document.getElementById("txtPrecioDescuentoError").innerHTML = 'Debe ingresar un precio valido';
+                    CamposObligatorios = false;
+                }
+                else {
+                    document.getElementById("txtPrecioDescuentoError").className = "hide";
+                }
+            }
+
+            if (document.getElementById("txtFechaVencimiento").value == "") {
+                document.getElementById("dtpFechaError").className = "show form-group input-validation-error";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("dtpFechaError").className = "hide";
+            }
+
+            if (document.getElementById("txtMarca").value == "") {
+                document.getElementById("txtMarcaError_Producto").className = "show form-group input-validation-error";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtMarcaError_Producto").className = "hide";
+            }
+
+            if (CamposObligatorios == false) {
+                return false;
+            }
+
+            var frmdata = $("#frmAgregarEditarProd").serialize();
+            var formData = new FormData($('#frmAgregarEditarProd')[0]);
+            formData.append('img-file', $('input[type=file]')[0].files[0]);
+            formData.append('model', $("#frmAgregarEditarProd").serialize());
+            $.ajax({
+                type: "POST",
+                url: "/Admin/AgregarEditarProducto",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    $("#NuevoModalProd").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("Productos");
+                }
+            })
+        }
+
+        function AgregarEditarPermiso(pIdPermiso) {
+            var url = "/Admin/AgregarEditarPermiso?pIdPermiso=" + pIdPermiso;
+
+            $("#BodyNuevoPer").load(url, function () {
+                $("#NuevoModalPer").modal("show");
+            })
+        }
+
+        function SubmitPermiso() {
+            var CamposObligatorios = true;
+
+            //Primero valido que haya completado los campos obligatorios
+            if (document.getElementById("txtNombrePermiso").value == "") {
+                document.getElementById("txtNombreError_Permiso").className = "show form-group input-validation-error form-group col-lg-12";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtNombreError_Permiso").className = "hide";
+            }
+
+            if (CamposObligatorios == false) {
+                return false;
+            }
+
+            var frmdata = $("#frmAgregarEditarPer").serialize();
+            var formData = new FormData($('#frmAgregarEditarPer')[0]);
+            formData.append('model', $("#frmAgregarEditarPer").serialize());
+
+            $.ajax({
+                type: "POST",
+                url: "/Admin/AgregarEditarPermiso",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    $("#NuevoModalPer").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("Permisos");
+                }
+            })
+        }
+
+        function ConfirmaEliminaPer(pIdPermiso) {
+            $("#IdPermiso").val(pIdPermiso);
+            $("#EliminaModalPer").modal("show");
+        }
+
+        function EliminarPermiso() {
+            var id = document.getElementById("IdPermiso").value;
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EliminarPermiso?pIdPermiso=" + id,
+                success: function () {
+                    $("#EliminaModalPer").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("Permisos");
+                }
+            })
+        }
+
+        function ConfirmaEliminaRol(pIdRol) {
+            $("#IdRol").val(pIdRol);
+            $("#EliminaModalRol").modal("show");
+        }
+
+        function EliminarRol() {
+            var id = document.getElementById("IdRol").value;
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EliminarRol?pIdRol=" + id,
+                success: function () {
+                    $("#EliminaModalRol").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                error: function (req, status, error) {
+                    document.getElementById("divMensaje").innerHTML = error;
+                    $("#EliminaModalRol").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                    $("#ModalMensaje").modal("show");
+                },
+                complete: function () {
+                    getview("Roles");
+                }
+            })
+        }
+
+        function AgregarEditarRol(pIdRol) {
+            var url = "/Admin/AgregarEditarRol?pIdRol=" + pIdRol;
+
+            $("#BodyNuevoRol").load(url, function () {
+                $("#NuevoModalRol").modal("show");
+            })
+        }
+
+        function SubmitRol() {
+            //Primero valido que haya completado los campos obligatorios
+            var Nombre = document.getElementById("txtNombreRol").value;
+
+            if (document.getElementById("txtNombreRol").value == "") {
+                document.getElementById("txtNombreError_Rol").className = "show form-group input-validation-error";
+            }
+            else {
+                document.getElementById("txtNombreError_Rol").className = "hide";
+
+                var frmdata = $("#frmAgregarEditarRol").serialize();
+                var formData = new FormData($('#frmAgregarEditarRol')[0]);
+                formData.append('model', $("#frmAgregarEditarRol").serialize());
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/AgregarEditarRol",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+                        $("#NuevoModalRol").modal("hide");
+                        $('body').removeClass('modal-open');
+                        $('.modal-backdrop').remove();
+                    },
+                    complete: function () {
+                        getview("Roles");
+                    }
+                })
+            }
+        }
+
+
+        function PermisosAsociados(pIdRol) {
+            $("#divLoading").show();
+            $.ajax(
+                {
+                    type: 'GET',
+                    dataType: 'html',
+                    url: '/Admin/PermisosAsociados?pIdRol=' + pIdRol,
+                    success: function (result) {
+                        $("#partial").html(result);
+                        //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
+                        pageready();
+                        $("#divLoading").hide();
+                    }
+                });
+        }
+
+        function AgregarPermiso(pIdRol) {
+            var url = "/Admin/AsociarPermiso?pIdRol=" + pIdRol;
+
+            $("#BodyAsociarPermiso").load(url, function () {
+                $("#ModalAsociarPermiso").modal("show");
+            })
+        }
+
+        function SubmitAsociarPermiso(pIdRol) {
+            //Primero valido que haya completado los campos obligatorios
+            if (document.getElementById("cmbAsociarPermiso").value == "") {
+                document.getElementById("cmbError_Asociar").className = "show form-group input-validation-error";
+            }
+            else {
+                document.getElementById("cmbError_Asociar").className = "hide";
+
+                var frmdata = $("#frmAsociarPermiso").serialize();
+                var formData = new FormData($('#frmAsociarPermiso')[0]);
+                formData.append('model', $("#frmAsociarPermiso").serialize());
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/AsociarPermiso",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+                        $("#ModalAsociarPermiso").modal("hide");
+                        $('body').removeClass('modal-open');
+                        $('.modal-backdrop').remove();
+                    },
+                    complete: function () {
+                        $.ajax(
+                            {
+                                type: 'GET',
+                                dataType: 'html',
+                                url: '/Admin/PermisosAsociados?pIdRol=' + pIdRol,
+                                success: function (result) {
+                                    $("#partial").html(result);
+                                    //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
+                                    pageready();
+                                    $("#divLoading").hide();
+                                }
+                            });
+                    }
+                })
+            }
+        }
+
+        function ConfirmaEliminaPermisoAsociado(pIdRol, pIdPermiso) {
+            $("#IdRolAsociado").val(pIdRol);
+            $("#IdPermisoAsociado").val(pIdPermiso);
+            $("#EliminaModalPermisosAsociados").modal("show");
+        }
+
+        function EliminarPermisoAsociado() {
+            var IdRol = document.getElementById("IdRolAsociado").value;
+            var IdPermiso = document.getElementById("IdPermisoAsociado").value;
+
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EliminarPermisoAsociado",
+                data: { pIdRol: IdRol, pIdPermiso: IdPermiso },
+                success: function () {
+                    $("#EliminaModalPermisosAsociados").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    $.ajax(
+                        {
+                            type: 'GET',
+                            dataType: 'html',
+                            url: '/Admin/PermisosAsociados?pIdRol=' + IdRol,
+                            success: function (result) {
+                                $("#partial").html(result);
+                                //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
+                                pageready();
+                                $("#divLoading").hide();
+                            }
+                        });
+                }
+            })
+        }
+
+        function AgregarEditarUsuario(pIdUsuario) {
+            var url = "/Admin/AgregarEditarUsuario?pIdUsuario=" + pIdUsuario;
+
+            $("#BodyNuevoUsuario").load(url, function () {
+                $("#NuevoModalUsuario").modal("show");
+            })
+        }
+
+        function ConfirmaEliminaUsuario(pIdUsuario) {
+            $("#IdUsuario").val(pIdUsuario);
+            $("#EliminaModalUsuario").modal("show");
+        }
+
+        function EliminarUsuario() {
+            var id = document.getElementById("IdUsuario").value;
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EliminarUsuario?pIdUsuario=" + id,
+                success: function () {
+                    $("#EliminaModalUsuario").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("Usuarios");
+                }
+            })
+        }
+
+        function SubmitUsuario() {
+            var CamposObligatorios = true;
+
+            //Primero valido que haya completado los campos obligatorios
+            if (document.getElementById("txtNombreApellido").value == "") {
+                document.getElementById("txtNombreError_Usuario").className = "show form-group input-validation-error form-group col-lg-12";
+                CamposObligatorios = false;
+            }
+
+            if (document.getElementById("txtEmailUsuario").value == "") {
+                document.getElementById("txtEmailError_Usuario").className = "show form-group input-validation-error col-lg-12";
+                CamposObligatorios = false;
+            }
+
+            if (document.getElementById("txtContraseñaUsuario").value == "") {
+                document.getElementById("txtContraseñaError_Usuario").className = "show form-group input-validation-error col-lg-12";
+                CamposObligatorios = false;
+            }
+
+            if (document.getElementById("txtFechaNacimiento").value == "") {
+                document.getElementById("txtNacimientoError_Usuario").className = "show form-group input-validation-error col-lg-12";
+                CamposObligatorios = false;
+            }
+
+            var IdTipoUsuario = $('#cmbTiposUsuarios').val();
+
+            if (IdTipoUsuario == 2) {
+                if (document.getElementById("cmbComercios").value == "") {
+                    CamposObligatorios = false;
+                    document.getElementById("txtComercioError_Usuario").className = "show form-group input-validation-error";
+                } else {
+                    document.getElementById("txtComercioError_Usuario").className = "hide";
+                }
+            }
+            else {
+                document.getElementById("txtComercioError_Usuario").className = "hide";
+            }
+
+            if (CamposObligatorios == false) {
+                return false;
+            }
+
+            document.getElementById("txtNombreError_Usuario").className = "hide";
+            document.getElementById("txtEmailError_Usuario").className = "hide";
+            document.getElementById("txtContraseñaError_Usuario").className = "hide";
+            document.getElementById("txtNacimientoError_Usuario").className = "hide";
+   
+            var frmdata = $("#frmAgregarEditarUsuario").serialize();
+            var formData = new FormData($('#frmAgregarEditarUsuario')[0]);
+            formData.append('model', $("#frmAgregarEditarUsuario").serialize());
+
+            $.ajax({
+                type: "POST",
+                url: "/Admin/AgregarEditarUsuario",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    $("#NuevoModalUsuario").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                error: function (req, status, error) {
+                    document.getElementById("divMensaje").innerHTML = error;
+                    $("#NuevoModalUsuario").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                    $("#ModalMensaje").modal("show");
+                },
+                complete: function () {
+                    getview("Usuarios");
+                }
+            })
+
+        }
+
+        function RolesAsociados(pIdUsuario) {
+            $("#divLoading").show();
+            $.ajax(
+                {
+                    type: 'GET',
+                    dataType: 'html',
+                    url: '/Admin/RolesAsociados?pIdUsuario=' + pIdUsuario,
+                    success: function (result) {
+                        $("#partial").html(result);
+                        //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
+                        pageready();
+                        $("#divLoading").hide();
+                    }
+                });
+        }
+
+        function AgregarRol(pIdUsuario) {
+            var url = "/Admin/AsociarRol?pIdUsuario=" + pIdUsuario;
+
+            $("#BodyAsociarRol").load(url, function () {
+                $("#ModalAsociarRol").modal("show");
+            })
+        }
+
+        function SubmitAsociarRol(pIdUsuario) {
+            //Primero valido que haya completado los campos obligatorios
+            if (document.getElementById("cmbAsociarRol").value == "") {
+                document.getElementById("cmbError_AsociarRol").className = "show form-group input-validation-error";
+            }
+            else {
+                document.getElementById("cmbError_AsociarRol").className = "hide";
+
+                var frmdata = $("#frmAsociarRol").serialize();
+                var formData = new FormData($('#frmAsociarRol')[0]);
+                formData.append('model', $("#frmAsociarRol").serialize());
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/AsociarRol",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+                        $("#ModalAsociarRol").modal("hide");
+                        $('body').removeClass('modal-open');
+                        $('.modal-backdrop').remove();
+                    },
+                    complete: function () {
+                        $.ajax(
+                            {
+                                type: 'GET',
+                                dataType: 'html',
+                                url: '/Admin/RolesAsociados?pIdUsuario=' + pIdUsuario,
+                                success: function (result) {
+                                    $("#partial").html(result);
+                                    //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
+                                    pageready();
+                                    $("#divLoading").hide();
+                                }
+                            });
+                    }
+                })
+            }
+        }
+
+        function ConfirmaEliminaRolAsociado(pIdUsuario, pIdRol) {
+            $("#IdUsuarioAsociado").val(pIdUsuario);
+            $("#IdRolAsociadoUsuario").val(pIdRol);
+            $("#EliminaModalRolesAsociados").modal("show");
+        }
+
+        function EliminarRolAsociado() {
+
+            var IdUsuario = document.getElementById("IdUsuarioAsociado").value;
+            var IdRol = document.getElementById("IdRolAsociadoUsuario").value;
+
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EliminarRolAsociado",
+                data: { pIdUsuario: IdUsuario, pIdRol: IdRol },
+                success: function () {
+                    $("#EliminaModalRolesAsociados").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    $.ajax(
+                        {
+                            type: 'GET',
+                            dataType: 'html',
+                            url: '/Admin/RolesAsociados?pIdUsuario=' + IdUsuario,
+                            success: function (result) {
+                                $("#partial").html(result);
+                                //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
+                                pageready();
+                                $("#divLoading").hide();
+                            }
+                        });
+                }
+            })
+        }
+
+        function ModificarEstado(pIdUsuario) {
+            var url = "/Admin/CambiarEstadoUsuario?pIdUsuario=" + pIdUsuario;
+
+            $("#BodyCambiaEstadoUsuario").load(url, function () {
+                $("#ModalCambiaEstadoUsuario").modal("show");
+            })
+        }
+
+        function SubmitCambioEstado() {
+            var CamposObligatorios = true;
+
+            //Primero valido que haya completado los campos obligatorios
+            if (document.getElementById("cmbCambiarEstado").value == "") {
+                document.getElementById("cmbError_EstadoUsuario").className = "show form-group input-validation-error form-group col-lg-12";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("cmbError_EstadoUsuario").className = "hide";
+            }
+
+           
+            if (CamposObligatorios == false) {
+                return false;
+            }
+
+            var frmdata = $("#frmCambiarEstadoUsuario").serialize();
+            var formData = new FormData($('#frmCambiarEstadoUsuario')[0]);
+            formData.append('model', $("#frmCambiarEstadoUsuario").serialize());
+            $.ajax({
+                type: "POST",
+                url: "/Admin/CambiarEstadoUsuario",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    $("#NModalCambiaEstadoUsuario").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("Usuarios");
+                }
+            })
+        }
+
+        function AgregarEditarComercio(pIdComercio) {
+            var url = "/Admin/AgregarEditarComercio?pIdComercio=" + pIdComercio;
+
+            $("#BodyNuevoComercio").load(url, function () {
+                $("#NuevoModalComercio").modal("show");
+            })
+        }
+
+        function ConfirmaEliminaComercio(pIdComercio) {
+            $("#IdComercio").val(pIdComercio);
+            $("#EliminaModalComercio").modal("show");
+        }
+
+        function EliminarComercio() {
+            var id = document.getElementById("IdComercio").value;
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EliminarComercio?pIdComercio=" + id,
+                success: function () {
+                    $("#EliminaModalComercio").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("Comercios");
+                }
+            })
+        }
+
+
+        function SubmitComercio() {
+            var CamposObligatorios = true;
+
+            //Primero valido que haya completado los campos obligatorios
+            if (document.getElementById("txtNombre_Comercio").value == "") {
+                document.getElementById("txtNombreError_Comercio").className = "show form-group input-validation-error form-group col-lg-12";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtNombreError_Comercio").className = "hide";
+            }
+
+            if (document.getElementById("txtDireccion_Comercio").value == "") {
+                document.getElementById("txtDireccionError_Comercio").className = "show form-group input-validation-error col-lg-12";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtDireccionError_Comercio").className = "hide";
+            }
+
+            if (document.getElementById("txtEmail_Comercio").value == "") {
+                document.getElementById("txtEmailError_Comercio").className = "show form-group input-validation-error col-lg-12";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtEmailError_Comercio").className = "hide";
+            }
+
+            if (CamposObligatorios == false) {
+                return false;
+            }
+
+
+            var frmdata = $("#frmAgregarEditarComercio").serialize();
+            var formData = new FormData($('#frmAgregarEditarComercio')[0]);
+            formData.append('img-file', $('input[type=file]')[0].files[0]);
+            formData.append('model', $("#frmAgregarEditarComercio").serialize());
+            $.ajax({
+                type: "POST",
+                url: "/Admin/AgregarEditarComercio",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    $("#NuevoModalComercio").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("Comercios");
+                }
+            })
+        }
+
+        function HabilitarComercios() {
+
+            var IdTipoUsuario = $('#cmbTiposUsuarios').val();
+
+            if (IdTipoUsuario == 2) {
+                $("#cmbComercios").prop("disabled", false);
+            }
+            else {
+                $("#cmbComercios").prop("disabled", true);
+            }
+        }
+
+        function AgregarEditarFormaPago(pIdFormaPago) {
+            var url = "/Admin/AgregarEditarFormaPago?pIdFormaPago=" + pIdFormaPago;
+
+            $("#BodyNuevoFormaPago").load(url, function () {
+                $("#NuevoModalFormaPago").modal("show");
+            })
+        }
+
+        function ConfirmaEliminaFormaPago(pIdFormaPago) {
+            $("#IdFormaPago").val(pIdFormaPago);
+            $("#EliminaModalFormaPago").modal("show");
+        }
+
+        function EliminarFormaPago() {
+            var id = document.getElementById("IdFormaPago").value;
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EliminarFormaPago?pIdFormaPago=" + id,
+                success: function () {
+                    $("#EliminaModalFormaPago").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("FormasPago");
+                }
+            })
+        }
+
+
+        function SubmitFormaPago() {
+            var CamposObligatorios = true;
+
+            //Primero valido que haya completado los campos obligatorios
+            if (document.getElementById("txtNombreFormaPago").value == "") {
+                document.getElementById("txtNombreError_FormaPago").className = "show form-group input-validation-error form-group col-lg-12";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtNombreError_FormaPago").className = "hide";
+            }
+
+
+            if (CamposObligatorios == false) {
+                return false;
+            }
+
+            var frmdata = $("#frmAgregarEditarFormaPago").serialize();
+            var formData = new FormData($('#frmAgregarEditarFormaPago')[0]);
+            formData.append('img-file', $('input[type=file]')[0].files[0]);
+            formData.append('model', $("#frmAgregarEditarFormaPago").serialize());
+            $.ajax({
+                type: "POST",
+                url: "/Admin/AgregarEditarFormaPago",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    $("#NuevoModalFormaPago").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("FormasPago");
+                }
+            })
+        }
+
+        function AgregarEditarFormaEntrega(pIdFormaEntrega) {
+            var url = "/Admin/AgregarEditarFormaEntrega?pIdFormaEntrega=" + pIdFormaEntrega;
+
+            $("#BodyNuevoFormaEntrega").load(url, function () {
+                $("#NuevoModalFormaEntrega").modal("show");
+            })
+        }
+
+        function ConfirmaEliminaFormaEntrega(pIdFormaEntrega) {
+            $("#IdFormaEntrega").val(pIdFormaEntrega);
+            $("#EliminaModalFormaEntrega").modal("show");
+        }
+
+        function EliminarFormaEntrega() {
+            var id = document.getElementById("IdFormaEntrega").value;
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EliminarFormaEntrega?pIdFormaEntrega=" + id,
+                success: function () {
+                    $("#EliminaModalFormaEntrega").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("FormasEntrega");
+                }
+            })
+        }
+
+
+        function SubmitFormaEntrega() {
+            var CamposObligatorios = true;
+
+            //Primero valido que haya completado los campos obligatorios
+            if (document.getElementById("txtNombreFormaEntrega").value == "") {
+                document.getElementById("txtNombreError_FormaEntrega").className = "show form-group input-validation-error form-group col-lg-12";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtNombreError_FormaEntrega").className = "hide";
+            }
+
+            var Precio = document.getElementById("txtPrecio_FormaEntrega").value;
+
+            if (Precio == "") {
+                document.getElementById("txtPrecioError_FormaEntrega").innerHTML = 'Campo Obligatorio';
+                document.getElementById("txtPrecioError_FormaEntrega").className = "show form-group input-validation-error form-group col-lg-12";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtPrecioError_FormaEntrega").className = "hide";
+                //Si no es vacio, valido que sea un precio valido
+                var regex = /^[1-9]\d*(((.\d{3}){1})?(\,\d{0,2})?)$/;
+                if (!regex.test(Precio)) {
+                    document.getElementById("txtPrecioError_FormaEntrega").className = "show form-group input-validation-error";
+                    document.getElementById("txtPrecioError_FormaEntrega").innerHTML = 'Debe ingresar un precio valido';
+                    CamposObligatorios = false;
+                }
+                else {
+                    document.getElementById("txtPrecioError_FormaEntrega").className = "hide";
+                }
+            }
+
+            if (document.getElementById("txtDescripcion_FormaEntrega").value == "") {
+                document.getElementById("txtDescripcionError_FormaEntrega").className = "show form-group input-validation-error form-group col-lg-12";
+                CamposObligatorios = false;
+            }
+            else {
+                document.getElementById("txtDescripcionError_FormaEntrega").className = "hide";
+            }
+          
+
+            if (CamposObligatorios == false) {
+                return false;
+            }
+
+            var frmdata = $("#frmAgregarEditarFormaEntrega").serialize();
+            var formData = new FormData($('#frmAgregarEditarFormaEntrega')[0]);
+            formData.append('img-file', $('input[type=file]')[0].files[0]);
+            formData.append('model', $("#frmAgregarEditarFormaEntrega").serialize());
+            $.ajax({
+                type: "POST",
+                url: "/Admin/AgregarEditarFormaEntrega",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function () {
+                    $("#NuevoModalFormaEntrega").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("FormasEntrega");
+                }
+            })
+        }
+
+        function AgregarFormaPagoComercio(pIdComercio) {
+            var url = "/Admin/AsociarFormaPago?pIdComercio=" + pIdComercio;
+
+            $("#BodyAsociarFormaPago").load(url, function () {
+                $("#ModalAsociarFormaPago").modal("show");
+            })
+        }
+
+        function SubmitAsociarFormaPago(pIdComercio) {
+            //Primero valido que haya completado los campos obligatorios
+            if (document.getElementById("cmbAsociarFormaPago").value == "") {
+                document.getElementById("cmbError_AsociarFormaPago").className = "show form-group input-validation-error";
+            }
+            else {
+                document.getElementById("cmbError_AsociarFormaPago").className = "hide";
+
+                var frmdata = $("#frmAsociarFormaPago").serialize();
+                var formData = new FormData($('#frmAsociarFormaPago')[0]);
+                formData.append('model', $("#frmAsociarFormaPago").serialize());
+
+                $.ajax({
+                    type: "POST",
+                    url: "/Admin/AsociarFormaPago",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function () {
+                        $("#ModalAsociarFormaPago").modal("hide");
+                        $('body').removeClass('modal-open');
+                        $('.modal-backdrop').remove();
+                    },
+                    complete: function () {
+                        getview("FormasPagoComercio");
+                    }
+                })
+            }
+        }
+
+        function ConfirmaEliminaFormaPagoComercio(pIdComercio, pIdFormaPago) {
+            $("#IdComercio").val(pIdComercio);
+            $("#IdFormaPago").val(pIdFormaPago);
+            $("#EliminaModalFormasPagoAsociados").modal("show");
+        }
+
+        function EliminarFormaPagoAsociado() {
+
+            var IdComercio = document.getElementById("IdComercio").value;
+            var IdFormaPago = document.getElementById("IdFormaPago").value;
+
+            $.ajax({
+                type: "POST",
+                url: "/Admin/EliminarFormaPagoAsociado",
+                data: { pIdComercio: IdComercio, pIdFormaPago: IdFormaPago },
+                success: function () {
+                    $("#EliminaModalFormasPagoAsociados").modal("hide");
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                },
+                complete: function () {
+                    getview("FormasPagoComercio");
+                }
+            })
+        }
+    </script>
+}
+

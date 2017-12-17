@@ -1,0 +1,27 @@
+﻿@model StillFood.Models.Usuario
+
+@{
+    ViewBag.Title = "CambioContraseña";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @using (@Html.BeginForm())
+    {
+        <div class="col-lg-6 col-lg-offset-3 margin-top-25px">
+            @Html.HiddenFor(usuario => usuario.Id)
+            <div class="form-group col-lg-12">
+                @Html.TextBoxFor(usuario => usuario.Contraseña, new { id = "txtContraseña", placeholder = "Nueva Contraseña", @class = "form-control glowing-border", type = "password" })
+                @Html.ValidationMessageFor(usuario => usuario.Contraseña)
+            </div>
+            <div class="form-group col-lg-12">
+                @Html.TextBoxFor(usuario => usuario.ConfirmarContraseña, new { id = "txtNuevaContraseña", placeholder = "Confirmar Nueva Contraseña", @class = "form-control glowing-border", type = "password" })
+                @Html.ValidationMessageFor(usuario => usuario.ConfirmarContraseña)
+            </div>
+            <div class="col-lg-12">
+                <input type="submit" class="btn btn-block btn-green" value="Modificar">
+            </div>
+        </div>
+    }
+</div>
+

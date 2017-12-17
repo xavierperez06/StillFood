@@ -1,0 +1,18 @@
+﻿@model StillFood.Models.Usuario
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "frmCambiarEstadoUsuario" }))
+{
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="form-group">
+                @Html.HiddenFor(model => model.Id)
+                @Html.DropDownListFor(model => model.IdEstado, (from StillFood.Common.Enums.eEstadosUsuarios e in Enum.GetValues(typeof(StillFood.Common.Enums.eEstadosUsuarios))
+                                                                    select new SelectListItem { Value = ((int)e).ToString(), Text = e.ToString() }), "-- Seleccione un Estado --", new { id = "cmbCambiarEstado", @class = "form-control glowing-border" })
+            </div>
+            <div class="hide" id="cmbError_EstadoUsuario">
+                Debe seleccionar un estado
+            </div>
+        </div>
+    </div>
+}
+

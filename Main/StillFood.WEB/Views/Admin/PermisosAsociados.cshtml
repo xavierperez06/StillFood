@@ -1,0 +1,84 @@
+﻿@model StillFood.Models.Rol
+
+<div class="row">
+    <div class="tit-admin">Permisos Asociados</div>
+</div>
+<div class="row">
+    <div style="padding-left:15px;">
+        <strong>Rol:</strong> @Model.Nombre
+    </div>
+
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-4 col-lg-offset-4">
+        <input type="hidden" id="IdRolAsociado" />
+        <input type="hidden" id="IdPermisoAsociado" />
+        <a class="btn btn-success" data-toggle="tooltip" title="Agregar Permiso" onclick="AgregarPermiso(@Model.Id)"><i class="glyphicon glyphicon-plus"></i></a>
+        <div class="table-responsive">
+            <table id="tblPermisos" class="table table-hover table-condensed">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var wPermiso in Model.Permisos)
+            {
+                        <tr>
+                            @if (wPermiso.Activo)
+                            {
+                                <td>@wPermiso.Nombre</td>
+                                <td>@wPermiso.Descripcion</td>
+                            }
+                            else
+                            {
+                                <td style="background-color:#F5A9A9;">@wPermiso.Nombre</td>
+                                <td style="background-color:#F5A9A9;">@wPermiso.Descripcion</td>
+                            }
+                            <td style="text-align:center;">
+                                <a class="btn btn-danger" style="margin-left:5px;" data-toggle="tooltip" title="Eliminar" onclick="ConfirmaEliminaPermisoAsociado(@Model.Id,@wPermiso.Id)"><i class="glyphicon glyphicon-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+
+<!-- Modal para Asociar Permiso a Rol -->
+<div class="modal fade" id="ModalAsociarPermiso" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#A3BD31;color:white;font-size:25px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Asociar Permiso a Rol</h4>
+            </div>
+            <div class="modal-body" id="BodyAsociarPermiso">
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-green" onclick="SubmitAsociarPermiso(@Model.Id)">Guardar</a>
+                <a class="btn btn-green" data-dismiss="modal">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Eliminacion -->
+<div class="modal fade" id="EliminaModalPermisosAsociados" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#FE2E2E;color:white;font-size:25px;">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Desasociar Permiso de Rol</h4>
+            </div>
+            <div class="modal-body" id="BodyEliminaPermisoAsociado">
+                <h4 style="text-align:center;"><img style="margin-right:5px;" src="~/Content/Img/Alert.png" />¿Está seguro que desea eliminar el permiso seleccionado?</h4>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-green" style="width:40px;height:35px;" onclick="EliminarPermisoAsociado()">Sí</a>
+                <a class="btn btn-green" style="width:40px;height:35px;" data-dismiss="modal">No</a>
+            </div>
+        </div>
+    </div>
+</div>
