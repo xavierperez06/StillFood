@@ -58,3 +58,32 @@ D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Common\bin\Debug\
 D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Common\bin\Debug\StillFood.DAL.dll.config
 D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Common\bin\Debug\StillFood.Entities.pdb
 D:\Xavier\Facultad\UAI\Proyecto Final\StillFood\Main\StillFood.Common\bin\Debug\EntityFramework.xml
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\StillFood.Common.dll.config
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\StillFood.Common.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\StillFood.Common.pdb
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.Owin.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\StillFood.DAL.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\StillFood.Entities.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\StillFood.Models.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\EntityFramework.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\StillFood.DAL.pdb
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\StillFood.DAL.dll.config
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\StillFood.Entities.pdb
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\StillFood.Models.pdb
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.Owin.xml
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\bin\Debug\EntityFramework.xml
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\obj\Debug\StillFood.Common.csprojResolveAssemblyReference.cache
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\obj\Debug\StillFood.Common.dll
+C:\Users\Xavier\Documents\GitHub\StillFood\Main\StillFood.Common\obj\Debug\StillFood.Common.pdb

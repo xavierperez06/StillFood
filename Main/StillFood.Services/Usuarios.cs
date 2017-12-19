@@ -86,5 +86,12 @@ namespace StillFood.Services
             Business.Usuario wUsuario = new Business.Usuario();
             wUsuario.ModificarRoles(ORM.UsuarioModelToEntitie(pUsuario));
         }
+
+        public int Validar(Models.Usuario pUsuario)
+        {
+            Business.Usuario wUsuario = new Business.Usuario();
+
+            return wUsuario.Validar(ORM.UsuarioModelToEntitie(pUsuario));
+        }
     }
 }

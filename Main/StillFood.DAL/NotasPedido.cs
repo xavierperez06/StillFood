@@ -16,11 +16,15 @@ namespace StillFood.DAL
             {
                 try
                 {
+                    if(pNotaPedido.IdDireccion == 0)
+                    {
+                        pNotaPedido.IdDireccion = null;
+                    }
                     wContext.NotasPedidos.Add(pNotaPedido);
                     wContext.SaveChanges();
                     wId = pNotaPedido.Id;
                 }
-                catch
+                catch(Exception ex)
                 {
                     wId = 0;
                 }
@@ -48,14 +52,21 @@ namespace StillFood.DAL
         {
             using (StillFoodModel wContext = new StillFoodModel())
             {
-                int wNumero = wContext.NotasPedidos.Max(np => np.Numero);
+                int? wNumero = wContext.NotasPedidos.Max(np => (int?)np.Numero);
 
-                if (wNumero == 0)
-                    wNumero = 1;
+                if (wNumero.HasValue)
+                {
+                    if (wNumero.Value == 0)
+                        wNumero = 1;
+                    else
+                        wNumero = wNumero + 1;
+                }
                 else
-                    wNumero = wNumero + 1;
-
-                return wNumero;
+                {
+                    wNumero = 1;
+                }
+                
+                return wNumero.Value;
             }
         }
 
@@ -72,6 +83,14 @@ namespace StillFood.DAL
             using (StillFoodModel wContext = new StillFoodModel())
             {
                 return wContext.NotasPedidos.Where(np => np.IdUsuario == pId).ToList();
+            }
+        }
+
+        public List<Entities.NotaPedido> ObtenerNotasPedidoPorIdComercio(int pId)
+        {
+            using (StillFoodModel wContext = new StillFoodModel())
+            {
+                return wContext.NotasPedidos.Where(np => np.IdComercio == pId).ToList();
             }
         }
     }

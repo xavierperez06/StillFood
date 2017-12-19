@@ -14,6 +14,7 @@ namespace StillFood.Business
         {
             DAL.Usuarios wUsuariosDAL = new DAL.Usuarios();
             int wId = 0;
+            pUsuario.Contraseña = Common.Utils.EncriptarContraseña(pUsuario.Contraseña);
 
             if (pUsuario.Id == 0)
             {
@@ -59,6 +60,8 @@ namespace StillFood.Business
                 pUsuario.IdEstado = Convert.ToInt32(Common.Enums.eEstadosUsuarios.Creado);
                 pUsuario.IdConfirmacion = Guid.NewGuid();
                 pUsuario.FechaExpConfirmacion = DateTime.Now.AddDays(2);
+                //Encripto la contraseñs
+                pUsuario.Contraseña = Common.Utils.EncriptarContraseña(pUsuario.Contraseña);
                 int wIdUsuario = wUsuariosDAL.Agregar(pUsuario);
                 //Envio el correo
                 Common.ServicioEmail wServicio = new Common.ServicioEmail();
@@ -201,6 +204,21 @@ namespace StillFood.Business
         {
             DAL.Usuarios wUsuariosDAL = new DAL.Usuarios();
             wUsuariosDAL.ModificarRoles(pUsuario);
+        }
+
+        public int Validar(Entities.Usuario pUsuario)
+        {
+            DAL.Usuarios wUsuariosDAL = new DAL.Usuarios();
+            int wId = 0;
+
+            wId = wUsuariosDAL.Editar(pUsuario);
+            //Obtengo el rol a agregar
+            DAL.Roles wRolesDAL = new DAL.Roles();
+            Entities.Rol wRol = wRolesDAL.ObtenerRol((int)Common.Enums.eRoles.Consumidor);
+            pUsuario.Roles.Add(wRol);
+            wUsuariosDAL.ModificarRoles(pUsuario);
+
+            return wId;
         }
     }
 }

@@ -47,6 +47,11 @@ namespace StillFood.WEB.Controllers
                 Services.Compras wComprasServices = new Services.Compras();
                 controller = new UsuarioController(wUsuariosServices,wUsuariosDireccionesServices,wLogsServices,wComprasServices);
             }
+            else if(controllerType == typeof(ComercioController))
+            {
+                Services.Compras wComprasServices = new Services.Compras();
+                controller = new ComercioController(wComprasServices);
+            }
             else
             {
                 controller = Activator.CreateInstance(controllerType) as IController;

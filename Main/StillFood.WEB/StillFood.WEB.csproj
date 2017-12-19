@@ -150,6 +150,7 @@
     <Compile Include="Atributtes\PermisoAttribute.cs" />
     <Compile Include="Atributtes\SessionAttribute.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ComercioController.cs" />
     <Compile Include="Controllers\ComprasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StillFoodControllerFactory.cs" />
@@ -526,6 +527,7 @@
     <Content Include="Views\Usuario\MisDatos.cshtml" />
     <Content Include="Views\Usuario\MisPedidos.cshtml" />
     <Content Include="Views\Compras\DetalleProducto.cshtml" />
+    <Content Include="Views\Comercio\Pedidos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

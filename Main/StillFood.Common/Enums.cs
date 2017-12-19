@@ -22,7 +22,16 @@ namespace StillFood.Common
             AdministrarFormasEntrega = 9,
             AdministrarFormasPagoComercio = 10,
             VerComercios = 11,
-            RealizarCompras = 12
+            RealizarCompras = 12,
+            VerPedidosComercio = 13
+        }
+
+        public enum eRoles
+        {
+            ComercianteAdministrador = 1,
+            Comerciante = 2,
+            Administrador = 3,
+            Consumidor = 4
         }
 
         public enum eTiposUsuarios

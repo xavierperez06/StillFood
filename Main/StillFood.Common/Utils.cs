@@ -137,5 +137,20 @@ namespace StillFood.Common
 
             return wDescripcion;
         }
+
+        public static string ObtenerNombreUsuario(int pIdUsuario)
+        {
+            string wNombre = string.Empty;
+
+            DAL.Usuarios wUsuariosDAL = new DAL.Usuarios();
+            Entities.Usuario wUsuario = wUsuariosDAL.ObtenerUsuario(pIdUsuario);
+
+            if(wUsuario != null)
+            {
+                wNombre = wUsuario.NombreApellido;
+            }
+
+            return wNombre;
+        }
     }
 }

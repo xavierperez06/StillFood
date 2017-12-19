@@ -28,6 +28,7 @@
         public StillFoodModel()
             : base("name=StillFoodModel")
         {
+            Database.SetInitializer<StillFoodModel>(null);
         }
 
 

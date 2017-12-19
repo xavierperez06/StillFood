@@ -350,7 +350,7 @@ namespace StillFood.WEB.Controllers
                             wNotasDetalle.Add(wDetalle);
                         }
                         //Si el guardado de los detalles devuelve false, elimino la nota de pedido y muestro un mensaje el usuario
-                        if (!mComprasServices.GuardarDetalles(wNotasDetalle))
+                        if (!mComprasServices.GuardarDetalles(wNotasDetalle,wNotaPedido.IdComercio))
                         {
                             TempData["Mensaje"] = "Ocurrió un error al realizar la compra. Por favor vuelva a intentarlo más tarde. <br/> Si el problema persiste comuniquese con algún administrador.";
                             return RedirectToAction("Mensaje", "Home");
@@ -434,7 +434,7 @@ namespace StillFood.WEB.Controllers
                             wNotasDetalle.Add(wDetalle);
                         }
                         //Si el guardado de los detalles devuelve false, elimino la nota de pedido y muestro un mensaje el usuario
-                        if (!mComprasServices.GuardarDetalles(wNotasDetalle))
+                        if (!mComprasServices.GuardarDetalles(wNotasDetalle,wNotaPedido.IdComercio))
                         {
                             TempData["Mensaje"] = "Ocurrió un error al realizar la compra. Por favor vuelva a intentarlo más tarde. <br/> Si el problema persiste comuniquese con algún administrador.";
                             return RedirectToAction("Mensaje", "Home");

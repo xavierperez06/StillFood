@@ -299,28 +299,38 @@ namespace StillFood.WEB.Controllers
         [HttpPost]
         public ActionResult AgregarEditarUsuario(Models.Usuario pUsuario)
         {
-            //Primero busco que no exista ya un usuario con el email ingresado
-            Models.Usuario wUsuario = mUsuariosServices.ObtenerUsuarioPorEmail(pUsuario.Email);
-
-            if(wUsuario == null)
+            if (!pUsuario.IdTipoUsuario.Equals((int)Common.Enums.eTiposUsuarios.Comerciante))
             {
-                pUsuario.FechaAlta = DateTime.Now;
-                pUsuario.IdEstado = Convert.ToInt32(Common.Enums.eEstadosUsuarios.Creado);
+                pUsuario.IdComercio = null;
+            }
 
-                if (!pUsuario.IdTipoUsuario.Equals(Common.Enums.eTiposUsuarios.Comerciante))
+            //Si el Id es distinto de cero entonces es una edicion
+            if (pUsuario.Id == 0)
+            {
+                //Primero busco que no exista ya un usuario con el email ingresado
+                Models.Usuario wUsuario = mUsuariosServices.ObtenerUsuarioPorEmail(pUsuario.Email);
+
+                if (wUsuario == null)
                 {
-                    pUsuario.IdComercio = null;
-                }
+                    pUsuario.FechaAlta = DateTime.Now;
+                    pUsuario.IdEstado = Convert.ToInt32(Common.Enums.eEstadosUsuarios.Creado);
 
+                    mUsuariosServices.Guardar(pUsuario);
+
+                    return RedirectToAction("Administracion", "Admin");
+                }
+                else
+                {
+                    return new HttpStatusCodeResult(400, "El usuario no se ha creado. <strong>Motivo:</strong> El correo electrónico ingresado ya existe.");
+                }
+            }
+            else
+            {
                 mUsuariosServices.Guardar(pUsuario);
 
                 return RedirectToAction("Administracion", "Admin");
             }
-            else
-            {
-                return new HttpStatusCodeResult(400, "El usuario no se ha creado. <strong>Motivo:</strong> El correo electrónico ingresado ya existe.");
-            }
-
+          
         }
 
         [HttpPost]

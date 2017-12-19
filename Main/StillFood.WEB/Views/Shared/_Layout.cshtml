@@ -109,9 +109,18 @@
                                     <li><a href="@Url.Action("MisDirecciones","Usuario")">Mis Direcciones</a></li>
                                     <li><a href="@Url.Action("MisPedidos","Usuario")">Mis Pedidos</a></li>
                                 }
-                                else
+                                else if (wUsuario.IdTipoUsuario.Equals(Convert.ToInt32(StillFood.Common.Enums.eTiposUsuarios.Comerciante)))
                                 {
-                                    <li><a href="@Url.Action("Administracion","Admin")">Administrción</a></li>
+                                    if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.VerAdministracion))
+                                    {
+                                        <li><a href="@Url.Action("Administracion","Admin")">Administración</a></li>
+                                    }
+                                    if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.VerPedidosComercio))
+                                    {
+                                        <li><a href="@Url.Action("Pedidos","Comercio")">Pedidos</a></li>
+                                    }
+
+
                                 }
 
                                 <li class="divider"></li>

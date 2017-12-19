@@ -4,6 +4,12 @@
 {
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
+            @Html.HiddenFor(usuario => usuario.Id)
+            @Html.HiddenFor(usuario => usuario.IdEstado)
+            @Html.HiddenFor(usuario => usuario.FechaAlta)
+            @Html.HiddenFor(usuario => usuario.IdConfirmacion)
+            @Html.HiddenFor(usuario => usuario.FechaExpConfirmacion)
+            @Html.HiddenFor(usuario => usuario.IdRecuperoContraseña)
             <div class="form-group col-lg-12">
                 @Html.HiddenFor(usuario => usuario.Id)
                 @Html.TextBoxFor(usuario => usuario.NombreApellido, new { id = "txtNombreApellido", placeholder = "Nombre y Apellido", @class = "form-control glowing-border" })
@@ -40,6 +46,9 @@
             <div class="form-group col-lg-6">
                @Html.DropDownListFor(model => model.IdTipoUsuario, (from StillFood.Common.Enums.eTiposUsuarios e in Enum.GetValues(typeof(StillFood.Common.Enums.eTiposUsuarios))
                                                                     select new SelectListItem { Value = ((int)e).ToString(), Text = e.ToString() }), "Tipo de Usuario" , new { id = "cmbTiposUsuarios", @class = "form-control glowing-border", @onchange = "HabilitarComercios();" })
+                <div class="hide" id="txtTipoUsuarioError_Usuario">
+                    El campo "Tipo de Usuario" es obligatorio
+                </div>
             </div>
             <div class="form-group col-lg-6">
                 @Html.DropDownListFor(usuario => usuario.IdComercio, new SelectList(Model.Comercios, "Id", "Nombre"),"Comercio" , new { id = "cmbComercios", @class = "form-control glowing-border", data_placeholder = "Choose items", disabled = "disabled" })

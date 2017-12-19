@@ -81,9 +81,13 @@ namespace StillFood.WEB.Facade
             var wNewTicket = new FormsAuthenticationTicket(wTicket.Version, wTicket.Name, wTicket.IssueDate, wTicket.Expiration, wTicket.IsPersistent, pUsuario.Id.ToString());
 
             wCookie.Value = FormsAuthentication.Encrypt(wNewTicket);
-            HttpContext.Current.Response.Cookies.Add(wCookie);
 
-            HttpContext.Current.Session["Usuario"] = pUsuario;
+            if(HttpContext.Current != null)
+            {
+                HttpContext.Current.Response.Cookies.Add(wCookie);
+
+                HttpContext.Current.Session["Usuario"] = pUsuario;
+            }        
         }
 
         public Common.Enums.eResultadoLogin Autenticar(string pEmail,string pContraseña,bool pRecuerdame)
@@ -115,6 +119,32 @@ namespace StillFood.WEB.Facade
                         wResultado = Common.Enums.eResultadoLogin.ContraseñaIncorrecta;
                     }
                 }             
+            }
+
+            return wResultado;
+        }
+
+        public Common.Enums.eResultadoLogin Autenticar(string pEmail, bool pRecuerdame)
+        {
+            Common.Enums.eResultadoLogin wResultado;
+            //Primero checkeo que exista el usuario
+            Models.Usuario wUsuario = mUsuariosServices.ObtenerUsuarioPorEmail(pEmail.Trim());
+            if (wUsuario == null)
+            {
+                wResultado = Common.Enums.eResultadoLogin.UsuarioIncorrecto;
+            }
+            else
+            {
+                //Si el usuario existe checkeo si esta activo
+                if (!wUsuario.IdEstado.Equals(Convert.ToInt32(Common.Enums.eEstadosUsuarios.Activo)))
+                {
+                    wResultado = Common.Enums.eResultadoLogin.Inactivo;
+                }
+                else
+                {
+                    wResultado = Common.Enums.eResultadoLogin.Logueado;
+                    AgregarUsuarioASesion(wUsuario, pRecuerdame);
+                }
             }
 
             return wResultado;

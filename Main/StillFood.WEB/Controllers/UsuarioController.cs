@@ -41,8 +41,6 @@ namespace StillFood.WEB.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ModelState.Clear();
-                ModelState.AddModelError(string.Empty, "Debe completar los campos obligatorios.");
                 return View(pUsuario);
             }
             else
@@ -65,7 +63,7 @@ namespace StillFood.WEB.Controllers
                 }
             }
 
-            //Si todo fue exitoso muestro un mensaje informandole al usuario
+            //Si todo fue exitoso muestro un mensaje informandole al usuario, pero antes le agrego el Rol de Consumidor
             TempData["Mensaje"] = "La registración se ha realizado satisfactoriamente. Le hemos envíado un correo electrónico para finalizar el proceso.<br/> Muchas gracias por sumarse a StillFood.";
             return RedirectToAction("Mensaje", "Home");
         }
@@ -92,10 +90,11 @@ namespace StillFood.WEB.Controllers
                 {
                     //Si pasa todas las validaciones lo redirecciono a la home ya logueado y le cambio el estado al usuario
                     wUsuario.IdEstado = Convert.ToInt32(Common.Enums.eEstadosUsuarios.Activo);
-                    mUsuariosServices.Guardar(wUsuario);
+                    mUsuariosServices.Validar(wUsuario);
 
                     Facade.FacadeSecurity wFacade = new Facade.FacadeSecurity();
-                    Common.Enums.eResultadoLogin wResultado = wFacade.Autenticar(wUsuario.Email, wUsuario.Contraseña, false);
+                    //No le paso la contraseña porque ya viene validado desde el email
+                    Common.Enums.eResultadoLogin wResultado = wFacade.Autenticar(wUsuario.Email, false);
 
                     if (wResultado.Equals(Common.Enums.eResultadoLogin.Logueado))
                     {

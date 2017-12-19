@@ -702,6 +702,16 @@
 
             var IdTipoUsuario = $('#cmbTiposUsuarios').val();
 
+            if (IdTipoUsuario == 0)
+            {
+                CamposObligatorios = false;
+                document.getElementById("txtTipoUsuarioError_Usuario").className = "show form-group input-validation-error";
+            }
+            else
+            {
+                document.getElementById("txtTipoUsuarioError_Usuario").className = "hide";
+            }
+
             if (IdTipoUsuario == 2) {
                 if (document.getElementById("cmbComercios").value == "") {
                     CamposObligatorios = false;

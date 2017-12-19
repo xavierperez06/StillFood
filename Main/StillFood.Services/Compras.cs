@@ -22,6 +22,13 @@ namespace StillFood.Services
             return ORM.ListaNotaPedidoEntitieAModel(wCompras.ObtenerNotasPedidoPorIdUsuario(pIdUsuario));
         }
 
+        public List<Models.NotaPedido> ObtenerNotasPedidoPorIdComercio(int pIdUsuario)
+        {
+            Business.Compra wCompras = new Business.Compra();
+
+            return ORM.ListaNotaPedidoEntitieAModel(wCompras.ObtenerNotasPedidoPorIdComercio(pIdUsuario));
+        }
+
         public int GuardarNotaPedido(Models.NotaPedido pNotaPedido)
         {
             Business.Compra wCompras = new Business.Compra();
@@ -29,11 +36,11 @@ namespace StillFood.Services
             return wCompras.GuardarNotaPedido(ORM.NotaPedidoModelToEntitie(pNotaPedido));
         }
 
-        public bool GuardarDetalles(List<Models.NotaPedidoDetalle> pListaDetalle)
+        public bool GuardarDetalles(List<Models.NotaPedidoDetalle> pListaDetalle, int pIdComercio)
         {
             Business.Compra wCompras = new Business.Compra();
 
-            return wCompras.GuardarDetalles(ORM.ListaNotaPedidoDetalleModelAEntitie(pListaDetalle));
+            return wCompras.GuardarDetalles(ORM.ListaNotaPedidoDetalleModelAEntitie(pListaDetalle),pIdComercio);
         }
     }
 }
