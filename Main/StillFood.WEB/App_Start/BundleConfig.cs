@@ -9,7 +9,6 @@ namespace StillFood.WEB
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                "~/Scripts/jquery-2.2.4.js",
                 "~/Scripts/jquery-1.12.4.js",
                 "~/Scripts/moment-with-locales.js"));
 
@@ -26,6 +25,9 @@ namespace StillFood.WEB
                       "~/Content/bootstrap.css",
                       "~/Content/StillFood.css",
                       "~/Content/DataTables/jquery.dataTables.css"));
+
+            bundles.IgnoreList.Clear();
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

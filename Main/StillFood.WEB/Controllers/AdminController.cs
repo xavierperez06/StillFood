@@ -304,12 +304,11 @@ namespace StillFood.WEB.Controllers
                 pUsuario.IdComercio = null;
             }
 
+            Models.Usuario wUsuario = mUsuariosServices.ObtenerUsuarioPorEmail(pUsuario.Email);
+
             //Si el Id es distinto de cero entonces es una edicion
             if (pUsuario.Id == 0)
             {
-                //Primero busco que no exista ya un usuario con el email ingresado
-                Models.Usuario wUsuario = mUsuariosServices.ObtenerUsuarioPorEmail(pUsuario.Email);
-
                 if (wUsuario == null)
                 {
                     pUsuario.FechaAlta = DateTime.Now;
@@ -326,6 +325,14 @@ namespace StillFood.WEB.Controllers
             }
             else
             {
+                if (pUsuario.IdComercio == null)
+                    pUsuario.IdComercio = wUsuario.IdComercio;
+
+                pUsuario.IdEstado = wUsuario.IdEstado;
+
+                if (pUsuario.Contraseña != wUsuario.Contraseña)
+                    pUsuario.Contraseña = Common.Utils.EncriptarContraseña(pUsuario.Contraseña);
+
                 mUsuariosServices.Guardar(pUsuario);
 
                 return RedirectToAction("Administracion", "Admin");
