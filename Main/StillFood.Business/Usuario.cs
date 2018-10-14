@@ -14,7 +14,6 @@ namespace StillFood.Business
         {
             DAL.Usuarios wUsuariosDAL = new DAL.Usuarios();
             int wId = 0;
-            pUsuario.Contraseña = Common.Utils.EncriptarContraseña(pUsuario.Contraseña);
 
             if (pUsuario.Id == 0)
             {

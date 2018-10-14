@@ -10,21 +10,23 @@
 </div>
 
 <div class="container">
-    <div class="panel panel-default">
-        <div class="panel-body">
-            @foreach (var wNota in Model)
-            {
+     <div class="col-lg-8 col-lg-offset-2">
+
+        @foreach (var wNota in Model)
+        {
+            <div class="pedido-box effect2 ">
                 <div class="media">
                     <div class="media-left">
                         <img src="~/Content/Img/Pedido-Icon.png" class="media-object" style="width:60px">
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading txt-green">@StillFood.Common.Utils.ObtenerNombreUsuario(wNota.IdUsuario)</h4>
-                        <p>Pedido realizado el @wNota.FechaAlta.ToShortDateString()<span class="vertical-line-30" style="padding-left:10px;"></span><strong>  Estado: </strong>@StillFood.Common.Utils.GetEnumDescription((StillFood.Common.Enums.eEstadosNotasPedido)wNota.IdEstado)</p>
+                        <h4 class="media-heading">@Html.ActionLink(@StillFood.Common.Utils.ObtenerNombreUsuario(wNota.IdUsuario),"Comercio","DetallePedido", new { pIdPedido = wNota.Id }, new { @class = "nombre-usuario" })</h4>
+                        <p>Pedido realizado el @wNota.FechaAlta.ToShortDateString()<span class="vertical-line-30" style="padding-left:10px;"></span><strong>  Estado: </strong>@StillFood.Common.Utils.GetEnumDescription((StillFood.Common.Enums.eEstadosNotasPedido)wNota.IdEstado) <span class="vertical-line-30" style="padding-left:10px;margin-right:5px;"></span> <strong>  N° de Pedido: </strong>@wNota.Numero</p>
                     </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
+
     </div>
 </div>
 
