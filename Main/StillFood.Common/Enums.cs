@@ -84,11 +84,11 @@ namespace StillFood.Common
         public enum eEstadosNotasPedido
         {
             Realizado = 1,
+            [Description("En Preparación")]
             EnPreparacion = 2,
             Praparado = 3,
-            Enviado = 4,
-            Terminado = 5,
-            Cancelado = 6
+            Entregado = 4,
+            Cancelado = 5
         }
 
         public enum eFormasPago
@@ -103,6 +103,20 @@ namespace StillFood.Common
             Ok = 1,
             Error = 2,
             MailInexistente = 3
+        }
+
+        public enum eResultadoAccion
+        {
+            Ok = 1,
+            Error = 2
+        }
+
+        public enum eAccionCommand
+        {
+            IngresosDiarios = 1,
+            IngresosMensuales = 2,
+            ProductosVendidosPorCategoria = 3,
+            Stock
         }
     }
 }

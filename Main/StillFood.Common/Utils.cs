@@ -38,27 +38,45 @@ namespace StillFood.Common
             return wDescripcion;
         }
 
-        public static string ObtenerDescripcionDireccion(int pIdDireccion)
+        public static string ObtenerDescripcionDireccion(int? pIdDireccion)
         {
             string wDescripcion = string.Empty;
 
-            DAL.UsuariosDirecciones wDirecciones = new DAL.UsuariosDirecciones();
-            Entities.UsuarioDireccion wDireccion = wDirecciones.ObtenerDireccion(pIdDireccion);
-
-            if(wDireccion != null)
+            if (pIdDireccion.HasValue)
             {
-                if (!string.IsNullOrWhiteSpace(wDireccion.Departamento) && wDireccion.Piso.HasValue)
+                DAL.UsuariosDirecciones wDirecciones = new DAL.UsuariosDirecciones();
+                Entities.UsuarioDireccion wDireccion = wDirecciones.ObtenerDireccion(pIdDireccion.Value);
+
+                if (wDireccion != null)
                 {
-                    wDescripcion = String.Concat(wDireccion.Calle, " ", wDireccion.Numero, " Piso: ", wDireccion.Piso, " Departamento: ", wDireccion.Departamento);
+                    if (!string.IsNullOrWhiteSpace(wDireccion.Departamento) && wDireccion.Piso.HasValue)
+                    {
+                        wDescripcion = String.Concat(wDireccion.Calle, " ", wDireccion.Numero, " Piso: ", wDireccion.Piso, " Departamento: ", wDireccion.Departamento);
+                    }
+                    else if (string.IsNullOrWhiteSpace(wDireccion.Departamento) && wDireccion.Piso.HasValue)
+                    {
+                        wDescripcion = String.Concat(wDireccion.Calle, " ", wDireccion.Numero, " Piso: ", wDireccion.Piso);
+                    }
+                    else
+                    {
+                        wDescripcion = String.Concat(wDireccion.Calle, " ", wDireccion.Numero);
+                    }
                 }
-                else if(string.IsNullOrWhiteSpace(wDireccion.Departamento) && wDireccion.Piso.HasValue)
-                {
-                    wDescripcion = String.Concat(wDireccion.Calle, " ", wDireccion.Numero, " Piso: ", wDireccion.Piso);
-                }
-                else
-                {
-                    wDescripcion = String.Concat(wDireccion.Calle, " ", wDireccion.Numero);
-                }
+            }
+
+            return wDescripcion;
+        }
+
+        public static string ObtenerDescripcionFormaPago(int pIdFormaPago)
+        {
+            string wDescripcion = string.Empty;
+
+            DAL.FormasPago wFormasPago = new DAL.FormasPago();
+            Entities.FormaPago wFormaPago = wFormasPago.ObtenerFormaPago(pIdFormaPago);
+
+            if (wFormaPago != null)
+            {
+                wDescripcion = wFormaPago.Nombre;
             }
 
             return wDescripcion;

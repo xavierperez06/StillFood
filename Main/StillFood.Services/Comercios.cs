@@ -64,5 +64,18 @@ namespace StillFood.Services
             wComercio.ModificarFormasPago(ORM.ComercioModelToEntitie(pComercio));
         }
 
+        public List<Models.NotaPedido> ReporteIngresosDiarios(int pIdComercios)
+        {
+            Business.Comercio wComercio = new Business.Comercio();
+
+            return ORM.ListaNotaPedidoEntitieAModel(wComercio.ReporteIngresosDiarios(pIdComercios));
+        }
+
+        public List<Models.NotaPedido> ReporteIngresosMensuales(int pIdComercios)
+        {
+            Business.Comercio wComercio = new Business.Comercio();
+
+            return ORM.ListaNotaPedidoEntitieAModel(wComercio.ReporteIngresosMensuales(pIdComercios));
+        }
     }
 }

@@ -409,7 +409,7 @@ namespace StillFood.WEB.Controllers
                     wNotaPedido.IdUsuario = pPedido.IdUsuario;
                     wNotaPedido.FechaAlta = DateTime.Now;
 
-                    //La guardo para obtener le Id y procedo a armar el detalle de la nota de pedido
+                    //La guardo para obtener el Id y procedo a armar el detalle de la nota de pedido
                     int wId = mComprasServices.GuardarNotaPedido(wNotaPedido);
 
                     if (wId == 0)

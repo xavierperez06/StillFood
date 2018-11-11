@@ -346,6 +346,10 @@ namespace StillFood.Services
             var wConfig = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Models.NotaPedido, Entities.NotaPedido>();
+                cfg.CreateMap<Models.NotaPedidoDetalle, Entities.NotaPedidoDetalle>();
+                cfg.CreateMap<Models.Producto, Entities.Producto>();
+                cfg.CreateMap<Models.Usuario, Entities.Usuario>().ForMember(u => u.Roles, x => x.ResolveUsing(y => y.Roles));
+                cfg.CreateMap<Models.UsuarioDireccion, Entities.UsuarioDireccion>();
             });
             IMapper wMapper = new Mapper(wConfig);
 
@@ -357,6 +361,10 @@ namespace StillFood.Services
             var wConfig = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<Entities.NotaPedido, Models.NotaPedido>();
+                cfg.CreateMap<Entities.NotaPedidoDetalle, Models.NotaPedidoDetalle>();
+                cfg.CreateMap<Entities.Producto, Models.Producto>();
+                cfg.CreateMap<Entities.Usuario, Models.Usuario>();
+                cfg.CreateMap<Entities.UsuarioDireccion, Models.UsuarioDireccion>();
             });
             IMapper wMapper = new Mapper(wConfig);
 
@@ -365,7 +373,12 @@ namespace StillFood.Services
 
         public static List<Models.NotaPedido> ListaNotaPedidoEntitieAModel(List<Entities.NotaPedido> pListaNotaPedido)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<Entities.NotaPedido, Models.NotaPedido>());
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Entities.NotaPedido, Models.NotaPedido>();
+                cfg.CreateMap<Entities.NotaPedidoDetalle, Models.NotaPedidoDetalle>();
+                cfg.CreateMap<Entities.Producto, Models.Producto>();
+            });
 
             return Mapper.Map<List<Entities.NotaPedido>, List<Models.NotaPedido>>(pListaNotaPedido);
         }

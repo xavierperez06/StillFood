@@ -91,5 +91,17 @@ namespace StillFood.Business
             DAL.Comercios wComerciosDAL = new DAL.Comercios();
             wComerciosDAL.ModificarFormasPago(pComercio);
         }
+
+        public List<Entities.NotaPedido> ReporteIngresosDiarios(int pIdComercio)
+        {
+            DAL.NotasPedido wNotasPedidoDAL = new DAL.NotasPedido();
+            return wNotasPedidoDAL.ReporteIngresosDiarios(pIdComercio);
+        }
+
+        public List<Entities.NotaPedido> ReporteIngresosMensuales(int pIdComercio)
+        {
+            DAL.NotasPedido wNotasPedidoDAL = new DAL.NotasPedido();
+            return wNotasPedidoDAL.ReporteIngresosMensuales(pIdComercio);
+        }
     }
 }

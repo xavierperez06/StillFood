@@ -14,5 +14,6 @@ namespace StillFood.Models
         public string Comentario { get; set; }
         public int Cantidad { get; set; }
         public decimal Precio { get; set; }
+        public Producto Producto { get; set; }
     }
 }

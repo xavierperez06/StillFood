@@ -33,9 +33,16 @@ namespace StillFood.Business
             DAL.NotasPedido wNotasPedidoDAL = new DAL.NotasPedido();
             int wId = 0;
 
-            pNotaPedido.Numero = wNotasPedidoDAL.ObtenerNumeroSiguiente();
+            if(pNotaPedido.Id == 0)
+            {
+                pNotaPedido.Numero = wNotasPedidoDAL.ObtenerNumeroSiguiente();
 
-            wId = wNotasPedidoDAL.Agregar(pNotaPedido);
+                wId = wNotasPedidoDAL.Agregar(pNotaPedido);
+            }
+            else
+            {
+                wId = wNotasPedidoDAL.Editar(pNotaPedido);
+            }
 
             return wId;
         }

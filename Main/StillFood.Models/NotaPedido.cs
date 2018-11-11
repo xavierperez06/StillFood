@@ -24,5 +24,8 @@ namespace StillFood.Models
         public int CVV { get; set; }
         public int Mes { get; set; }
         public int Año { get; set; }
+        public Usuario Usuario { get; set; }
+        public UsuarioDireccion Direccion { get; set; }
+        public string MotivoCancelacion { get; set; }
     }
 }

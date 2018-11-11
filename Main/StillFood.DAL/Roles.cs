@@ -56,7 +56,7 @@ namespace StillFood.DAL
         {
             using (StillFoodModel wContext = new StillFoodModel())
             {
-                wContext.Entry(pRol).State = System.Data.Entity.EntityState.Modified;
+                wContext.Entry(pRol).State = EntityState.Modified;
                 wContext.SaveChanges();
             }
 

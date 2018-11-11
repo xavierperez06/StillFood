@@ -19,7 +19,8 @@ namespace StillFood.WEB
                     "~/Scripts/bootstrap.js",
                     "~/Scripts/bootstrap-datetimepicker.js",
                     "~/Scripts/DataTables/jquery.dataTables.js",
-                    "~/Scripts/DataTables/dataTables.bootstrap.js"));
+                    "~/Scripts/DataTables/dataTables.bootstrap.js",
+                    "~/Scripts/Chart.bundle.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
