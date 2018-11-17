@@ -10,25 +10,51 @@ namespace StillFood.WEB.Controllers
     public class ComercioController : Controller
     {
         private readonly Services.Compras mComprasServices;
+        private readonly Services.Comercios mComercioServices;
 
-        public ComercioController(Services.Compras pComprasServices)
+        public ComercioController(Services.Compras pComprasServices, Services.Comercios pComercioServices)
         {
             mComprasServices = pComprasServices;
+            mComercioServices = pComercioServices;
         }
+
         // GET: Comercio
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult Pedidos()
         {
             Facade.FacadeSecurity wFacade = new Facade.FacadeSecurity();
             Models.Usuario wUsuario = wFacade.ObtenerUsuario();
 
-            List<Models.NotaPedido> wPedidos = mComprasServices.ObtenerNotasPedidoPorIdComercio(wUsuario.IdComercio.Value);
+            Models.Pedido wPedido = new Models.Pedido();
 
-            return View(wPedidos);
+            wPedido.NotasPedido = mComprasServices.ObtenerNotasPedidoPorIdComercio(wUsuario.IdComercio.Value);
+
+            return View(wPedido);
+        }
+
+        [HttpPost]
+        public ActionResult Pedidos(Models.Pedido pPedido)
+        {
+            Facade.FacadeSecurity wFacade = new Facade.FacadeSecurity();
+            Models.Usuario wUsuario = wFacade.ObtenerUsuario();
+
+            Models.Pedido wPedido = new Models.Pedido();
+
+            int? wIdEstado = null;
+
+            if (!string.IsNullOrWhiteSpace(pPedido.Estado))
+            {
+                wIdEstado = Convert.ToInt32(pPedido.Estado);
+            }
+
+            wPedido.NotasPedido = mComercioServices.FiltrarNotasPedido(wIdEstado, pPedido.Usuario, wUsuario.IdComercio.Value);
+
+            return View(wPedido);
         }
 
         [HttpGet]
@@ -90,6 +116,16 @@ namespace StillFood.WEB.Controllers
                 case 1:
                     wCommand = new Patterns.Command.IngresosDiariosCommand(wReporte);
                     break;
+                case 2:
+                    wCommand = new Patterns.Command.IngresosMensualesCommand(wReporte);
+                    break;
+                case 3:
+                    wCommand = new Patterns.Command.ProductosVendidosCommand(wReporte);
+                    break;
+                case 4:
+                    wCommand = new Patterns.Command.StockCommand(wReporte);
+                    break;
+
             }
 
 

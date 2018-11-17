@@ -42,5 +42,11 @@ namespace StillFood.Business
             DAL.Productos wProductosDAL = new DAL.Productos();
             wProductosDAL.Eliminar(pIdProducto);
         }
+
+        public List<Entities.Producto> ReporteStock(int pIdComercio)
+        {
+            DAL.Productos wProductosDAL = new DAL.Productos();
+            return wProductosDAL.ReporteStock(pIdComercio);
+        }
     }
 }

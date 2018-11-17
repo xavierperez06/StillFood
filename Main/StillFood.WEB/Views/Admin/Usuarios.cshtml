@@ -1,12 +1,20 @@
 ﻿@model List<StillFood.Models.Usuario>
 
+@{
+    StillFood.WEB.Facade.FacadeSecurity wFacade = new StillFood.WEB.Facade.FacadeSecurity();
+}
+
 <div class="row">
     <div class="tit-admin">Usuarios</div>
 </div>
 <div class="row">
     <input type="hidden" id="IdUsuario" />
     <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <a class="btn btn-success" data-toggle="tooltip" title="Agregar" onclick="AgregarEditarUsuario(0)"><i class="glyphicon glyphicon-plus"></i></a>
+        @if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.DarAltaUsuario))
+        {
+            <a class="btn btn-success" data-toggle="tooltip" title="Agregar" onclick="AgregarEditarUsuario(0)"><i class="glyphicon glyphicon-plus"></i></a>
+        }
+
         <div class="table-responsive">
             <table id="tblUsuarios" class="table table-hover table-condensed">
                 <thead>

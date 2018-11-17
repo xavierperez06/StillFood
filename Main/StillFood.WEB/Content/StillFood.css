@@ -95,6 +95,34 @@
         background-color: #ffffff;
     }
 
+.btn-disabled {
+    color: darkkhaki;
+    background-color: #A3BD31;
+    border-color: #A3BD31;
+}
+
+.btn-graddient {
+    flex: 1 1 auto;
+    margin: 10px;
+    padding: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+}
+
+.btn-graddient:hover {
+    background-position: right center; /* change the direction of the change here */
+}
+
+.btn-graddient-green {
+    background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+}
+
 .padding-top {
     padding-top: 20px;
 }
@@ -281,6 +309,12 @@ input[type="number"]::-webkit-inner-spin-button {
     font-weight: bold;
     color: white;
     text-shadow: 1px 1px 1px #000;
+}
+
+.index-txt {
+    color: white;
+    text-shadow: 1px 1px 1px #000;
+    font-size:25px;
 }
 
 /*FIN ESTILO HOME */
@@ -815,12 +849,44 @@ span.round-tab:hover {
     }
 }
 
-/*COMIENZO ESTILO DESCRIPCION PEDIDO*/
+/*COMIENZO ESTILO PEDIDOS*/
 .tbl-pedido-header {
     background-color: #F2F2F2;
     color: #848484;
 }
-/*FIN ESTILO DESCRIPCION PEDIDO*/
+
+.nombre-usuario {
+    color: #A3BD31;
+    font-size: 19px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+    .nombre-usuario:hover {
+        color: #A3BD31;
+        font-size: 19px;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .nombre-usuario:visited {
+        color: #A3BD31;
+        font-size: 19px;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+.pedido-box {
+    height: 70px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+    .pedido-box:hover {
+        box-shadow: 0 4px 12px 0 rgba(163, 189, 49, 1), 0 6px 20px 0 rgba(163, 189, 49, 1.1);
+    }
+/*FIN ESTIL PEDIDOS*/
 
 /*CENTER MODAL*/
 /*.modal {
@@ -842,3 +908,112 @@ span.round-tab:hover {
     vertical-align: middle;
 }*/
 /*FIN CENTER MODAL*/
+
+/*COMIENZO COMMON*/
+.withImageAndIcon {
+    font-weight: bold;
+}
+
+    .withImageAndIcon > div {
+        vertical-align: middle;
+        display: inline-block;
+        margin-right: 0.2em;
+    }
+
+        .withImageAndIcon > div > i {
+            float: right;
+            line-height: 72px;
+            color: green;
+            text-shadow: 2px 2px 0 rgba(255,255,255,1), -2px 2px 0 rgba(255,255,255,1),2px -2px 0 rgba(255,255,255,1), -2px -2px 0 rgba(255,255,255,1);
+        }
+
+.prepareImg48 {
+    line-height: 48px;
+    width: 48px;
+    height: 48px;
+    background: transparent url('Img/Preparation-Icon.png') no-repeat;
+}
+
+/*Inicio CONTACT US*/
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0;
+}
+
+    ul.social-network li {
+        display: inline;
+        margin: 0 5px;
+    }
+
+
+/*footer social icons */
+.social-network a.icoRss:hover {
+    background-color: #F56505;
+}
+
+.social-network a.icoFacebook:hover {
+    background-color: #3B5998;
+}
+
+.social-network a.icoTwitter:hover {
+    background-color: #33ccff;
+}
+
+.social-network a.icoEmail:hover {
+    background-color: #A3BD31;
+}
+
+.social-network a.icoInstagram:hover {
+    background-color: orangered;
+}
+
+    .social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+    .social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i, .social-network a.icoInstagram:hover i {
+        color: #fff;
+    }
+
+a.socialIcon:hover, .socialHoverClass {
+    color: #44BCDD;
+}
+
+.social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.social-circle li i {
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+}
+
+.social-circle li a:hover i, .triggeredHover {
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -ms--transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+.social-circle i {
+    color: black;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+}

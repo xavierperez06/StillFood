@@ -92,5 +92,16 @@ namespace StillFood.DAL
 
             return wProducto.Id;
         }
+
+        public List<Entities.Producto> ReporteStock(int pIdComercio)
+        {
+            using (StillFoodModel wContext = new StillFoodModel())
+            {
+                wContext.Configuration.LazyLoadingEnabled = false;
+
+                return wContext.Productos.Include("Categoria").Where(p => p.IdComercio == pIdComercio).ToList();
+            }
+        }
+
     }
 }

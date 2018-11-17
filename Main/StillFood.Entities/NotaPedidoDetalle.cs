@@ -24,5 +24,7 @@ namespace StillFood.Entities
         public decimal Precio { get; set; }
         [ForeignKey("IdNotaPedido")]
         public NotaPedido NotaPedido { get; set; }
+        [ForeignKey("IdProducto")]
+        public Producto Producto { get; set; }
     }
 }

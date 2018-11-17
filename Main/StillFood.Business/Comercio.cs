@@ -98,10 +98,22 @@ namespace StillFood.Business
             return wNotasPedidoDAL.ReporteIngresosDiarios(pIdComercio);
         }
 
+        public List<Entities.NotaPedido> FiltrarNotasPedido(int? pIdEstado, string pUsuario, int pIdComercio)
+        {
+            DAL.NotasPedido wNotasPedidoDAL = new DAL.NotasPedido();
+            return wNotasPedidoDAL.FiltrarNotasPedido(pIdEstado,pUsuario,pIdComercio);
+        }
+
         public List<Entities.NotaPedido> ReporteIngresosMensuales(int pIdComercio)
         {
             DAL.NotasPedido wNotasPedidoDAL = new DAL.NotasPedido();
             return wNotasPedidoDAL.ReporteIngresosMensuales(pIdComercio);
+        }
+
+        public List<Entities.NotaPedido> ReporteProductosVendidos(int pIdComercio)
+        {
+            DAL.NotasPedido wNotasPedidoDAL = new DAL.NotasPedido();
+            return wNotasPedidoDAL.ReporteProductosVendidos(pIdComercio);
         }
     }
 }

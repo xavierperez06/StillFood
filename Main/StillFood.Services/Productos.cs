@@ -12,8 +12,6 @@ namespace StillFood.Services
         {
             Business.Producto wProducto = new Business.Producto();
 
-            List<Models.Producto> wProductosModels = new List<Models.Producto>();
-
             return ORM.ListaProductosEntitieAModel(wProducto.ObtenerProductosPorIdComercio(pIdComercio));
         }
 
@@ -35,6 +33,13 @@ namespace StillFood.Services
         {
             Business.Producto wProducto = new Business.Producto();
             wProducto.Eliminar(pIdProducto);
+        }
+
+        public List<Models.Producto> ReporteStock(int pIdComercio)
+        {
+            Business.Producto wProducto = new Business.Producto();
+
+            return ORM.ListaProductosEntitieAModel(wProducto.ReporteStock(pIdComercio));
         }
     }
 }

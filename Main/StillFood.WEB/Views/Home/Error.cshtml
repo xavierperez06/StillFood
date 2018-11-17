@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-lg-8 col-lg-offset-2 padding-top">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Mensaje</h3>
+            </div>
+            <div class="panel-body">
+                Lo sentimos, ha ocurrido un error al procesar su solicitud. Por favor vuelva a intentarlo más tarde o contactese con un administrador. <br />
+                Muchas gracias. StillFood.
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-lg-offset-4 padding-top">
+        <input type="button" onclick="location.href='@Url.Action("Index", "Home")'" class="btn btn-block btn-green" value="Continuar">
+    </div>
+</div>
+

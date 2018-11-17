@@ -1,6 +1,6 @@
 ﻿@model StillFood.Models.Producto
 
-@using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
+@using (Html.BeginForm("FileUpload", "Home", Model, FormMethod.Post,
                                             new { id = "frmAgregarEditarProd", enctype = "multipart/form-data" }))
 {
     <div class="row">
@@ -27,13 +27,13 @@
             </div> 
             <div class="clearfix"></div>
             <div class="form-group col-lg-6">
-                @Html.TextBoxFor(producto => producto.Precio, new { id = "txtPrecio", placeholder = "Precio ($)", @class = "form-control glowing-border"})
+                @Html.TextBoxFor(producto => producto.Precio.Value, new { id = "txtPrecio", placeholder = "Precio ($)", @class = "form-control glowing-border"})
                 <div class="hide" id="txtPrecioError">
                     El campo "Precio" es obligatorio
                 </div>
             </div> 
             <div class="form-group col-lg-6">
-                @Html.TextBoxFor(producto => producto.PrecioDescuento, new { id = "txtPrecioDescuento", placeholder = "Precio Descuento ($)", @class = "form-control glowing-border" })
+                @Html.TextBoxFor(producto => producto.PrecioDescuento.Value, new { id = "txtPrecioDescuento", placeholder = "Precio Descuento ($)", @class = "form-control glowing-border" })
                 <div class="hide" id="txtPrecioDescuentoError">
                     El campo "Precio Descuento" es obligatorio
                 </div>

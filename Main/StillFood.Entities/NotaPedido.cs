@@ -36,5 +36,6 @@ namespace StillFood.Entities
         public Comercio Comercio { get; set; }
         [ForeignKey("IdUsuario")]
         public Usuario Usuario { get; set; }
+        public virtual ICollection<NotaPedidoDetalle> Detalles { get; set; }
     }
 }

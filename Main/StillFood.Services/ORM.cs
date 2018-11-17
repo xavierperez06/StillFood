@@ -378,6 +378,7 @@ namespace StillFood.Services
                 cfg.CreateMap<Entities.NotaPedido, Models.NotaPedido>();
                 cfg.CreateMap<Entities.NotaPedidoDetalle, Models.NotaPedidoDetalle>();
                 cfg.CreateMap<Entities.Producto, Models.Producto>();
+                cfg.CreateMap<Entities.Categoria, Models.Categoria>();
             });
 
             return Mapper.Map<List<Entities.NotaPedido>, List<Models.NotaPedido>>(pListaNotaPedido);

@@ -113,6 +113,8 @@ namespace StillFood.WEB.Controllers
             }
 
             wProducto.Categorias = mCategoriasServices.ObtenerCategorias();
+            wProducto.Precio = 0;
+            wProducto.PrecioDescuento = 0;
 
             return PartialView("~/Views/Admin/AgregarEditarProducto.cshtml", wProducto);
         }

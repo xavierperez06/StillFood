@@ -50,7 +50,9 @@ namespace StillFood.WEB.Controllers
             else if(controllerType == typeof(ComercioController))
             {
                 Services.Compras wComprasServices = new Services.Compras();
-                controller = new ComercioController(wComprasServices);
+                Services.Comercios wComercioServices = new Services.Comercios();
+
+                controller = new ComercioController(wComprasServices, wComercioServices);
             }
             else
             {

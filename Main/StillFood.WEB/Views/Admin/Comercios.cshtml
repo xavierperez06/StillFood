@@ -1,12 +1,20 @@
 ﻿@model List<StillFood.Models.Comercio>
 
+@{
+    StillFood.WEB.Facade.FacadeSecurity wFacade = new StillFood.WEB.Facade.FacadeSecurity();
+
+}
 <div class="row">
     <div class="tit-admin">Comercios</div>
 </div>
 <div class="row">
     <input type="hidden" id="IdComercio" />
     <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-4 col-lg-offset-4">
-        <a class="btn btn-success" data-toggle="tooltip" title="Agregar" onclick="AgregarEditarComercio(0)"><i class="glyphicon glyphicon-plus"></i></a>
+@if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.DarAltaComercio))
+{
+    <a class="btn btn-success" data-toggle="tooltip" title="Agregar" onclick="AgregarEditarComercio(0)"><i class="glyphicon glyphicon-plus"></i></a>
+}
+       
         <div class="table-responsive">
             <table id="tblComercios" class="table table-hover table-condensed">
                 <thead>

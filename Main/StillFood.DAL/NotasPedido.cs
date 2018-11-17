@@ -109,6 +109,35 @@ namespace StillFood.DAL
             }
         }
 
+        public List<Entities.NotaPedido> FiltrarNotasPedido(int? pIdEstado, string pUsuario, int pIdComercio)
+        {
+            using (StillFoodModel wContext = new StillFoodModel())
+            {
+                wContext.Configuration.LazyLoadingEnabled = false;
+
+                if (!string.IsNullOrWhiteSpace(pUsuario) && pIdEstado.HasValue)
+                {
+                  return (from wNp in wContext.NotasPedidos
+                                  join wU in wContext.Usuarios on wNp.IdUsuario equals wU.Id
+                                  where wU.NombreApellido.Contains(pUsuario) && wNp.IdEstado == pIdEstado.Value && wNp.IdComercio == pIdComercio
+                                  select wNp).ToList();
+
+                }else if(string.IsNullOrWhiteSpace(pUsuario) && pIdEstado.HasValue)
+                {
+                    return wContext.NotasPedidos.Where(np => np.IdEstado == pIdEstado.Value && np.IdComercio == pIdComercio).ToList();
+                }else if (!string.IsNullOrWhiteSpace(pUsuario) && !pIdEstado.HasValue)
+                {
+                    return (from wNp in wContext.NotasPedidos
+                            join wU in wContext.Usuarios on wNp.IdUsuario equals wU.Id
+                            where wU.NombreApellido.Contains(pUsuario) && wNp.IdComercio == pIdComercio
+                            select wNp).ToList();
+                }else
+                {
+                    return wContext.NotasPedidos.Where(np => np.IdComercio == pIdComercio).ToList();
+                }
+            }
+        }
+
         public List<Entities.NotaPedido> ReporteIngresosDiarios(int pIdComercio)
         {
             using (StillFoodModel wContext = new StillFoodModel())
@@ -131,6 +160,21 @@ namespace StillFood.DAL
                 DateTime wFecha = new DateTime(wAño, wMes, 1);
 
                 return wContext.NotasPedidos.Include(np => np.Detalles).Include(np => np.Detalles.Select(p => p.Producto))
+                                    .Where(np => np.IdComercio == pIdComercio && np.IdEstado != 5 && np.FechaAlta >= wFecha).ToList();
+            }
+        }
+
+        public List<Entities.NotaPedido> ReporteProductosVendidos(int pIdComercio)
+        {
+            using (StillFoodModel wContext = new StillFoodModel())
+            {
+                wContext.Configuration.LazyLoadingEnabled = false;
+
+                int wAño = DateTime.Today.Year;
+                int wMes = DateTime.Today.Month;
+                DateTime wFecha = new DateTime(wAño, wMes, 1);
+
+                return wContext.NotasPedidos.Include(np => np.Detalles).Include(np => np.Detalles.Select(p => p.Producto).Select(p => p.Categoria))
                                     .Where(np => np.IdComercio == pIdComercio && np.IdEstado != 5 && np.FechaAlta >= wFecha).ToList();
             }
         }

@@ -1,18 +1,36 @@
-﻿@model List<StillFood.Models.NotaPedido>
+﻿@model StillFood.Models.Pedido
 
 @{
     ViewBag.Title = "Pedidos";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="tit-admin">Mis Pedidos</div>
+<div class="container-fluid" style="padding-left:0px; padding-right:0px; margin-bottom:30px;">
+    <div class="comercio-banner-container">
+        <img src="~/Content/Img/Pedidos-Banner.jpg" class="img-responsive comercio-banner" />
+        <div class="banner-txt-centered">Mis Pedidos</div>
+    </div>
 </div>
 
 <div class="container">
-     <div class="col-lg-8 col-lg-offset-2">
+    @using (Html.BeginForm("Pedidos", "Comercio", FormMethod.Post))
+    {
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="col-lg-4">
+                @Html.TextBoxFor(model => model.Usuario, new { id = "txtUsuario", placeholder = "Usuario", @class = "form-control glowing-border" })
+            </div>
+            <div class="col-lg-4">
+                @Html.DropDownListFor(model => model.Estado, (from StillFood.Common.Enums.eEstadosNotasPedido e in Enum.GetValues(typeof(StillFood.Common.Enums.eEstadosNotasPedido))
+                                                         select new SelectListItem { Value = ((int)e).ToString(), Text = e.ToString() }), "Estado" , new { id = "cmbEstado", @class = "form-control glowing-border", @onchange = "HabilitarComercios();" })
+            </div>
+            <div class="col-lg-4">
+                <button class="btn btn-green" style="width:100px;height:35px;" type="submit">Buscar</button>
+            </div>
+        </div>
+    }
 
-        @foreach (var wNota in Model)
+    <div class="col-lg-8 col-lg-offset-2" style="margin-top:30px;">
+        @foreach (var wNota in Model.NotasPedido)
         {
             <div class="pedido-box effect2 ">
                 <div class="media">
@@ -20,7 +38,7 @@
                         <img src="~/Content/Img/Pedido-Icon.png" class="media-object" style="width:60px">
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading">@Html.ActionLink(@StillFood.Common.Utils.ObtenerNombreUsuario(wNota.IdUsuario),"Comercio","DetallePedido", new { pIdPedido = wNota.Id }, new { @class = "nombre-usuario" })</h4>
+                        <h4 class="media-heading">@Html.ActionLink(@StillFood.Common.Utils.ObtenerNombreUsuario(wNota.IdUsuario), "DetallePedido", "Comercio", new { pIdPedido = wNota.Id }, new { @class = "nombre-usuario" })</h4>
                         <p>Pedido realizado el @wNota.FechaAlta.ToShortDateString()<span class="vertical-line-30" style="padding-left:10px;"></span><strong>  Estado: </strong>@StillFood.Common.Utils.GetEnumDescription((StillFood.Common.Enums.eEstadosNotasPedido)wNota.IdEstado) <span class="vertical-line-30" style="padding-left:10px;margin-right:5px;"></span> <strong>  N° de Pedido: </strong>@wNota.Numero</p>
                     </div>
                 </div>
