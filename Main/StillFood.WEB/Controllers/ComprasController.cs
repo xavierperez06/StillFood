@@ -16,14 +16,16 @@ namespace StillFood.WEB.Controllers
         private readonly Services.UsuariosDirecciones mUsuariosDireccionesServices;
         private readonly Services.FormasEntregas mFormasEntregasServices;
         private readonly Services.Compras mComprasServices;
+        private readonly Services.UsuariosFavoritos mUsuariosFavoritosServices;
 
-        public ComprasController(Services.Comercios pComerciosServices,Services.Productos pProductosServices, Services.UsuariosDirecciones pUsuariosDireccionesServices,Services.FormasEntregas pFormasEntregasServices, Services.Compras pComprasServices)
+        public ComprasController(Services.Comercios pComerciosServices,Services.Productos pProductosServices, Services.UsuariosDirecciones pUsuariosDireccionesServices,Services.FormasEntregas pFormasEntregasServices, Services.Compras pComprasServices, Services.UsuariosFavoritos pUsuariosFavoritosServices)
         {
             mComerciosServices = pComerciosServices;
             mProductosServices = pProductosServices;
             mUsuariosDireccionesServices = pUsuariosDireccionesServices;
             mFormasEntregasServices = pFormasEntregasServices;
             mComprasServices = pComprasServices;
+            mUsuariosFavoritosServices = pUsuariosFavoritosServices;
         }
 
         // GET: Compras
@@ -33,7 +35,7 @@ namespace StillFood.WEB.Controllers
         }
 
         public ActionResult Comercios(string pBusqueda)
-        {  
+        {
             List<Models.Comercio> wComercios;
 
             if (pBusqueda == null)
@@ -47,6 +49,37 @@ namespace StillFood.WEB.Controllers
 
             return View(wComercios);
         }
+
+
+        public ActionResult ComerciosFiltro(string pBusqueda)
+        {
+            List<Models.Comercio> wComercios;
+
+            if (pBusqueda == null)
+            {
+                wComercios = mComerciosServices.ObtenerComercios();
+            }
+            else
+            {
+                wComercios = mComerciosServices.FiltrarComercios(pBusqueda);
+            }
+
+            return new JsonResult { Data = wComercios, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+        public ActionResult ObtenerFavoritos()
+        {
+            List<Models.UsuarioFavorito> wMostrarFav;
+
+            Facade.FacadeSecurity wFacade = new Facade.FacadeSecurity();
+
+            int wIdusuario = wFacade.ObtenerIdUsuario();
+
+            wMostrarFav = mUsuariosFavoritosServices.ObtenerFavoritosPorIdUsuario(wIdusuario);
+
+            return new JsonResult { Data = wMostrarFav, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
 
         public ActionResult Productos(int pIdComercio, string pBusqueda)
         {

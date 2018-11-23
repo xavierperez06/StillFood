@@ -25,7 +25,8 @@ namespace StillFood.WEB.Controllers
                 Services.UsuariosDirecciones wUsuariosDireccionesServices = new Services.UsuariosDirecciones();
                 Services.FormasEntregas wFormasEntregasServices = new Services.FormasEntregas();
                 Services.Compras wComprasServices = new Services.Compras();
-                controller = new ComprasController(wComerciosServices,wProductosServices, wUsuariosDireccionesServices, wFormasEntregasServices,wComprasServices);
+                Services.UsuariosFavoritos wUsuariosFavoritosServices = new Services.UsuariosFavoritos();
+                controller = new ComprasController(wComerciosServices,wProductosServices, wUsuariosDireccionesServices, wFormasEntregasServices,wComprasServices,wUsuariosFavoritosServices);
             }
             else if (controllerType == typeof(AdminController))
             {

@@ -400,5 +400,36 @@ namespace StillFood.Services
             return Mapper.Map<List<Models.NotaPedidoDetalle>, List<Entities.NotaPedidoDetalle>>(pListaNotaPedidoDetalle);
         }
         #endregion
+
+        #region Usuarios Favoritos
+        public static Entities.UsuarioFavorito UsuarioFavoritoModelToEntitie(Models.UsuarioFavorito pUsuarioFavorito)
+        {
+            var wConfig = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Models.UsuarioFavorito, Entities.UsuarioFavorito>();
+            });
+            IMapper wMapper = new Mapper(wConfig);
+
+            return wMapper.Map<Models.UsuarioFavorito, Entities.UsuarioFavorito>(pUsuarioFavorito);
+        }
+
+        public static Models.UsuarioFavorito UsuarioFavoritoEntitieToModel(Entities.UsuarioFavorito pUsuarioFavorito)
+        {
+            var wConfig = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Entities.UsuarioFavorito, Models.UsuarioFavorito>();
+            });
+            IMapper wMapper = new Mapper(wConfig);
+
+            return wMapper.Map<Entities.UsuarioFavorito, Models.UsuarioFavorito>(pUsuarioFavorito);
+        }
+
+        public static List<Models.UsuarioFavorito> ListaUsuariosFavoritosEntitieAModel(List<Entities.UsuarioFavorito> pListaUsuariosFavoritos)
+        {
+            Mapper.Initialize(cfg => cfg.CreateMap<Entities.UsuarioFavorito, Models.UsuarioFavorito>());
+
+            return Mapper.Map<List<Entities.UsuarioFavorito>, List<Models.UsuarioFavorito>>(pListaUsuariosFavoritos);
+        }
+        #endregion
     }
 }

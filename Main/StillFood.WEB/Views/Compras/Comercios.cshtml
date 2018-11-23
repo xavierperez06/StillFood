@@ -12,17 +12,17 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container" ng-app="ComerciosApp" ng-controller="ComercioController">
 
-    @using (Html.BeginForm("Comercios", "Compras", FormMethod.Get))
-    {
+    @*@using (Html.BeginForm("Comercios", "Compras", FormMethod.Get))
+    {*@
         <div class="row" style="padding-bottom:20px;">
             <div class="col-lg-8 col-lg-offset-2">
                 <div id="custom-search-input">
                     <div class="input-group col-lg-12">
-                        <input type="text" class="form-control glowing-border" placeholder="Buscar" name="pBusqueda" />
+                        <input type="text" class="form-control glowing-border" id="busqueda" placeholder="Buscar" name="pBusqueda" />
                         <span class="input-group-btn">
-                            <button class="btn btn-info btn-lg" type="submit">
+                            <button class="btn btn-info btn-lg" ng-click="Buscar()">
                                 <i class="glyphicon glyphicon-search"></i>
                             </button>
                         </span>
@@ -30,37 +30,121 @@
                 </div>
             </div>
         </div>
-    }
-
-    @foreach (StillFood.Models.Comercio wComercio in Model)
-            {
-        <div class="row">
+    @*}*@
+    <div >
+        <div class="row" ng-repeat="comercio in Comercios track by $index">
             <div class="col-lg-8 col-lg-offset-2">
-                <div class="comercio-box effect2 ">
+                <div class="comercio-box effect2">
                     <div class="media">
                         <div class="media-left">
-                            @if (string.IsNullOrWhiteSpace(wComercio.Imagen))
-                            {
-                                <img src="~/Content/Img/shop-icon.png" class="media-object" style="width:150px; height:150px;">
-                            }
-                            else
-                            {
-                                <img src="~/Content/Img/Comercios/@wComercio.Imagen" class="media-object" style="width:150px; height:150px;"/>
-                            }
-                           
+                            <img src="~/Content/Img/shop-icon.png" ng-show="comercio.Imagen.length == 0" class="media-object" style="width:150px; height:150px;">
+                            <img src="~/Content/Img/Comercios/{{comercio.Imagen}}" ng-show="comercio.Imagen.length > 0" class="media-object" style="width:150px; height:150px;" />
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading" style="padding-top:7px; padding-left:4px;">@Html.ActionLink(wComercio.Nombre, "Productos", "Compras", new { pIdComercio = wComercio.Id }, new { @class = "nombre-comercio" })</h4>
-                            <div style="padding-top:10px;"><img src="~/Content/Img/Location.png" />@wComercio.Direccion</div>
-                            <hr />
-                            <p style="padding-left:4px; vertical-align: middle;">@wComercio.Descripcion</p>
+                            <div class="col-lg-12" style="padding-bottom:30px;">
+                                <h4 class="media-heading" style="padding-top:7px; padding-left:4px;"><a class="nombre-comercio" href="~/Compras/Productos?pIdComercio={{comercio.Id}}">{{comercio.Nombre}}</a>        @*@Html.ActionLink(wComercio.Nombre, "Productos", "Compras", new { pIdComercio = wComercio.Id }, new { @class = "nombre-comercio" })*@</h4>
+                                <div style="padding-top:10px;"><img src="~/Content/Img/Location.png" />{{comercio.Direccion}}</div>
+                            </div>
+                            <div class="col-lg-10">
+                                <p style="padding-left:4px; vertical-align: middle;">{{comercio.Descripcion}}</p>
+                            </div>
+                            <div class="col-lg-2">
+                                <a href="#" ng-show="MostrarFav(comercio.Id);"><img src="~/Content/Img/HeartFull.png" class="media-object pull-right" data-toggle="tooltip" data-placement="top" title="Agregar a Favoritos" style="width:30px; height:30px;" /></a>
+                                <a href="#" ng-show="!MostrarFav(comercio.Id);"><img src="~/Content/Img/HeartEmpty.png" class="media-object pull-right" data-toggle="tooltip" data-placement="top" title="Agregar a Favoritos" style="width:30px; height:30px;" /></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    }
+    </div>
 </div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        var app = angular.module("ComerciosApp", []);
+
+        app.controller("ComercioController", function ($scope, $http) {
+            $scope.Favoritos = [];
+
+            var init = function () {
+                $http({
+                    method: 'GET',
+                    url: "/Compras/ComerciosFiltro"
+                }).then(function (response) {
+                    $scope.Comercios = response.data;
+                }, function (error) {
+
+                    });
+
+                $http({
+                    method: 'GET',
+                    url: "/Compras/ObtenerFavoritos"
+                }).then(function (response) {
+                    $scope.Favoritos = response.data;
+                }, function (error) {
+
+                });
+            };
+            
+
+            $scope.Buscar = function () {
+                var busqueda = $('#busqueda').val();
+                $http({
+                    method: 'GET',
+                    url: "/Compras/ComerciosFiltro",
+                    params: { pBusqueda: busqueda }
+                }).then(function (response) {
+                    $scope.Comercios = response.data;
+                }, function (error) {
+
+                });
+            }
+
+
+            $scope.MostrarFav = function (id) {
+                var contiene = false;
+
+                for (var i = 0; i < $scope.Favoritos.length; i++) {
+                    if ($scope.Favoritos[i].Id == id)
+                        contiene = true;
+                }
+
+                return contiene;
+                //var ver;
+                //$http({
+                //    method: 'GET',
+                //    url: "/Compras/MostrarFav",
+                //    params: { pId: item.Id }
+                //}).then(function (response) {
+                //    ver = response.data;
+                //    }, function (error) {
+
+                //    });
+
+                //if (angular.isDefined(ver)) {
+                //    alert(ver);
+                //    if (ver == true)
+                //        return true;
+
+                //    if (ver == false)
+                //        return false;
+                //} else {
+                //    return false;
+                //}
+                
+            }
+
+            init();
+        });
+
+    </script>
+}
+
 
 
 

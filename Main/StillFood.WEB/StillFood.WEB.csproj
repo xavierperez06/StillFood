@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Chart.Mvc, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Chart.Mvc.1.0.0.2\lib\net45\Chart.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\..\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
@@ -52,6 +56,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -115,9 +122,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ApplicationInsights">
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
     </Reference>
@@ -155,15 +159,30 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StillFoodControllerFactory.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
-    <Compile Include="Facade\FacadeSecurity.cs" />
+    <Compile Include="Patterns\Command\Command.cs" />
+    <Compile Include="Patterns\Command\IngresosDiariosCommand.cs" />
+    <Compile Include="Patterns\Command\IngresosMensualesCommand.cs" />
+    <Compile Include="Patterns\Command\ProductosVendidosCommand.cs" />
+    <Compile Include="Patterns\Command\Reporte.cs" />
+    <Compile Include="Patterns\Command\ReportInvoker.cs" />
+    <Compile Include="Patterns\Command\StockCommand.cs" />
+    <Compile Include="Patterns\Facade\FacadeSecurity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Patterns\State\CanceladoState.cs" />
+    <Compile Include="Patterns\State\Context.cs" />
+    <Compile Include="Patterns\State\EnPreparacionState.cs" />
+    <Compile Include="Patterns\State\EntregadoState.cs" />
+    <Compile Include="Patterns\State\PreparadoState.cs" />
+    <Compile Include="Patterns\State\RealizadoState.cs" />
+    <Compile Include="Patterns\State\State.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strategy\EfectivoStrategy.cs" />
-    <Compile Include="Strategy\FormaPagoStrategy.cs" />
-    <Compile Include="Strategy\Pedido.cs" />
-    <Compile Include="Strategy\TarjetaCreditoStrategy.cs" />
+    <Compile Include="Patterns\Strategy\EfectivoStrategy.cs" />
+    <Compile Include="Patterns\Strategy\FormaPagoStrategy.cs" />
+    <Compile Include="Patterns\Strategy\Pedido.cs" />
+    <Compile Include="Patterns\Strategy\TarjetaCreditoStrategy.cs" />
+    <Compile Include="Utils\DecimalModelBinder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker.css" />
@@ -331,22 +350,30 @@
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\Img\Agregar.png" />
     <Content Include="Content\Img\Alert.png" />
+    <Content Include="Content\Img\CancelOrder-Icon.png" />
     <Content Include="Content\Img\Comercios-Banner.jpeg" />
     <Content Include="Content\Img\Comfort.png" />
     <Content Include="Content\Img\Consumers.png" />
+    <Content Include="Content\Img\Delivered-Icon.png" />
     <Content Include="Content\Img\Double Ring.gif" />
     <Content Include="Content\Img\Food Desktop Wallpapers FREE on Latoro.com.jpg" />
     <Content Include="Content\Img\Green Planet.png" />
     <Content Include="Content\Img\Grocery-Bag.png" />
     <Content Include="Content\Img\Header-Mail.jpg" />
+    <Content Include="Content\Img\HeartEmpty.png" />
+    <Content Include="Content\Img\HeartFull.png" />
     <Content Include="Content\Img\Home-Image1.png" />
     <Content Include="Content\Img\Imagen-NoDisponible.gif" />
     <Content Include="Content\Img\Location.png" />
     <Content Include="Content\Img\Login.jpeg" />
     <Content Include="Content\Img\Logo.png" />
     <Content Include="Content\Img\Pedido-Icon.png" />
+    <Content Include="Content\Img\Pedidos-Banner.jpg" />
     <Content Include="Content\Img\PiggyBank.png" />
+    <Content Include="Content\Img\Preparation-Icon.png" />
+    <Content Include="Content\Img\Prepared-Icon.png" />
     <Content Include="Content\Img\shop-icon.png" />
+    <Content Include="Content\Img\Statistics-Banner.png" />
     <Content Include="Content\Img\Supermarket.png" />
     <Content Include="Content\StillFood.css" />
     <Content Include="favicon.ico" />
@@ -367,10 +394,13 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Chart.bundle.min.js" />
+    <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -447,6 +477,7 @@
     <Content Include="Scripts\DataTables\responsive.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.js" />
     <Content Include="Scripts\DataTables\responsive.semanticui.min.js" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -528,6 +559,9 @@
     <Content Include="Views\Usuario\MisPedidos.cshtml" />
     <Content Include="Views\Compras\DetalleProducto.cshtml" />
     <Content Include="Views\Comercio\Pedidos.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Comercio\DetallePedido.cshtml" />
+    <Content Include="Views\Comercio\Reportes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

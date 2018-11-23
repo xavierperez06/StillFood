@@ -25,6 +25,7 @@
         public DbSet<Entities.NotaPedido> NotasPedidos { get; set; }
         public DbSet<Entities.NotaPedidoDetalle> NotasPedidosDetalle { get; set; }
         public DbSet<Entities.Log> Log { get; set; }
+        public DbSet<Entities.UsuarioFavorito> UsuariosFavoritos { get; set; }
 
         public StillFoodModel()
             : base("name=StillFoodModel")
@@ -35,6 +36,7 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Entity<Entities.Comercio>().Ignore(t => t.Productos);
             //Con esto creo la tabla de relacion many-to-many de roles-permisos
             modelBuilder.Entity<Entities.Rol>()
