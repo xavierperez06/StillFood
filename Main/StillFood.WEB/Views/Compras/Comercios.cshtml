@@ -13,25 +13,21 @@
 </div>
 
 <div class="container" ng-app="ComerciosApp" ng-controller="ComercioController">
-
-    @*@using (Html.BeginForm("Comercios", "Compras", FormMethod.Get))
-    {*@
-        <div class="row" style="padding-bottom:20px;">
-            <div class="col-lg-8 col-lg-offset-2">
-                <div id="custom-search-input">
-                    <div class="input-group col-lg-12">
-                        <input type="text" class="form-control glowing-border" id="busqueda" placeholder="Buscar" name="pBusqueda" />
-                        <span class="input-group-btn">
-                            <button class="btn btn-info btn-lg" ng-click="Buscar()">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </span>
-                    </div>
+    <div class="row" style="padding-bottom:20px;">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div id="custom-search-input">
+                <div class="input-group col-lg-12">
+                    <input type="text" class="form-control glowing-border" id="busqueda" placeholder="Buscar" name="pBusqueda" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" ng-click="Buscar()">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
                 </div>
             </div>
         </div>
-    @*}*@
-    <div >
+    </div>
+    <div>
         <div class="row" ng-repeat="comercio in Comercios track by $index">
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="comercio-box effect2">
@@ -49,8 +45,8 @@
                                 <p style="padding-left:4px; vertical-align: middle;">{{comercio.Descripcion}}</p>
                             </div>
                             <div class="col-lg-2">
-                                <a href="#" ng-show="MostrarFav(comercio.Id);"><img src="~/Content/Img/HeartFull.png" class="media-object pull-right" data-toggle="tooltip" data-placement="top" title="Agregar a Favoritos" style="width:30px; height:30px;" /></a>
-                                <a href="#" ng-show="!MostrarFav(comercio.Id);"><img src="~/Content/Img/HeartEmpty.png" class="media-object pull-right" data-toggle="tooltip" data-placement="top" title="Agregar a Favoritos" style="width:30px; height:30px;" /></a>
+                                <a ng-show="MostrarFav(comercio.Id);" ng-click="Favorito(comercio.Id,0)"><img src="~/Content/Img/HeartFull.png" class="media-object pull-right" data-toggle="tooltip" data-placement="top" title="Agregar a Favoritos" style="width:30px; height:30px; cursor:pointer;" /></a>
+                                <a ng-show="!MostrarFav(comercio.Id);" ng-click="Favorito(comercio.Id,1)"><img src="~/Content/Img/HeartEmpty.png" class="media-object pull-right" data-toggle="tooltip" data-placement="top" title="Agregar a Favoritos" style="width:30px; height:30px; cursor:pointer;" /></a>
                             </div>
                         </div>
                     </div>
@@ -62,10 +58,6 @@
 
 @section scripts {
     <script>
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-
         var app = angular.module("ComerciosApp", []);
 
         app.controller("ComercioController", function ($scope, $http) {
@@ -79,7 +71,7 @@
                     $scope.Comercios = response.data;
                 }, function (error) {
 
-                    });
+                });
 
                 $http({
                     method: 'GET',
@@ -90,7 +82,7 @@
 
                 });
             };
-            
+
 
             $scope.Buscar = function () {
                 var busqueda = $('#busqueda').val();
@@ -110,33 +102,23 @@
                 var contiene = false;
 
                 for (var i = 0; i < $scope.Favoritos.length; i++) {
-                    if ($scope.Favoritos[i].Id == id)
+                    if ($scope.Favoritos[i].IdComercio == id)
                         contiene = true;
                 }
 
                 return contiene;
-                //var ver;
-                //$http({
-                //    method: 'GET',
-                //    url: "/Compras/MostrarFav",
-                //    params: { pId: item.Id }
-                //}).then(function (response) {
-                //    ver = response.data;
-                //    }, function (error) {
+            }
 
-                //    });
+            $scope.Favorito = function (id, agrega) {
+                $http({
+                    method: 'GET',
+                    url: "/Compras/AgregarQuitarFavorito",
+                    params: { pIdComercio: id, pAgrega: agrega }
+                }).then(function (response) {
+                    $scope.Favoritos = response.data;
+                }, function (error) {
 
-                //if (angular.isDefined(ver)) {
-                //    alert(ver);
-                //    if (ver == true)
-                //        return true;
-
-                //    if (ver == false)
-                //        return false;
-                //} else {
-                //    return false;
-                //}
-                
+                });
             }
 
             init();

@@ -79,6 +79,28 @@ namespace StillFood.WEB.Controllers
 
             return new JsonResult { Data = wMostrarFav, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+       
+
+        public ActionResult AgregarQuitarFavorito(int pIdComercio, int pAgrega)
+        {
+            bool wAgrega;
+
+            List<Models.UsuarioFavorito> wFavoritos;
+
+            if (pAgrega == 1)
+                wAgrega = true;
+            else
+                wAgrega = false;
+
+            Facade.FacadeSecurity wFacade = new Facade.FacadeSecurity();
+
+            int wIdusuario = wFacade.ObtenerIdUsuario();
+
+            wFavoritos = mUsuariosFavoritosServices.AgregarQuitarFavorito(wIdusuario, pIdComercio, wAgrega);
+
+            return new JsonResult { Data = wFavoritos, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
 
 
         public ActionResult Productos(int pIdComercio, string pBusqueda)

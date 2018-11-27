@@ -21,5 +21,12 @@ namespace StillFood.Services
 
             return ORM.ListaUsuariosFavoritosEntitieAModel(wFavoritos.ObtenerFavoritosPorIdUsuario(pIdUsuario));
         }
+
+        public List<Models.UsuarioFavorito> AgregarQuitarFavorito(int pIdUsuario, int pIdComercio, bool pAgrega)
+        {
+            Business.UsuarioFavorito wFavoritos = new Business.UsuarioFavorito();
+
+            return ORM.ListaUsuariosFavoritosEntitieAModel(wFavoritos.AgregarQuitarFavorito(pIdUsuario,pIdComercio,pAgrega));
+        }
     }
 }

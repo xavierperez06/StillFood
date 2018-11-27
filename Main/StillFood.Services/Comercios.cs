@@ -91,5 +91,12 @@ namespace StillFood.Services
 
             return ORM.ListaNotaPedidoEntitieAModel(wComercio.ReporteProductosVendidos(pIdComercios));
         }
+
+        public Common.Enums.eResultadoAccion EnviarNotificaciones(int pIdComercio, string pNotificacion)
+        {
+            Business.Comercio wComercio = new Business.Comercio();
+
+            return wComercio.EnviarNotificaciones(pIdComercio, pNotificacion);
+        }
     }
 }

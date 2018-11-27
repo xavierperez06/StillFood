@@ -137,5 +137,31 @@ namespace StillFood.WEB.Controllers
 
             return Json(wListaResultado, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public ActionResult EnviarNotificaciones()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EnviarNotificaciones(string pHTML)
+        {
+            Facade.FacadeSecurity wFacade = new Facade.FacadeSecurity();
+
+            Models.Usuario wUsuario = wFacade.ObtenerUsuario();
+
+            if(wUsuario != null)
+            {
+                Common.Enums.eResultadoAccion wResultado = mComercioServices.EnviarNotificaciones(wUsuario.IdComercio.Value, pHTML);
+
+                if(wResultado.Equals(Common.Enums.eResultadoAccion.Ok))
+                    ModelState.AddModelError("", "Notificaciones enviadas satisfactoriamente.");
+                else
+                    ModelState.AddModelError("", "Ocurrió un error al enviar las notificaciones. Vuelva a intentarlo más tarde.");
+            }           
+
+            return View();
+        }
     }
 }

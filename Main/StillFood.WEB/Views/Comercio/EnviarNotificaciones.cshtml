@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Notificar a usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid" style="padding-left:0px; padding-right:0px; margin-bottom:30px;">
+    <div class="comercio-banner-container">
+        <img src="~/Content/Img/NotificationsBanner.jpg" class="img-responsive comercio-banner" />
+        <div class="banner-txt-centered">Notificaciones</div>
+    </div>
+
+    <div class="container">
+        <div class="col-lg-10 col-lg-offset-1">
+            <form method="post" action="/Comercio/EnviarNotificaciones" id="NotificationsForm" style="margin-top:30px;">
+                @Html.ValidationSummary(true)
+                <textarea rows="15" cols="140" name="pHTML"> 
+        </textarea>
+                <input class="btn btn-green pull-right" type="button" onclick="submitForm();" style="width:145px;height:35px;" value="Envíar Notificaciones" />
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        function submitForm() {
+            $('#NotificationsForm').submit();
+        }
+    </script>
+}

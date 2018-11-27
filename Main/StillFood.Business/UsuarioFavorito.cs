@@ -20,5 +20,11 @@ namespace StillFood.Business
             DAL.UsuariosFavoritos wUsuariosFavoritosDAL = new DAL.UsuariosFavoritos();
             return wUsuariosFavoritosDAL.ObtenerFavoritosPorIdUsuario(pIdUsuario);
         }
+
+        public List<Entities.UsuarioFavorito> AgregarQuitarFavorito(int pIdUsuario, int pIdComercio, bool pAgrega)
+        {
+            DAL.UsuariosFavoritos wUsuariosFavoritosDAL = new DAL.UsuariosFavoritos();
+            return wUsuariosFavoritosDAL.AgregarQuitarFavorito(pIdUsuario, pIdComercio, pAgrega);
+        }
     }
 }

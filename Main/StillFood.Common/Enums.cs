@@ -25,7 +25,8 @@ namespace StillFood.Common
             RealizarCompras = 12,
             VerPedidosComercio = 13,
             DarAltaComercio = 14,
-            DarAltaUsuario = 15
+            DarAltaUsuario = 15,
+            EnviarNotificaciones = 16
         }
 
         public enum eRoles

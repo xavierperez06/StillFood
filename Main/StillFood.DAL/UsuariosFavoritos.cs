@@ -25,5 +25,35 @@ namespace StillFood.DAL
                 return wContext.UsuariosFavoritos.Where(u => u.IdUsuario == pIdUsuario).ToList();
             }
         }
+
+        public List<Entities.UsuarioFavorito> ObtenerFavoritosPorIdComercio(int pIdComercio)
+        {
+            using (StillFoodModel wContext = new StillFoodModel())
+            {
+                return wContext.UsuariosFavoritos.Where(u => u.IdComercio == pIdComercio).ToList();
+            }
+        }
+
+        public List<Entities.UsuarioFavorito> AgregarQuitarFavorito(int pIdUsuario, int pIdComercio, bool pAgrega)
+        {
+            using (StillFoodModel wContext = new StillFoodModel())
+            {
+                if(pAgrega)
+                {
+                    var wUsuarioFavorito = new Entities.UsuarioFavorito() { IdUsuario = pIdUsuario, IdComercio = pIdComercio };
+                    wContext.UsuariosFavoritos.Add(wUsuarioFavorito);
+                    wContext.SaveChanges();
+                }
+                else
+                {
+                    wContext.UsuariosFavoritos.RemoveRange(wContext.UsuariosFavoritos.Where(uf => uf.IdUsuario == pIdUsuario && uf.IdComercio == pIdComercio));
+                    wContext.SaveChanges();
+                }
+
+                return wContext.UsuariosFavoritos.Where(u => u.IdUsuario == pIdUsuario).ToList();
+            }
+        }
+
+        
     }
 }

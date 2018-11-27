@@ -115,5 +115,37 @@ namespace StillFood.Business
             DAL.NotasPedido wNotasPedidoDAL = new DAL.NotasPedido();
             return wNotasPedidoDAL.ReporteProductosVendidos(pIdComercio);
         }
+
+        public Common.Enums.eResultadoAccion EnviarNotificaciones(int pIdComercio, string pNotificacion)
+        {
+            DAL.UsuariosFavoritos wUsuariosFavoritosDAL = new DAL.UsuariosFavoritos();
+            DAL.Usuarios wUsuariosDAL = new DAL.Usuarios();
+            string wEmails = string.Empty;
+            //Primero obtengo todos los favoritos de acuerdo al Id de Comercio
+            List<Entities.UsuarioFavorito> wFavoritos = wUsuariosFavoritosDAL.ObtenerFavoritosPorIdComercio(pIdComercio);
+            //Recorro todos los favoritos, y voy obteniendo los emails de los usuarios
+            foreach(var wFav in wFavoritos)
+            {
+                Entities.Usuario wUsuario = wUsuariosDAL.ObtenerUsuario(wFav.IdUsuario);
+
+                if(wUsuario != null)
+                {
+                    wEmails += wUsuario.Email + ";";
+                }
+            }
+            //Envio los emials
+            Common.ServicioEmail wServicio = new Common.ServicioEmail();
+            string wAsunto = "Novedades";
+            string wMensaje = pNotificacion;
+            
+            Common.Enums.eResultadoEnvio wResultado = wServicio.Enviar(wEmails, wAsunto, wMensaje, true);
+
+            //TODO : Una vez enviados los emails, guardo la notificaciones para mostrarlas en el menu del usuario
+
+            if (wResultado.Equals(Convert.ToInt32(Common.Enums.eResultadoEnvio.Ok)))
+                return Common.Enums.eResultadoAccion.Ok;
+            else
+                return Common.Enums.eResultadoAccion.Error;
+        }
     }
 }

@@ -367,6 +367,7 @@
     <Content Include="Content\Img\Location.png" />
     <Content Include="Content\Img\Login.jpeg" />
     <Content Include="Content\Img\Logo.png" />
+    <Content Include="Content\Img\NotificationsBanner.jpg" />
     <Content Include="Content\Img\Pedido-Icon.png" />
     <Content Include="Content\Img\Pedidos-Banner.jpg" />
     <Content Include="Content\Img\PiggyBank.png" />
@@ -562,6 +563,7 @@
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Comercio\DetallePedido.cshtml" />
     <Content Include="Views\Comercio\Reportes.cshtml" />
+    <Content Include="Views\Comercio\EnviarNotificaciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
