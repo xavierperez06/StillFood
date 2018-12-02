@@ -366,6 +366,8 @@
     <Content Include="Content\Img\Imagen-NoDisponible.gif" />
     <Content Include="Content\Img\Location.png" />
     <Content Include="Content\Img\Login.jpeg" />
+    <Content Include="Content\Img\Logo-Circulo-White.png" />
+    <Content Include="Content\Img\Logo-Circulo.png" />
     <Content Include="Content\Img\Logo.png" />
     <Content Include="Content\Img\NotificationsBanner.jpg" />
     <Content Include="Content\Img\Pedido-Icon.png" />

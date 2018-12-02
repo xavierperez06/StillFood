@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace StillFood.WEB.Controllers
 {
+    [Session]
     public class ComprasController : Controller
     {
         private readonly Services.Comercios mComerciosServices;

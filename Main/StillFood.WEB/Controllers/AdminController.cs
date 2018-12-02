@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace StillFood.WEB.Controllers
 {
-    [AutenticadoAttribute]
+    [Session]
     public class AdminController : Controller
     {
         private readonly Services.Comercios mComerciosServices;

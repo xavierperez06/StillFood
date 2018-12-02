@@ -8,7 +8,7 @@ using System.Web.Security;
 
 namespace StillFood.WEB.Controllers
 {
-    [SessionAttribute]
+    [Session]
     public class UsuarioController : Controller
     {
         private readonly Services.Usuarios mUsuariosServices;

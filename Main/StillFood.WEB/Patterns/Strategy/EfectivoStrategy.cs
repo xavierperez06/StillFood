@@ -9,7 +9,7 @@ namespace StillFood.WEB.Strategy
     {
         private decimal mMontoPaga;
 
-       public EfectivoStrategy(decimal pMontoPaga)
+        public EfectivoStrategy(decimal pMontoPaga)
         {
             mMontoPaga = pMontoPaga;
         }

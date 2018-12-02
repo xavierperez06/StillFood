@@ -4,9 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using StillFood.WEB.Atributtes;
 
 namespace StillFood.WEB.Controllers
 {
+    [Session]
     public class ComercioController : Controller
     {
         private readonly Services.Compras mComprasServices;
@@ -98,6 +100,8 @@ namespace StillFood.WEB.Controllers
             return View();
         }
 
+        [Autenticado]
+        [PermisoAttribute(mPermiso = Common.Enums.eRolesPermisos.Reportes)]
         public ActionResult Reportes()
         {
             return View();
@@ -139,6 +143,8 @@ namespace StillFood.WEB.Controllers
         }
 
         [HttpGet]
+        [Autenticado]
+        [PermisoAttribute(mPermiso = Common.Enums.eRolesPermisos.EnviarNotificaciones)]
         public ActionResult EnviarNotificaciones()
         {
             return View();

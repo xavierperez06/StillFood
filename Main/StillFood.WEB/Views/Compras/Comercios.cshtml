@@ -3,6 +3,15 @@
 @{
     ViewBag.Title = "Comercios";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    StillFood.Models.Usuario wUsuario;
+
+    if (this.Session["Usuario"] == null)
+    { wUsuario = null; }
+    else
+    { wUsuario = (StillFood.Models.Usuario)this.Session["Usuario"]; }
+
+    StillFood.WEB.Facade.FacadeSecurity wFacade = new StillFood.WEB.Facade.FacadeSecurity();
 }
 
 <div class="container-fluid" style="padding-left:0px; padding-right:0px; margin-bottom:30px;">
@@ -45,8 +54,11 @@
                                 <p style="padding-left:4px; vertical-align: middle;">{{comercio.Descripcion}}</p>
                             </div>
                             <div class="col-lg-2">
-                                <a ng-show="MostrarFav(comercio.Id);" ng-click="Favorito(comercio.Id,0)"><img src="~/Content/Img/HeartFull.png" class="media-object pull-right" data-toggle="tooltip" data-placement="top" title="Agregar a Favoritos" style="width:30px; height:30px; cursor:pointer;" /></a>
-                                <a ng-show="!MostrarFav(comercio.Id);" ng-click="Favorito(comercio.Id,1)"><img src="~/Content/Img/HeartEmpty.png" class="media-object pull-right" data-toggle="tooltip" data-placement="top" title="Agregar a Favoritos" style="width:30px; height:30px; cursor:pointer;" /></a>
+                                @if (wUsuario != null)
+                                {
+                                    <a ng-show="MostrarFav(comercio.Id);" ng-click="Favorito(comercio.Id,0)"><img src="~/Content/Img/HeartFull.png" class="media-object pull-right" data-toggle="tooltip" data-placement="top" title="Agregar a Favoritos" style="width:30px; height:30px; cursor:pointer;" /></a>
+                                    <a ng-show="!MostrarFav(comercio.Id);" ng-click="Favorito(comercio.Id,1)"><img src="~/Content/Img/HeartEmpty.png" class="media-object pull-right" data-toggle="tooltip" data-placement="top" title="Agregar a Favoritos" style="width:30px; height:30px; cursor:pointer;" /></a>
+                                }
                             </div>
                         </div>
                     </div>

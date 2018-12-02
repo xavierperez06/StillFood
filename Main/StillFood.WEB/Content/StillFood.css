@@ -1017,3 +1017,79 @@ a.socialIcon:hover, .socialHoverClass {
     -ms-transition: all 0.8s;
     transition: all 0.8s;
 }
+
+/*COMIENZO CONTACT PAGE*/
+.contact-form {
+    background-color:white;
+    width: 70%;
+}
+
+    .contact-form .form-control {
+        border-radius: 1rem;
+    }
+
+.contact-image {
+    text-align: center;
+}
+
+    .contact-image img {
+        width: 11%;
+        margin-top: 3%;
+
+    }
+
+.contact-form form {
+    padding: 14%;
+}
+
+    .contact-form form .row {
+        margin-bottom: -7%;
+    }
+
+.contact-form h3 {
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+}
+
+.contact-form .btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #f2f2f2;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+}
+
+.btnContactSubmit {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #f2f2f2;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-background {
+    background: -webkit-linear-gradient(left, #A3BD31, #e3ebc1);
+    background-attachment: fixed;
+    background-size: cover;
+    height: 1100px;
+    width: 100%;
+    min-height: 100%;
+    display: block;
+}
+
+.contact-txt {
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 10px 10px 10px #000;
+    position: absolute;
+    left: 50%;
+}
+/*FIN CONTACT PAGE*/

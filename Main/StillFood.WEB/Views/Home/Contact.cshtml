@@ -1,17 +1,59 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@model StillFood.Models.Contacto
+
+@{
+    ViewBag.Title = "Contacto";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="container-fluid contact-form contact-background">
+    <div class="contact-image">
+        <img src="~/Content/Img/Logo-Circulo-White.png" alt="logo_contact" />
+    </div>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    @if (Model.Enviado)
+    {
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4" style="color:white; margin-top:15px;">
+                Su mensaje ha sido enviado satisfactoriamente. Nos pondremos en contacto en breve. <br />
+                Atentamente, el equipo de StillFood.
+            </div>
+        </div>
+    }
+    else
+    {
+        using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+        {
+            <h3 class="contact-txt">Dejanos tu Mensaje</h3>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.TextBoxFor(contacto => contacto.Nombre, new { id = "txtNombre", placeholder = "Nombre *", @class = "form-control glowing-border", type = "text", required = "required" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(contacto => contacto.Email, new { id = "txtEmail", placeholder = "Correo Electrónico *", @class = "form-control glowing-border", type = "email", required = "required" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(contacto => contacto.Telefono, new { id = "txtTelefono", placeholder = "Teléfono", @class = "form-control glowing-border", type = "text" })
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="btnSubmit" class="btnContact" value="Send Message">Envíar</button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.TextAreaFor(contacto => contacto.Mensaje, new { id = "txtMensaje", @rows = "6", placeholder = "Mensaje *", @class = "form-control glowing-border", type = "text" })
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+</div>
+<div class="container-fluid pull-right">
+    <div class="row">
+        <ul class="social-network social-circle">
+            <li><a href="https://www.facebook.com/StillFood-2083139358675919/" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#" class="icoInstagram" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+</div>
