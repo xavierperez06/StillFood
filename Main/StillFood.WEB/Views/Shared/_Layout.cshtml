@@ -129,13 +129,17 @@
                                     {
                                         <li><a href="@Url.Action("Administracion","Admin")">Administración</a></li>
                                     }
+                                    if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.EnviarNotificaciones))
+                                    {
+                                        <li><a href="@Url.Action("EnviarNotificaciones","Comercio")">Notificaciones</a></li>
+                                    }
                                     if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.VerPedidosComercio))
                                     {
                                         <li><a href="@Url.Action("Pedidos","Comercio")">Pedidos</a></li>
                                     }
-                                    if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.EnviarNotificaciones))
+                                    if (wFacade.TienePermiso(StillFood.Common.Enums.eRolesPermisos.Reportes))
                                     {
-                                        <li><a href="@Url.Action("EnviarNotificaciones","Comercio")">Notificaciones</a></li>
+                                        <li><a href="@Url.Action("Reportes","Comercio")">Reportes</a></li>
                                     }
                                 }
                                 <li class="divider"></li>
@@ -143,8 +147,6 @@
                             </ul>
                         </li>
                     }
-
-
                 </ul>
             </div>
         </div>

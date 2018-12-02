@@ -153,7 +153,7 @@ namespace StillFood.WEB.Facade
         public bool TienePermiso(Common.Enums.eRolesPermisos pPermiso)
         {
             Models.Usuario wUsuario = ObtenerUsuario();
-
+            var a = wUsuario.Roles.Any(r => r.Permisos.Any(p => p.Id == Convert.ToInt32(pPermiso) && p.Activo == true));
             if (wUsuario == null)
                 return false;
             else

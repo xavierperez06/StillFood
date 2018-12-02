@@ -145,6 +145,7 @@ namespace StillFood.WEB.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult EnviarNotificaciones(string pHTML)
         {
             Facade.FacadeSecurity wFacade = new Facade.FacadeSecurity();
@@ -153,7 +154,7 @@ namespace StillFood.WEB.Controllers
 
             if(wUsuario != null)
             {
-                Common.Enums.eResultadoAccion wResultado = mComercioServices.EnviarNotificaciones(wUsuario.IdComercio.Value, pHTML);
+                 Common.Enums.eResultadoAccion wResultado = mComercioServices.EnviarNotificaciones(wUsuario.IdComercio.Value, pHTML);
 
                 if(wResultado.Equals(Common.Enums.eResultadoAccion.Ok))
                     ModelState.AddModelError("", "Notificaciones enviadas satisfactoriamente.");

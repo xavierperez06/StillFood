@@ -29,17 +29,29 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-8 col-lg-offset-2" style="margin-top:45px;">
+    <div id="CanvasBox" class="col-lg-8 col-lg-offset-2" style="margin-top:45px;">
         <canvas id="Chart"> </canvas>
+        <div class="col-lg-4 col-lg-offset-4">
+            <table id="tblStock" style="margin: 0 auto;"></table>
+        </div>
+
     </div>
+</div>
+<div class="row">
+    <a class="btn-graddient btn-graddient-green" onclick="Imprimir()">Imprimir</a>
 </div>
     
     <script>
-        function IngresosDiarios() {
-            var canvas = document.getElementById('Chart');
-            var context = canvas.getContext('2d');
+        function LimpiarCanvas(){
 
-            context.clearRect(0, 0, canvas.width, canvas.height);
+            $("#Chart").remove();// removing previous canvas element
+            //change the data values or add new values for new graph
+            $("#CanvasBox").after("<div class='col-lg-8 col-lg-offset-2'><canvas id='Chart'></canvas></div>");
+        }
+
+
+        function IngresosDiarios() {
+            LimpiarCanvas();
 
             $.ajax({
                 type: "POST",
@@ -47,6 +59,8 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (chData) {
+                    $('#tblStock').attr("class", "hide");
+                    $('#Chart').attr("class", "show");
                     var aData = chData;
                     var aLabels = aData[0];
                     var aDatasets1 = aData[1];
@@ -80,10 +94,7 @@
         }
 
         function IngresosMensuales() {
-            var canvas = document.getElementById('Chart');
-            var context = canvas.getContext('2d');
-
-            context.clearRect(0, 0, canvas.width, canvas.height);
+            LimpiarCanvas();
 
             $.ajax({
                 type: "POST",
@@ -91,6 +102,8 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (chData) {
+                    $('#tblStock').attr("class", "hide");
+                    $('#Chart').attr("class", "show");
                     var aData = chData;
                     var aLabels = aData[0];
                     var aDatasets1 = aData[1];
@@ -124,10 +137,7 @@
         }
 
         function ProductosVendidos() {
-            var canvas = document.getElementById('Chart');
-            var context = canvas.getContext('2d');
-
-            context.clearRect(0, 0, canvas.width, canvas.height);
+            LimpiarCanvas();
 
             $.ajax({
                 type: "POST",
@@ -135,6 +145,8 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (chData) {
+                    $('#tblStock').attr("class", "hide");
+                    $('#Chart').attr("class", "show");
                     var aData = chData;
                     var aLabels = aData[0];
                     var aDatasets1 = aData[1];
@@ -168,41 +180,63 @@
         }
 
         function Stock() {
+            LimpiarCanvas();
+
+            jQuery('#tblStock').html('');
             $.ajax({
                 type: "POST",
                 url: "/Comercio/ObtenerReporte?pCommand=4",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (chData) {
+                    $('#tblStock').attr("class", "show");
+                    $('#Chart').attr("class", "hide");
                     var aData = chData;
                     var aLabels = aData[0];
-                    var aDatasets1 = aData[1];
-                    var dataT = {
-                        labels: aLabels,
-                        datasets: [{
-                            label: "Categorías",
-                            data: aDatasets1,
-                            fill: false,
-                            backgroundColor: ["rgba(54, 162, 235, 0.2)", "rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
-                            borderColor: ["rgb(54, 162, 235)", "rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
-                            borderWidth: 1
-                        }]
-                    };
-                    var ctx = $("#Chart").get(0).getContext("2d");
-                    var myNewChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: dataT,
-                        options: {
-                            responsive: true,
-                            title: { display: true, text: 'Stock Díponible' },
-                            legend: { position: 'bottom' },
-                            scales: {
-                                xAxes: [{ gridLines: { display: false }, display: true, scaleLabel: { display: false, labelString: '' } }],
-                                yAxes: [{ gridLines: { display: false }, display: true, scaleLabel: { display: false, labelString: '' }, ticks: { stepSize: 50, beginAtZero: true } }]
-                            },
-                        }
-                    });
+                    var aDatasets = aData[1];
+                    var count = 0;
+
+                    for (key in aDatasets) {                      
+                            count++;
+                    }
+
+                    var tr = [];
+
+                    tr.push('<tr><th>Producto</th><th>Cantidad</th></tr>');
+
+                    for (var i = 0; i < count; i++) {
+                        tr.push('<tr>');
+                        tr.push("<td>" + aLabels[i] + "</td>");
+                        tr.push("<td style='text-align:center'>" + aDatasets[i] + "</td>");
+                        tr.push("</tr>");
+                    }
+
+                    $('#tblStock').append($(tr.join('')));
                 }
             });
+        }
+
+        function Imprimir() {
+            var docType = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"  \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+            var disp_setting = "toolbar=yes,location=no,directories=yes,menubar=yes,";
+            disp_setting += "scrollbars=yes,width=800, height=800, left=50, top=25,_blank";
+            if (navigator.appName != "Microsoft Internet Explorer")
+                disp_setting = "";
+
+            var canvas = document.getElementById("Chart");
+            var img = canvas.toDataURL("image/png");
+            var docprint = window.open("", "", disp_setting);
+            docprint.document.open();
+
+            docprint.document.write(docType);
+            docprint.document.write('<head><title></title>');
+
+            docprint.document.write('</head><body style="padding:0;margin-top:0 !important;margin-bottom:0!important;"   onLoad="self.print();self.close();">');
+            docprint.document.write('<img width="800px" src=\'');
+            docprint.document.write(img);
+            docprint.document.write('\' />');
+            docprint.document.write('</body></html>');
+            docprint.document.close();
+            docprint.focus();
         }
     </script>

@@ -361,8 +361,8 @@ namespace StillFood.WEB.Patterns.Command
                 {
                     ReporteItem wItem = new ReporteItem();
                     wItem.Id = wProducto.Nombre;
-                    if (wProducto.Cantidad.HasValue)
-                        wItem.Cantidad = wProducto.Cantidad.Value;
+                    if (wProducto.Stock.HasValue)
+                        wItem.Cantidad = wProducto.Stock.Value;
                     else
                         wItem.Cantidad = 0;
 

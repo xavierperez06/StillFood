@@ -23,6 +23,8 @@ namespace StillFood.Common
 
                 foreach (string wEmail in pEmails.Split(Convert.ToChar(";")))
                 {
+                    if (string.IsNullOrWhiteSpace(wEmail))
+                        continue;
                     wMail.To.Add(wEmail);
                 }
 
@@ -30,11 +32,11 @@ namespace StillFood.Common
                 wMail.IsBodyHtml = pEsHTML;
                 wMail.Body = pMensaje;
          
-                wSmtpServer.Port = 587;
+                 wSmtpServer.Port = 587;
                 wSmtpServer.Credentials = new System.Net.NetworkCredential("uai.stilfood@gmail.com", "1549315455");
                 wSmtpServer.EnableSsl = true;
 
-                wSmtpServer.Send(wMail);
+                 wSmtpServer.Send(wMail);
 
                 wResultado = Enums.eResultadoEnvio.Ok;
             }

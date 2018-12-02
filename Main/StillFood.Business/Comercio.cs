@@ -142,7 +142,7 @@ namespace StillFood.Business
 
             //TODO : Una vez enviados los emails, guardo la notificaciones para mostrarlas en el menu del usuario
 
-            if (wResultado.Equals(Convert.ToInt32(Common.Enums.eResultadoEnvio.Ok)))
+            if (wResultado.Equals((Common.Enums.eResultadoEnvio.Ok)))
                 return Common.Enums.eResultadoAccion.Ok;
             else
                 return Common.Enums.eResultadoAccion.Error;

@@ -26,7 +26,8 @@ namespace StillFood.Common
             VerPedidosComercio = 13,
             DarAltaComercio = 14,
             DarAltaUsuario = 15,
-            EnviarNotificaciones = 16
+            EnviarNotificaciones = 16,
+            Reportes = 17
         }
 
         public enum eRoles

@@ -126,7 +126,11 @@ namespace StillFood.Services
         #region Productos
         public static List<Models.Producto> ListaProductosEntitieAModel(List<Entities.Producto> pListaProductos)
         {
-            Mapper.Initialize(cfg => cfg.CreateMap<Entities.Producto, Models.Producto>());
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Entities.Producto, Models.Producto>();
+                cfg.CreateMap<Entities.Categoria, Models.Categoria>();
+            });
 
             return Mapper.Map<List<Entities.Producto>, List<Models.Producto>>(pListaProductos);
         }
