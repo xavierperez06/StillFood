@@ -5,16 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="tit-admin">Mis Datos</div>
+<div class="container-fluid" style="padding-left:0px; padding-right:0px; margin-bottom:30px;">
+    <div class="comercio-banner-container">
+        <img src="~/Content/Img/MisDatos.jpg" class="img-responsive comercio-banner" />
+        <div class="banner-txt-centered">Mis Datos</div>
+    </div>
 </div>
 <div class="container">
     <div class="col-lg-6 col-lg-offset-3">
-@using (Html.BeginForm("MisDatos", "Usuario", FormMethod.Post))
-{
-    if (Model.IdTipoUsuario.Equals(Convert.ToInt32(StillFood.Common.Enums.eTiposUsuarios.Consumidor)))
-    {
-        <div class="form-group col-lg-12">
+        @using (Html.BeginForm("MisDatos", "Usuario", FormMethod.Post))
+        {
             @Html.HiddenFor(usuario => usuario.Id)
             @Html.HiddenFor(usuario => usuario.Contraseña)
             @Html.HiddenFor(usuario => usuario.IdEstado)
@@ -24,29 +24,31 @@
             @Html.HiddenFor(usuario => usuario.FechaExpConfirmacion)
             @Html.HiddenFor(usuario => usuario.IdComercio)
             @Html.HiddenFor(usuario => usuario.IdRecuperoContraseña)
-            @Html.TextBoxFor(usuario => usuario.NombreApellido, new { id = "txtNombreApellido", placeholder = "Nombre y Apellido", @class = "form-control glowing-border" })
-            @Html.ValidationMessageFor(usuario => usuario.NombreApellido)
-        </div>
-            <div class="form-group col-lg-6">
-                <div class='input-group date' id='dtpNacimiento'>
-                    @Html.TextBoxFor(usuario => usuario.FechaNacimiento, new { id = "txtFechaNacimiento", placeholder = "Fecha de Nacimiento", @class = "form-control glowing-border" })
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+
+                <div class="form-group col-lg-12">
+
+                    @Html.TextBoxFor(usuario => usuario.NombreApellido, new { id = "txtNombreApellido", placeholder = "Nombre y Apellido", @class = "form-control glowing-border" })
+                    @Html.ValidationMessageFor(usuario => usuario.NombreApellido)
                 </div>
-                @Html.ValidationMessageFor(usuario => usuario.FechaNacimiento)
-            </div>
-            <div class="form-group col-lg-6">
-                @Html.TextBoxFor(usuario => usuario.Telefono, new { id = "txtTelefono", placeholder = "Teléfono", @class = "form-control glowing-border" })
-            </div>
-            <div class="form-group col-lg-12">
-                @Html.TextBoxFor(usuario => usuario.Email, new { id = "txtEmailUsuario", placeholder = "Correo Electrónico", @class = "form-control glowing-border", type = "email", @readonly = "readonly" })
-            </div>
-            <div class="col-lg-12">
-                <input type="submit" class="btn btn-block btn-green" value="Modificar">
-            </div>
-    }
-}
+                <div class="form-group col-lg-6">
+                    <div class='input-group date' id='dtpNacimiento'>
+                        @Html.TextBoxFor(usuario => usuario.FechaNacimiento, new { id = "txtFechaNacimiento", placeholder = "Fecha de Nacimiento", @class = "form-control glowing-border" })
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(usuario => usuario.FechaNacimiento)
+                </div>
+                <div class="form-group col-lg-6">
+                    @Html.TextBoxFor(usuario => usuario.Telefono, new { id = "txtTelefono", placeholder = "Teléfono", @class = "form-control glowing-border" })
+                </div>
+                <div class="form-group col-lg-12">
+                    @Html.TextBoxFor(usuario => usuario.Email, new { id = "txtEmailUsuario", placeholder = "Correo Electrónico", @class = "form-control glowing-border", type = "email", @readonly = "readonly" })
+                </div>
+                <div class="col-lg-12">
+                    <input type="submit" class="btn btn-block btn-green" value="Modificar">
+                </div>
+        }
     </div>
 </div>
 

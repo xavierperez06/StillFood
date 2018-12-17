@@ -7,6 +7,17 @@
 
 <div class="container">
     <div class="row">
+        @if (Model.Id == 0)
+        {
+            <div class="tit-admin">Nueva Dirección</div>
+        }
+        else
+        {
+            <div class="tit-admin">Edición Dirección</div>
+        }
+
+    </div>
+    <div class="row">
         @using (Html.BeginForm("Direccion", "Usuario", FormMethod.Post))
         {
             <div class="col-lg-6 col-lg-offset-3">
@@ -33,9 +44,9 @@
                 </div>
                 <div class="col-lg-4 col-lg-offset-4">
                     <input type="submit" class="btn btn-green" value="Guardar">
-                    <a  class="btn btn-default" href="@Url.Action("MisDirecciones","Usuario")">Volver</a>
+                    <a class="btn btn-default" href="@Url.Action("MisDirecciones","Usuario")">Volver</a>
                 </div>
-                
+
             </div>
         }
     </div>

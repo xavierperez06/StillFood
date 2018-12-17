@@ -369,6 +369,8 @@
     <Content Include="Content\Img\Logo-Circulo-White.png" />
     <Content Include="Content\Img\Logo-Circulo.png" />
     <Content Include="Content\Img\Logo.png" />
+    <Content Include="Content\Img\MisDatos.jpg" />
+    <Content Include="Content\Img\MisDirecciones.jpg" />
     <Content Include="Content\Img\NotificationsBanner.jpg" />
     <Content Include="Content\Img\Pedido-Icon.png" />
     <Content Include="Content\Img\Pedidos-Banner.jpg" />
@@ -610,7 +612,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51884</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51884/</IISUrl>
+          <IISUrl>http://localhost:51885/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

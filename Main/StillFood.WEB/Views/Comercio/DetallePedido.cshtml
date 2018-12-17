@@ -100,7 +100,14 @@
                 Total
             </div>
             <div class="col-lg-2 tbl-compra-total">
-                $@StillFood.Common.Utils.ObtenerMontoTotal(wListaProductos).ToString()
+                @if(Model.IdFormaEntrega.Equals(Convert.ToInt32(StillFood.Common.Enums.eFormasEntrega.Domicilio)))
+                {
+                    $@StillFood.Common.Utils.ObtenerMontoTotal(wListaProductos,true).ToString()
+                }
+                else
+                {
+                    $@StillFood.Common.Utils.ObtenerMontoTotal(wListaProductos,false).ToString()
+                }
             </div>
         </div>
     </div>

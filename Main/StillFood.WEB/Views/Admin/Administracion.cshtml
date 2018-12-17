@@ -181,12 +181,13 @@
             $("#divLoading").show();
             var nombre;
             var controller;
+            controller = '@Url.Action("REPLACE", "Admin")';
             //Si es string significa que fue llamado luego del success del Ajax
             if (typeof obj === 'string') {
-                controller = '/Admin/' + obj;
+                controller = controller.replace("REPLACE", obj);
             } else {
                 nombre = $(obj).attr('name');
-                controller = '/Admin/' + nombre;
+                controller = controller.replace("REPLACE", nombre);
             }
             $.ajax(
                 {
@@ -203,7 +204,8 @@
         }
 
         function AgregarEditarCategoria(pIdCategoria) {
-            var url = "/Admin/AgregarEditarCategoria?pIdCategoria=" + pIdCategoria;
+            var url = '@Url.Action("AgregarEditarCategoria", "Admin", new { pIdCategoria = "-1" })';
+            url = url.replace("-1", pIdCategoria);
 
             $("#BodyNuevoCat").load(url, function () {
                 $("#NuevoModalCat").modal("show");
@@ -217,9 +219,13 @@
 
         function EliminarCategoria() {
             var id = document.getElementById("IdCategoria").value;
+
+            var url = '@Url.Action("EliminarCategoria", "Admin", new { pIdCategoria = "-1" })';
+            url = url.replace("-1", id);
+
             $.ajax({
                 type: "POST",
-                url: "/Admin/EliminarCategoria?pIdCategoria=" + id,
+                url: url,
                 success: function () {
                     $("#EliminaModalCat").modal("hide");
                     $('body').removeClass('modal-open');
@@ -255,7 +261,7 @@
             formData.append('model', $("#frmAgregarEditar").serialize());
             $.ajax({
                 type: "POST",
-                url: "/Admin/AgregarEditarCategoria",
+                url:  '@Url.Action("AgregarEditarCategoria", "Admin")',
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -271,7 +277,9 @@
         }
 
         function AgregarEditarProducto(pIdProducto) {
-            var url = "/Admin/AgregarEditarProducto?pIdProducto=" + pIdProducto;
+
+            var url = '@Url.Action("AgregarEditarProducto", "Admin", new { pIdProducto = "-1" })';
+            url = url.replace("-1", pIdProducto);
 
             $("#BodyNuevoProd").load(url, function () {
                 $("#NuevoModalProd").modal("show");
@@ -285,9 +293,13 @@
 
         function EliminarProducto() {
             var id = document.getElementById("IdProducto").value;
+
+            var url = '@Url.Action("EliminarProducto", "Admin", new { pIdProducto = "-1" })';
+            url = url.replace("-1", id);
+
             $.ajax({
                 type: "POST",
-                url: "/Admin/EliminarProducto?pIdProducto=" + id,
+                url: url,
                 success: function () {
                     $("#EliminaModalProd").modal("hide");
                     $('body').removeClass('modal-open');
@@ -396,7 +408,7 @@
             formData.append('model', $("#frmAgregarEditarProd").serialize());
             $.ajax({
                 type: "POST",
-                url: "/Admin/AgregarEditarProducto",
+                url: '@Url.Action("AgregarEditarProducto", "Admin")',
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -412,7 +424,8 @@
         }
 
         function AgregarEditarPermiso(pIdPermiso) {
-            var url = "/Admin/AgregarEditarPermiso?pIdPermiso=" + pIdPermiso;
+            var url = '@Url.Action("AgregarEditarPermiso", "Admin", new { pIdPermiso = "-1" })';
+            url = url.replace("-1", pIdPermiso);
 
             $("#BodyNuevoPer").load(url, function () {
                 $("#NuevoModalPer").modal("show");
@@ -441,7 +454,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/Admin/AgregarEditarPermiso",
+                url: '@Url.Action("AgregarEditarPermiso", "Admin")',
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -463,9 +476,13 @@
 
         function EliminarPermiso() {
             var id = document.getElementById("IdPermiso").value;
+
+            var url = '@Url.Action("EliminarPermiso", "Admin", new { pIdPermiso = "-1" })';
+            url = url.replace("-1", id);
+
             $.ajax({
                 type: "POST",
-                url: "/Admin/EliminarPermiso?pIdPermiso=" + id,
+                url: url,
                 success: function () {
                     $("#EliminaModalPer").modal("hide");
                     $('body').removeClass('modal-open');
@@ -484,9 +501,13 @@
 
         function EliminarRol() {
             var id = document.getElementById("IdRol").value;
+
+            var url = '@Url.Action("EliminarRol", "Admin", new { pIdRol = "-1" })';
+            url = url.replace("-1", id);
+
             $.ajax({
                 type: "POST",
-                url: "/Admin/EliminarRol?pIdRol=" + id,
+                url: url,
                 success: function () {
                     $("#EliminaModalRol").modal("hide");
                     $('body').removeClass('modal-open');
@@ -506,7 +527,9 @@
         }
 
         function AgregarEditarRol(pIdRol) {
-            var url = "/Admin/AgregarEditarRol?pIdRol=" + pIdRol;
+
+            var url = '@Url.Action("AgregarEditarRol", "Admin", new { pIdRol = "-1" })';
+            url = url.replace("-1", pIdRol);
 
             $("#BodyNuevoRol").load(url, function () {
                 $("#NuevoModalRol").modal("show");
@@ -529,7 +552,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "/Admin/AgregarEditarRol",
+                    url: '@Url.Action("AgregarEditarRol", "Admin")',
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -548,11 +571,15 @@
 
         function PermisosAsociados(pIdRol) {
             $("#divLoading").show();
+
+            var url = '@Url.Action("PermisosAsociados", "Admin", new { pIdRol = "-1" })';
+            url = url.replace("-1", pIdRol);
+
             $.ajax(
                 {
                     type: 'GET',
                     dataType: 'html',
-                    url: '/Admin/PermisosAsociados?pIdRol=' + pIdRol,
+                    url: url,
                     success: function (result) {
                         $("#partial").html(result);
                         //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
@@ -563,7 +590,8 @@
         }
 
         function AgregarPermiso(pIdRol) {
-            var url = "/Admin/AsociarPermiso?pIdRol=" + pIdRol;
+            var url = '@Url.Action("AsociarPermiso", "Admin", new { pIdRol = "-1" })';
+            url = url.replace("-1", pIdRol);
 
             $("#BodyAsociarPermiso").load(url, function () {
                 $("#ModalAsociarPermiso").modal("show");
@@ -578,13 +606,16 @@
             else {
                 document.getElementById("cmbError_Asociar").className = "hide";
 
+                var url = '@Url.Action("PermisosAsociados", "Admin", new { pIdRol = "-1" })';
+                url = url.replace("-1", pIdRol);
+
                 var frmdata = $("#frmAsociarPermiso").serialize();
                 var formData = new FormData($('#frmAsociarPermiso')[0]);
                 formData.append('model', $("#frmAsociarPermiso").serialize());
 
                 $.ajax({
                     type: "POST",
-                    url: "/Admin/AsociarPermiso",
+                    url: '@Url.Action("AsociarPermiso", "Admin")',
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -598,7 +629,7 @@
                             {
                                 type: 'GET',
                                 dataType: 'html',
-                                url: '/Admin/PermisosAsociados?pIdRol=' + pIdRol,
+                                url: url,
                                 success: function (result) {
                                     $("#partial").html(result);
                                     //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
@@ -621,9 +652,12 @@
             var IdRol = document.getElementById("IdRolAsociado").value;
             var IdPermiso = document.getElementById("IdPermisoAsociado").value;
 
+            var url = '@Url.Action("PermisosAsociados", "Admin", new { pIdRol = "-1" })';
+            url = url.replace("-1", pIdRol);
+
             $.ajax({
                 type: "POST",
-                url: "/Admin/EliminarPermisoAsociado",
+                url:  '@Url.Action("EliminarPermisoAsociado", "Admin")',
                 data: { pIdRol: IdRol, pIdPermiso: IdPermiso },
                 success: function () {
                     $("#EliminaModalPermisosAsociados").modal("hide");
@@ -635,7 +669,7 @@
                         {
                             type: 'GET',
                             dataType: 'html',
-                            url: '/Admin/PermisosAsociados?pIdRol=' + IdRol,
+                            url: url,
                             success: function (result) {
                                 $("#partial").html(result);
                                 //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
@@ -648,7 +682,9 @@
         }
 
         function AgregarEditarUsuario(pIdUsuario) {
-            var url = "/Admin/AgregarEditarUsuario?pIdUsuario=" + pIdUsuario;
+
+            var url = '@Url.Action("AgregarEditarUsuario", "Admin", new { pIdUsuario = "-1" })';
+            url = url.replace("-1", pIdUsuario);
 
             $("#BodyNuevoUsuario").load(url, function () {
                 $("#NuevoModalUsuario").modal("show");
@@ -662,9 +698,13 @@
 
         function EliminarUsuario() {
             var id = document.getElementById("IdUsuario").value;
+
+            var url = '@Url.Action("EliminarUsuario", "Admin", new { pIdUsuario = "-1" })';
+            url = url.replace("-1", id);
+
             $.ajax({
                 type: "POST",
-                url: "/Admin/EliminarUsuario?pIdUsuario=" + id,
+                url: url,
                 success: function () {
                     $("#EliminaModalUsuario").modal("hide");
                     $('body').removeClass('modal-open');
@@ -739,7 +779,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/Admin/AgregarEditarUsuario",
+                url: '@Url.Action("AgregarEditarUsuario", "Admin")',
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -764,11 +804,15 @@
 
         function RolesAsociados(pIdUsuario) {
             $("#divLoading").show();
+
+            var url = '@Url.Action("RolesAsociados", "Admin", new { pIdUsuario = "-1" })';
+            url = url.replace("-1", pIdUsuario);
+
             $.ajax(
                 {
                     type: 'GET',
                     dataType: 'html',
-                    url: '/Admin/RolesAsociados?pIdUsuario=' + pIdUsuario,
+                    url: url,
                     success: function (result) {
                         $("#partial").html(result);
                         //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
@@ -779,7 +823,8 @@
         }
 
         function AgregarRol(pIdUsuario) {
-            var url = "/Admin/AsociarRol?pIdUsuario=" + pIdUsuario;
+            var url = '@Url.Action("AsociarRol", "Admin", new { pIdUsuario = "-1" })';
+            url = url.replace("-1", pIdUsuario);
 
             $("#BodyAsociarRol").load(url, function () {
                 $("#ModalAsociarRol").modal("show");
@@ -794,13 +839,16 @@
             else {
                 document.getElementById("cmbError_AsociarRol").className = "hide";
 
+                var url = '@Url.Action("RolesAsociados", "Admin", new { pIdUsuario = "-1" })';
+                url = url.replace("-1", pIdUsuario);
+
                 var frmdata = $("#frmAsociarRol").serialize();
                 var formData = new FormData($('#frmAsociarRol')[0]);
                 formData.append('model', $("#frmAsociarRol").serialize());
 
                 $.ajax({
                     type: "POST",
-                    url: "/Admin/AsociarRol",
+                    url: '@Url.Action("AsociarRol", "Admin")',
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -814,7 +862,7 @@
                             {
                                 type: 'GET',
                                 dataType: 'html',
-                                url: '/Admin/RolesAsociados?pIdUsuario=' + pIdUsuario,
+                                url: url,
                                 success: function (result) {
                                     $("#partial").html(result);
                                     //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
@@ -838,9 +886,12 @@
             var IdUsuario = document.getElementById("IdUsuarioAsociado").value;
             var IdRol = document.getElementById("IdRolAsociadoUsuario").value;
 
+            var url = '@Url.Action("RolesAsociados", "Admin", new { pIdUsuario = "-1" })';
+            url = url.replace("-1", pIdUsuario);
+
             $.ajax({
                 type: "POST",
-                url: "/Admin/EliminarRolAsociado",
+                url: '@Url.Action("EliminarRolAsociado", "Admin")',
                 data: { pIdUsuario: IdUsuario, pIdRol: IdRol },
                 success: function () {
                     $("#EliminaModalRolesAsociados").modal("hide");
@@ -852,7 +903,7 @@
                         {
                             type: 'GET',
                             dataType: 'html',
-                            url: '/Admin/RolesAsociados?pIdUsuario=' + IdUsuario,
+                            url: url,
                             success: function (result) {
                                 $("#partial").html(result);
                                 //Llamo a la función datatable acá porque como es una partial, en document ready no funciona
@@ -865,7 +916,8 @@
         }
 
         function ModificarEstado(pIdUsuario) {
-            var url = "/Admin/CambiarEstadoUsuario?pIdUsuario=" + pIdUsuario;
+            var url = '@Url.Action("CambiarEstadoUsuario", "Admin", new { pIdUsuario = "-1" })';
+            url = url.replace("-1", pIdUsuario);
 
             $("#BodyCambiaEstadoUsuario").load(url, function () {
                 $("#ModalCambiaEstadoUsuario").modal("show");
@@ -894,7 +946,7 @@
             formData.append('model', $("#frmCambiarEstadoUsuario").serialize());
             $.ajax({
                 type: "POST",
-                url: "/Admin/CambiarEstadoUsuario",
+                url: '@Url.Action("CambiarEstadoUsuario", "Admin")',
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -910,7 +962,8 @@
         }
 
         function AgregarEditarComercio(pIdComercio) {
-            var url = "/Admin/AgregarEditarComercio?pIdComercio=" + pIdComercio;
+            var url = '@Url.Action("AgregarEditarComercio", "Admin", new { pIdComercio = "-1" })';
+            url = url.replace("-1", pIdComercio);
 
             $("#BodyNuevoComercio").load(url, function () {
                 $("#NuevoModalComercio").modal("show");
@@ -924,9 +977,13 @@
 
         function EliminarComercio() {
             var id = document.getElementById("IdComercio").value;
+
+            var url = '@Url.Action("EliminarComercio", "Admin", new { pIdComercio = "-1" })';
+            url = url.replace("-1", id);
+
             $.ajax({
                 type: "POST",
-                url: "/Admin/EliminarComercio?pIdComercio=" + id,
+                url: url,
                 success: function () {
                     $("#EliminaModalComercio").modal("hide");
                     $('body').removeClass('modal-open');
@@ -971,14 +1028,13 @@
                 return false;
             }
 
-
             var frmdata = $("#frmAgregarEditarComercio").serialize();
             var formData = new FormData($('#frmAgregarEditarComercio')[0]);
             formData.append('img-file', $('input[type=file]')[0].files[0]);
             formData.append('model', $("#frmAgregarEditarComercio").serialize());
             $.ajax({
                 type: "POST",
-                url: "/Admin/AgregarEditarComercio",
+                url: '@Url.Action("AgregarEditarComercio", "Admin")',
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -1006,7 +1062,8 @@
         }
 
         function AgregarEditarFormaPago(pIdFormaPago) {
-            var url = "/Admin/AgregarEditarFormaPago?pIdFormaPago=" + pIdFormaPago;
+            var url = '@Url.Action("AgregarEditarFormaPago", "Admin", new { pIdFormaPago = "-1" })';
+            url = url.replace("-1", pIdFormaPago);
 
             $("#BodyNuevoFormaPago").load(url, function () {
                 $("#NuevoModalFormaPago").modal("show");
@@ -1020,9 +1077,13 @@
 
         function EliminarFormaPago() {
             var id = document.getElementById("IdFormaPago").value;
+
+            var url = '@Url.Action("EliminarFormaPago", "Admin", new { pIdFormaPago = "-1" })';
+            url = url.replace("-1", id);
+
             $.ajax({
                 type: "POST",
-                url: "/Admin/EliminarFormaPago?pIdFormaPago=" + id,
+                url: url,
                 success: function () {
                     $("#EliminaModalFormaPago").modal("hide");
                     $('body').removeClass('modal-open');
@@ -1058,7 +1119,7 @@
             formData.append('model', $("#frmAgregarEditarFormaPago").serialize());
             $.ajax({
                 type: "POST",
-                url: "/Admin/AgregarEditarFormaPago",
+                url: '@Url.Action("AgregarEditarFormaPago", "Admin")',
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -1074,7 +1135,8 @@
         }
 
         function AgregarEditarFormaEntrega(pIdFormaEntrega) {
-            var url = "/Admin/AgregarEditarFormaEntrega?pIdFormaEntrega=" + pIdFormaEntrega;
+            var url = '@Url.Action("AgregarEditarFormaEntrega", "Admin", new { pIdFormaEntrega = "-1" })';
+            url = url.replace("-1", pIdFormaEntrega);
 
             $("#BodyNuevoFormaEntrega").load(url, function () {
                 $("#NuevoModalFormaEntrega").modal("show");
@@ -1088,9 +1150,13 @@
 
         function EliminarFormaEntrega() {
             var id = document.getElementById("IdFormaEntrega").value;
+
+            var url = '@Url.Action("EliminarFormaEntrega", "Admin", new { pIdFormaEntrega = "-1" })';
+            url = url.replace("-1", pIdFormaEntrega);
+
             $.ajax({
                 type: "POST",
-                url: "/Admin/EliminarFormaEntrega?pIdFormaEntrega=" + id,
+                url: url,
                 success: function () {
                     $("#EliminaModalFormaEntrega").modal("hide");
                     $('body').removeClass('modal-open');
@@ -1155,7 +1221,7 @@
             formData.append('model', $("#frmAgregarEditarFormaEntrega").serialize());
             $.ajax({
                 type: "POST",
-                url: "/Admin/AgregarEditarFormaEntrega",
+                url: '@Url.Action("AgregarEditarFormaEntrega", "Admin")',
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -1171,7 +1237,8 @@
         }
 
         function AgregarFormaPagoComercio(pIdComercio) {
-            var url = "/Admin/AsociarFormaPago?pIdComercio=" + pIdComercio;
+            var url = '@Url.Action("AsociarFormaPago", "Admin", new { pIdComercio = "-1" })';
+            url = url.replace("-1", pIdComercio);
 
             $("#BodyAsociarFormaPago").load(url, function () {
                 $("#ModalAsociarFormaPago").modal("show");
@@ -1192,7 +1259,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "/Admin/AsociarFormaPago",
+                    url: '@Url.Action("AsociarFormaPago", "Admin")',
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -1221,7 +1288,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "/Admin/EliminarFormaPagoAsociado",
+                url: '@Url.Action("EliminarFormaPagoAsociado", "Admin")',
                 data: { pIdComercio: IdComercio, pIdFormaPago: IdFormaPago },
                 success: function () {
                     $("#EliminaModalFormasPagoAsociados").modal("hide");

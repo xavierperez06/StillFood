@@ -23,7 +23,7 @@ namespace StillFood.WEB.Strategy
 
         public bool Pagar()
         {
-            decimal wMonto = Common.Utils.ObtenerMontoTotal(mListaProductos);
+            decimal wMonto = Common.Utils.ObtenerMontoTotal(mListaProductos,false);
 
             return mFormaPagoStrategy.Pagar(wMonto);
         }

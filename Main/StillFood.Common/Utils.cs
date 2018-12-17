@@ -11,16 +11,23 @@ namespace StillFood.Common
 {
     public static class Utils
     {
-        public static decimal ObtenerMontoTotal(List<Models.Producto> pProductos)
+        public static decimal ObtenerMontoTotal(List<Models.Producto> pProductos, bool esDelivery)
         {
             decimal wMontoTotal = 0;
+            decimal wPrecio = 0;
 
             foreach(Models.Producto wProducto in pProductos)
             {
                 wMontoTotal = (decimal)(wMontoTotal + (wProducto.PrecioDescuento.Value * wProducto.Cantidad));
             }
 
-            return wMontoTotal;
+            if(esDelivery)
+            {
+                DAL.FormasEntregas wFormasEntregaDAL = new DAL.FormasEntregas();
+                wPrecio = wFormasEntregaDAL.ObtenerFormaEntrega(1).Precio;
+            }
+
+            return wMontoTotal + wPrecio;
         }
 
         public static string ObtenerDescripcionFormaEntrega(int pIdFormaEntrega)

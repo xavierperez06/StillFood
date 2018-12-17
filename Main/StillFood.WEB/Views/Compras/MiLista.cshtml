@@ -21,7 +21,7 @@
                 <tr>
                     <td><strong>Total:</strong></td>
                     <td></td>
-                    <td style="text-align:right;">$@StillFood.Common.Utils.ObtenerMontoTotal((List<StillFood.Models.Producto>)Session["Lista"]).ToString()</td>
+                    <td style="text-align:right;">$@StillFood.Common.Utils.ObtenerMontoTotal((List<StillFood.Models.Producto>)Session["Lista"],false).ToString()</td>
                 </tr>
             </table>
             <a href="@Url.Action("Confirmar","Compras")" class="btn btn-green btn-block">Confirmar</a>

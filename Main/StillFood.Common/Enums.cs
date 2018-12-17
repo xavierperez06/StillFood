@@ -32,10 +32,10 @@ namespace StillFood.Common
 
         public enum eRoles
         {
-            ComercianteAdministrador = 1,
-            Comerciante = 2,
-            Administrador = 3,
-            Consumidor = 4
+            Administrador = 1,
+            ComercianteAdministrador = 2,
+            Consumidor = 3,
+            Comerciante = 4
         }
 
         public enum eTiposUsuarios

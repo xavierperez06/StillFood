@@ -66,7 +66,7 @@ Productos en Mi Lista
             Total
         </div>
         <div class="col-lg-2 tbl-compra-total">
-            $@StillFood.Common.Utils.ObtenerMontoTotal((List<StillFood.Models.Producto>)Session["Lista"]).ToString()
+            $@StillFood.Common.Utils.ObtenerMontoTotal((List<StillFood.Models.Producto>)Session["Lista"],false).ToString()
         </div>
     </div>
     <div class="row">

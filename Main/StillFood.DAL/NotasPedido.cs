@@ -96,6 +96,7 @@ namespace StillFood.DAL
         {
             using (StillFoodModel wContext = new StillFoodModel())
             {
+                wContext.Configuration.LazyLoadingEnabled = false;
                 return wContext.NotasPedidos.Where(np => np.IdUsuario == pId).ToList();
             }
         }

@@ -24,7 +24,7 @@ namespace StillFood.Test
             wListaProductos.Add(wProducto1);
             wListaProductos.Add(wProducto2);
 
-            Assert.AreEqual(wMontoTotal, Common.Utils.ObtenerMontoTotal(wListaProductos));
+            Assert.AreEqual(wMontoTotal, Common.Utils.ObtenerMontoTotal(wListaProductos,false));
         }
 
         [TestMethod]
